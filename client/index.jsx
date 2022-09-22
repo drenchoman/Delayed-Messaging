@@ -10,10 +10,10 @@ import store from './store'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Auth0Provider
-      domain=''
-      clientId=''
+      domain='pohutukawa-gracie.au.auth0.com'
+      clientId='TeH4ohXhC8zEMkbO3x5Eaeis4mX4pIJN'
       redirectUri={window.location.origin}
-      audience=''
+      audience='https://delayedmessaging/api'
     >
       <Provider store={store}>
         <Router>
