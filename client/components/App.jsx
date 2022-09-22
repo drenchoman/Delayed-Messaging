@@ -8,13 +8,8 @@ import Register from './Register'
 import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
-import Nav from './Nav'
-import Contacts from './Contacts'
-import Corresponde from './Corresponde'
-import Dashboard from './Dashboard'
-import Draft from './Draft'
-import Recieved from './Recieved'
-import Archive from './Archive'
+import Home from './Home';
+
 
 function App() {
   useCacheUser()
@@ -39,17 +34,10 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <>
-      <Nav />
-      <Routes>
-        
+    <>    
+      <Routes>    
         <Route path="register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/corresponde" element={<Corresponde />} />
-        <Route path="/recieved" element={<Recieved />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/draft" element={<Draft />} />
-        <Route path="/archive" element={<Archive />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </>
   )
