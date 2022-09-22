@@ -1,3 +1,23 @@
+:root{
+  --font-lg: 3rem;
+  --font-md: 1.5rem;
+  --font-sm: 1rem;
+  --main-color: green;
+  --accent-color: yellow;
+  --margin-sm: 0.5rem;
+  --margin-md: 1rem;
+  --margin-lg: 2rem;
+  --padding-sm: 0.5rem;
+  --padding-md: 1rem;
+  --padding-lg: 2rem;
+  
+
+}
+
+
+
+
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
