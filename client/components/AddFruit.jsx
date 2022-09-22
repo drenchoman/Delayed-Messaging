@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import styles from '../../server/public/styles/Home.module.css'
 import { addFruit } from '../api'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -29,7 +29,7 @@ function AddFruit({ setFruits, closeAddForm, setError }) {
 
   return (
     <>
-      <h2>Add new</h2>
+      <h2 className={styles.header}>Add new</h2>
       <form onSubmit={handleAdd}>
         <label>
           Name:
