@@ -10,7 +10,7 @@ import Archive from './view/Archive'
 import DashBoard from "./view/DashBoard";
 
 function Dashboard() {
-  console.log('dashboard working ...');
+  console.log('home component working...');
   return (
     <>
     <Nav />
