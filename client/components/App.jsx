@@ -8,6 +8,7 @@ import Register from './Register'
 import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
+import Nav from './Nav'
 import Home from './Home';
 
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <>    
+      <Nav />
       <Routes>    
         <Route path="register" element={<Register />} />
         <Route path="/" element={<Home />} />

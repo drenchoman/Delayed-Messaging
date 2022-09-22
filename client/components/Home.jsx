@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom'
 
-import Nav from './Nav'
+import NavTwo from './view/NavTwo'
 import Contacts from './view/Contacts'
 import Corresponde from './view/Corresponde'
 import Draft from './view/Draft'
@@ -13,7 +13,7 @@ function Dashboard() {
   console.log('home component working...');
   return (
     <>
-    <Nav />
+    <NavTwo />
     <Routes>
         <Route path='/' element={<DashBoard />} />
         <Route path="/corresponde" element={<Corresponde />} />
