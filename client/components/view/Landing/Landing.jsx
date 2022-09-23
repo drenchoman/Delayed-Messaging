@@ -8,9 +8,6 @@ export default function Landing() {
       <Nav />
 
       <h1 className={styles.header}>Landing Page</h1>
-      <Link className={styles.dashLink} to="/dashboard">
-        To Dashboard
-      </Link>
     </div>
   )
 }
