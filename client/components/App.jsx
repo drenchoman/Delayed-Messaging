@@ -16,7 +16,7 @@ import Contacts from './view/Contacts'
 import Draft from './view/Draft'
 import Recieved from './view/Recieved'
 import Archive from './view/Archive'
-
+import Nav from './Nav'
 
 function App() {
   useCacheUser()
@@ -41,10 +41,10 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <>    
-      {/* <Nav /> */}
+    <>
+      <Nav />
       <NavTwo />
-      <Routes>    
+      <Routes>
         <Route path="register" element={<Register />} />
         <Route path="/" element={<DashBoard />} />
         <Route path="/corresponde" element={<Corresponde />} />

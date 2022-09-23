@@ -19,15 +19,20 @@ router.get('/', (req, res) => {
   }
 })
 
-// TODO: use checkJwt as middleware
+// TODO: Need to add checkJwt middleware but it breaks the function,
+// maybe not set up properly in auth0.js or VEET issue?
+// Need to check with Ahmad
+
 // POST /api/v1/users
-router.post('/', checkJwt, (req, res) => {
-  const auth0_id = req.user?.sub
-  const { username, name, email } = req.body
+router.post('/', (req, res) => {
+  // console.log(req.user?.sub)
+  // const auth0_id = req.user?.sub
+  console.log(req.body)
+  const { username, email, auth0Id } = req.body
   const userDetails = {
-    auth0_id,
+    auth0_id: auth0Id,
     username,
-    name,
+    name: null,
     email,
     delay_id: 1,
   }
