@@ -1,7 +1,7 @@
 import React from "react";
 
 function Archive() {
-  console.log('archive working...');
+  console.log('archive page working...');
   return (
     <div></div>
   )

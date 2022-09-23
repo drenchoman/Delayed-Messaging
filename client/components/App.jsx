@@ -40,12 +40,14 @@ function App() {
     }
   }, [isAuthenticated])
 
+
+
   return (
     <>    
       {/* <Nav /> */}
       <NavTwo />
       <Routes>    
-        <Route path="register" element={<Register />} />
+        <Route path="register" element={<Register  />} />
         <Route path="/" element={<DashBoard />} />
         <Route path="/corresponde" element={<Corresponde />} />
         <Route path="/recieved" element={<Recieved />} />

@@ -4,16 +4,28 @@ import styles from '../../../server/public/styles/NavTwo.module.css'
 
 
 function NavTwo() {
-  
+  // console.log(blurry.corresponde);
+  const { links, flex, anchor } = styles
 
+
+ 
   return (
     <div>
-      <nav className={styles.flex}>
-        <div className={styles.links}><Link className={styles.anchor} to='/'>new</Link></div>
-        <div className={styles.links}><Link className={styles.anchor} to='/'>recieved</Link></div>
-        <div className={styles.links}><Link className={styles.anchor} o='/'>contacts</Link></div>
-        <div className={styles.links}><Link className={styles.anchor} to='/'>archives</Link></div>
-        <div className={styles.links}><Link className={styles.anchor} to='/'>profile</Link></div>
+      <nav className={flex}>
+        <div className={links}>
+          <Link className={anchor} to='/corresponde'>new</Link>
+          </div>
+        <div className={links}>
+          <Link className={anchor} to='/recieved'>recieved</Link>
+        </div>
+        <div className={links}>
+          <Link className={anchor} to='/contacts'>contacts</Link>
+        </div>
+        <div className={links}>
+          <Link className={anchor} to='/archive'>archives</Link>
+        </div>
+        <div className={styles.links}>
+          <Link className={anchor} to='/'>profile</Link></div>
       </nav>
     </div>
   )

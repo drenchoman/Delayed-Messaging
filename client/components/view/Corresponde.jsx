@@ -1,7 +1,7 @@
 import React from "react";
 
 function Corresponde() {
-  console.log('corresponde working...');
+  console.log('new corresponde page working...');
   return (
     <div></div>
   )

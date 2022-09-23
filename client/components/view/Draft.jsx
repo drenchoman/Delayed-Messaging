@@ -1,7 +1,7 @@
 import React from "react";
 
 function Draft() {
-  console.log('draft working ...');
+  console.log('draft page working ...');
   return (
     <div></div>
   )

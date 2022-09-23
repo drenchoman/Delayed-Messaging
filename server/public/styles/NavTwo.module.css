@@ -15,3 +15,20 @@
   padding: 10px;
   color: black;
 }
+
+.blur {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.blur:hover {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
