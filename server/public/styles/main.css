@@ -5,8 +5,9 @@ Helps with consistency across our components
 */
 
 :root{
-  --font-lg: 3rem;
-  --font-md: 1.5rem;
+  --font-lg: 4rem;
+  --font-md: 2rem;
+  --font-mds: 1.5rem;
   --font-sm: 1rem;
   --main-color: #f5f5f5;
   --accent-color: ##BFB5B5;
