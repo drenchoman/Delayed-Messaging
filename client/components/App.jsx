@@ -8,7 +8,7 @@ import Register from './Register'
 import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
-import Nav from './Nav'
+// import Nav from './Nav'
 import NavTwo from './view/NavTwo'
 import DashBoard from './view/DashBoard'
 import Corresponde from './view/Corresponde'
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>    
-      <Nav />
+      {/* <Nav /> */}
       <NavTwo />
       <Routes>    
         <Route path="register" element={<Register />} />
