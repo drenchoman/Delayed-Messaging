@@ -1,0 +1,17 @@
+.links {
+  font-size: 1.5rem;
+  text-decoration: none;
+  width: 20%;
+}
+
+.flex, .anchor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.anchor {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
