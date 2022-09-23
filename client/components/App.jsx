@@ -18,7 +18,6 @@ import Recieved from './view/Recieved'
 import Archive from './view/Archive'
 import Nav from './Nav'
 
-
 function App() {
   useCacheUser()
   const dispatch = useDispatch()
@@ -41,15 +40,9 @@ function App() {
     }
   }, [isAuthenticated])
 
-
-
   return (
     <>
-
       <Nav />
-
-      <Routes>
-        <Route path="register" element={<Register />} />
 
       <NavTwo />
       <Routes>
