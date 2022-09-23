@@ -4,9 +4,10 @@
 
 .dashLink{
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: 5rem;
-  font-size: 3rem;
+  font-size: 2rem;
+ 
 }
 
 .wrapper{
@@ -15,3 +16,24 @@
   flex-direction: column;
 }
 
+.nav{
+  display: flex;
+  background-color: var(--main-color);
+  height: 10vh;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.logoWrapper{
+  display: flex;
+  margin: var(--margin-md);
+}
+
+.logo{
+  width: 50px;
+}
+
+.loginOption{
+  margin: var(--margin-sm);
+}
