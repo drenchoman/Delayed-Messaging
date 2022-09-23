@@ -1,12 +1,13 @@
 exports.up = (knex) => {
-  return knex.schema.createTable('fruits', (table) => {
+  return knex.schema.createTable('contacts', (table) => {
     table.increments('id').primary()
+    table.string('user_id').references('users.auth0_id')
     table.string('name')
-    table.integer('average_grams_each')
-    table.string('added_by_user').references('users.auth0_id')
+    table.string('username')
+    table.boolean('blocked')
   })
 }
 
 exports.down = (knex) => {
-  return knex.schema.dropTable('fruits')
+  return knex.schema.dropTable('contacts')
 }

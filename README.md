@@ -1,3 +1,3 @@
 # boilerplate
 
-vite, tailwind, express, Redux toolkit, react, auth0
+vite, express, Redux toolkit, react, auth0

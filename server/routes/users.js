@@ -6,9 +6,8 @@ const router = express.Router()
 
 // TODO: use checkJwt as middleware
 // GET /api/v1/users
-router.get('/', checkJwt, (req, res) => {
+router.get('/', (req, res) => {
   const auth0_id = req.user?.sub
-
   if (!auth0_id) {
     res.send(null)
   } else {
@@ -24,11 +23,13 @@ router.get('/', checkJwt, (req, res) => {
 // POST /api/v1/users
 router.post('/', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
-  const { username, icon } = req.body
+  const { username, name, email } = req.body
   const userDetails = {
     auth0_id,
     username,
-    icon,
+    name,
+    email,
+    delay_id: 1,
   }
 
   db.userExists(username)
