@@ -40,18 +40,20 @@ function App() {
     }
   }, [isAuthenticated])
 
+
+
   return (
     <>    
       {/* <Nav /> */}
       <NavTwo />
       <Routes>    
-        <Route path="register" element={<Register />} />
-        <Route path="/" element={<DashBoard />} />
-        <Route path="/corresponde" element={<Corresponde />} />
-        <Route path="/recieved" element={<Recieved />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/draft" element={<Draft />} />
-        <Route path="/archive" element={<Archive />} />
+        <Route path="register" element={<Register setBlurry={setBlurry} />} />
+        <Route path="/" element={<DashBoard setBlurry={setBlurry} />} />
+        <Route path="/corresponde" element={<Corresponde setBlurry={setBlurry} />} />
+        <Route path="/recieved" element={<Recieved setBlurry={setBlurry} />} />
+        <Route path="/contacts" element={<Contacts setBlurry={setBlurry} />} />
+        <Route path="/draft" element={<Draft setBlurry={setBlurry} />} />
+        <Route path="/archive" element={<Archive setBlurry={setBlurry} />} />
       </Routes>
     </>
   )
