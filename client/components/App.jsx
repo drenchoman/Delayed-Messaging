@@ -16,7 +16,7 @@ import Contacts from './view/Contacts'
 import Draft from './view/Draft'
 import Recieved from './view/Recieved'
 import Archive from './view/Archive'
-import Nav from './Nav'
+import Landing from './view/Landing/Landing'
 
 function App() {
   useCacheUser()
@@ -42,13 +42,11 @@ function App() {
 
   return (
     <>
-      <Nav />
-
-      <NavTwo />
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
 
-        <Route path="/" element={<DashBoard />} />
+        <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/NewCorrespondence" element={<NewCorrespondence />} />
         <Route path="/recieved" element={<Recieved />} />
         <Route path="/contacts" element={<Contacts />} />

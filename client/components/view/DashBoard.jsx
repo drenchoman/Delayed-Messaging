@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react'
+import NavTwo from './NavTwo'
 
 function DashBoard() {
-  console.log('dashboard is working...');
   return (
     <>
+      <NavTwo />
     </>
   )
 }
