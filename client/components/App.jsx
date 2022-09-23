@@ -9,7 +9,13 @@ import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
 import Nav from './Nav'
-import Home from './Home';
+import NavTwo from './view/NavTwo'
+import DashBoard from './view/DashBoard'
+import Corresponde from './view/Corresponde'
+import Contacts from './view/Contacts'
+import Draft from './view/Draft'
+import Recieved from './view/Recieved'
+import Archive from './view/Archive'
 
 
 function App() {
@@ -37,9 +43,15 @@ function App() {
   return (
     <>    
       <Nav />
+      <NavTwo />
       <Routes>    
         <Route path="register" element={<Register />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<DashBoard />} />
+        <Route path="/corresponde" element={<Corresponde />} />
+        <Route path="/recieved" element={<Recieved />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/draft" element={<Draft />} />
+        <Route path="/archive" element={<Archive />} />
       </Routes>
     </>
   )

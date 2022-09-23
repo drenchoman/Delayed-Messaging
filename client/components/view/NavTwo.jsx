@@ -1,13 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 function Nav() {
   
 
   return (
-      <nav >
-        
+    <div>
+      <nav>
+        <div><Link to='/'></Link></div>
       </nav>
+    </div>
   )
 }
 
