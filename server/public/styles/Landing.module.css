@@ -1,0 +1,17 @@
+.header{
+  font-size: 5rem;
+}
+
+.dashLink{
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  font-size: 3rem;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
