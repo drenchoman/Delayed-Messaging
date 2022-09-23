@@ -12,7 +12,7 @@ function NavTwo() {
           </Link>
         </div>
         <div className={styles.links}>
-          <Link className={styles.anchor} to="/">
+          <Link className={styles.anchor} to="/recieved">
             recieved
           </Link>
         </div>
