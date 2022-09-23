@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../../../server/public/styles/NavTwo.module.css'
 
-
 function NavTwo() {
   // console.log(blurry.corresponde);
   const { links, flex, anchor } = styles
@@ -13,7 +12,7 @@ function NavTwo() {
     <div>
       <nav className={flex}>
         <div className={links}>
-          <Link className={anchor} to='/corresponde'>new</Link>
+          <Link className={anchor} to='/newcorrespondence'>new</Link>
           </div>
         <div className={links}>
           <Link className={anchor} to='/recieved'>recieved</Link>

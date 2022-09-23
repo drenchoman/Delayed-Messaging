@@ -11,12 +11,11 @@ import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 // import Nav from './Nav'
 import NavTwo from './view/NavTwo'
 import DashBoard from './view/DashBoard'
-import Corresponde from './view/Corresponde'
+import NewCorrespondence from './view/NewCorrespondence'
 import Contacts from './view/Contacts'
 import Draft from './view/Draft'
 import Recieved from './view/Recieved'
 import Archive from './view/Archive'
-
 
 function App() {
   useCacheUser()
@@ -43,13 +42,12 @@ function App() {
 
 
   return (
-    <>    
-      {/* <Nav /> */}
+    <>
       <NavTwo />
-      <Routes>    
-        <Route path="register" element={<Register  />} />
+      <Routes>
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<DashBoard />} />
-        <Route path="/corresponde" element={<Corresponde />} />
+        <Route path="/NewCorrespondence" element={<NewCorrespondence />} />
         <Route path="/recieved" element={<Recieved />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/draft" element={<Draft />} />
