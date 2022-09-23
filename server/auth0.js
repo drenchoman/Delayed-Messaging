@@ -2,8 +2,8 @@ const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 
 // TODO: set the domain and audience (API Identifier)
-const domain = 'https://gardenz.au.auth0.com'
-const audience = 'https://fruits/api'
+const domain = 'pohutukawa-gracie.au.auth0.com'
+const audience = 'https://delayedmessaging/api'
 
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({
