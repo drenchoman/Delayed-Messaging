@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
 
+
+
 import ContactList from "./Fragments/ContactList";
 import ContactDetails from "./Fragments/ContactDetails";
 
