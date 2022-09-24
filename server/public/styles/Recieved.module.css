@@ -1,0 +1,30 @@
+.body {
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 80vw;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  text-align: start;
+  line-height: 2px;
+}
+
+button:hover {
+  background-color: rgba(250, 235, 215, 0.264);
+}
+
+.hidden {
+ display: none;
+}
+
+.show {
+  display: block;
+}
