@@ -1,9 +1,13 @@
 import React from "react";
+import NavTwo from './NavTwo'
 
 function Draft() {
   console.log('draft page working ...');
   return (
-    <div></div>
+    <>
+      <NavTwo />
+      <div></div>
+    </>
   )
 }
 

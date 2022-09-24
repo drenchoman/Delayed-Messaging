@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import NavTwo from './NavTwo'
+
 
 function NewCorrespondence() {
   const [form, setForm] = useState({
@@ -20,6 +22,8 @@ function NewCorrespondence() {
   }
 
   return (
+    <>
+    <NavTwo />
     <form>
       <div>
         <label htmlFor="recipient">Recipient</label>
@@ -58,6 +62,7 @@ function NewCorrespondence() {
       </div>
       <p style={{ whiteSpace: 'pre-line' }}>{form.body}</p>
     </form>
+    </>
   )
 }
 

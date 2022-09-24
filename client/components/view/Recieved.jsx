@@ -1,4 +1,5 @@
 import React from 'react'
+import NavTwo from './NavTwo'
 
 function Recieved() {
   const message = {
@@ -9,11 +10,14 @@ function Recieved() {
   }
 
   return (
+    <>
+    <NavTwo />
     <div>
       <h3>From: {message.sender}</h3>
       <h3>Subject: {message.subject}</h3>
       <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
     </div>
+    </>
   )
 }
 
