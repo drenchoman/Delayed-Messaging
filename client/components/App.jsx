@@ -1,22 +1,14 @@
 import React, { useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useCacheUser } from '../auth0-utils'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { getUser } from '../api'
-import Register from './Register'
 import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
 // import Nav from './Nav'
-import NavTwo from './view/NavTwo'
-import DashBoard from './view/DashBoard'
-import NewCorrespondence from './view/NewCorrespondence'
-import Contacts from './view/Contacts'
-import Draft from './view/Draft'
-import Recieved from './view/Recieved'
-import Archive from './view/Archive'
-import Landing from './view/Landing/Landing'
+import UserRoutes from '../UserRoutes'
 
 function App() {
   useCacheUser()
@@ -42,17 +34,7 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/register" element={<Register />} />
-
-        <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/NewCorrespondence" element={<NewCorrespondence />} />
-        <Route path="/recieved" element={<Recieved />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/draft" element={<Draft />} />
-        <Route path="/archive" element={<Archive />} />
-      </Routes>
+      <UserRoutes />
     </>
   )
 }
