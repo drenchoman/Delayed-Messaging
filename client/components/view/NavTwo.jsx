@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom'
 import styles from '../../../server/public/styles/NavTwo.module.css'
 
 function NavTwo() {
-  // console.log(blurry.corresponde);
   const { links, flex, anchor } = styles
 
-
- 
   return (
     <div>
       <nav className={flex}>
