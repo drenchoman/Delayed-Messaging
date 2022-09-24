@@ -6,10 +6,11 @@ Helps with consistency across our components
 
 :root{
   --font-lg: 4rem;
+  --font-mdl: 2.5rem;
   --font-md: 2rem;
   --font-mds: 1.5rem;
   --font-sm: 1rem;
-  --main-color: #f5f5f5;
+  --main-color: antiquewhite;
   --accent-color: ##BFB5B5;
   --margin-sm: 0.5rem;
   --margin-md: 1rem;
@@ -17,6 +18,7 @@ Helps with consistency across our components
   --padding-sm: 0.5rem;
   --padding-md: 1rem;
   --padding-lg: 2rem;
+  --border-radius: 10px;
   
 
 }
