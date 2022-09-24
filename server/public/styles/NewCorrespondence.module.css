@@ -1,0 +1,26 @@
+.formInput {
+  padding-top: 20vh;
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input, textarea {
+  width: 60vw;
+  border: none;
+}
+
+textarea {
+  height: 60vh;
+}
+
+.btn_submit {
+  position: relative;
+  left: 20vw;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}

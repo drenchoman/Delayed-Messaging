@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import styles from '../../../server/public/styles/NewCorrespondence.module.css'
+
 import NavTwo from './NavTwo'
 
 function NewCorrespondence() {
@@ -20,12 +22,14 @@ function NewCorrespondence() {
     })
   }
 
+  const { formInput, btn_submit } = styles
+
   return (
     <>
     <NavTwo />
-    <form>
+    <form className={formInput}>
       <div>
-        <label htmlFor="recipient">Recipient</label>
+        {/* <label htmlFor="recipient">Recipient</label> */}
         <input
           type="text"
           name="recipient"
@@ -35,7 +39,7 @@ function NewCorrespondence() {
         />
       </div>
       <div>
-        <label htmlFor="plate">Subject</label>
+        {/* <label htmlFor="plate">Subject</label> */}
         <input
           type="text"
           name="subject"
@@ -45,7 +49,7 @@ function NewCorrespondence() {
         />
       </div>
       <div>
-        <label htmlFor="plate">Message</label>
+        {/* <label htmlFor="plate">Message</label> */}
         <textarea
           type="text"
           name="body"
@@ -55,7 +59,7 @@ function NewCorrespondence() {
         />
       </div>
       <div>
-        <button type="button" onClick={handleSubmit}>
+        <button className={btn_submit} type="button" onClick={handleSubmit}>
           Send
         </button>
       </div>
