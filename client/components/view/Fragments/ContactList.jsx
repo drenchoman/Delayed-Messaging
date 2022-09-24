@@ -1,6 +1,7 @@
 import React from "react";
+import ContactBtn from "./ContactBtn";
 
-export default function ContactList({child,btn}) {
+export default function ContactList({ child, setDetails }) {
 
   const list = [
     'Elizabeth',
@@ -10,18 +11,48 @@ export default function ContactList({child,btn}) {
     'Gracie',
     'Bryden',
     'Livingston',
-    'Oscar'
+    'Oscar',
+    'Elizabet1',
+    'Samuel1',
+    'Keagan1',
+    'Daniel1',
+    'Gracie1',
+    'Bryden1',
+    'Livingston1',
+    'Oscar1',
+    'Elizabeth2',
+    'Samuel2',
+    'Keagan2',
+    'Daniel2',
+    'Gracie2',
+    'Bryden2',
+    'Livingston2',
+    'Oscar2',
+    'Elizabeth3',
+    'Samuel3',
+    'Keagan3',
+    'Daniel3',
+    'Gracie3',
+    'Bryden3',
+    'Livingston3',
+    'Oscar3',
+    'Elizabeth4',
+    'Samuel4',
+    'Keagan4',
+    'Daniel4',
+    'Gracie4',
+    'Bryden4',
+    'Livingston4',
+    'Oscar4'
   ]
-
-  const btns = <button className={btn}>...</button>
 
   return (
     <>
-      {list.map( name => {
+      {list.map( name => {        
         return (
           <div key={name} className={child} >
             <p>{name}</p>
-            <div>{btns}</div>
+            <ContactBtn name={name} setDetails={setDetails} />
           </div>
         )
       })}

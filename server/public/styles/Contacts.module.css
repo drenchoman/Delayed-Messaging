@@ -12,8 +12,17 @@
   width: 40vw;
 }
 
-.side_container {
+.leftside_container {
   width: 25vw;
+  position:fixed;
+  left: 2%;
+}
+
+.rightside_container {
+  width: 25vw;
+  position:fixed;
+  right: 0%;
+  top: 30%;
 }
 
 .border p {
@@ -27,9 +36,7 @@
   justify-content: space-between;
 }
 
-.btn {
-  background-color: transparent;
-  font-size: 1.2rem;
-  letter-spacing: 0.5rem;
-  text-align: center;
+.rightside_container p{
+  border: none;
 }
+
