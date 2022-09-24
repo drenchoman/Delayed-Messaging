@@ -14,6 +14,7 @@ export async function useCacheUser() {
       const token = await getAccessTokenSilently()
       const userToSave = {
         auth0Id: user?.sub,
+        email: user?.email,
         token: token,
       }
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { addUser } from '../api'
 import { updateLoggedInUser } from '../slices/user'
 import { useAuth0 } from '@auth0/auth0-react'
+import Nav from './Nav'
 
 function Register() {
   const user = useSelector((state) => state.user)
@@ -36,8 +37,8 @@ function Register() {
       email: user.email,
       ...form,
     }
-    getAccessTokenSilently()
-      .then((token) => addUser(userInfo, token))
+
+    addUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
       .catch((err) => setErrorMsg(err.message))
   }
@@ -48,6 +49,7 @@ function Register() {
 
   return (
     <>
+      <Nav />
       <h2>Complete profile set up</h2>
       {errorMsg && <div onClick={hideError}>Error: {errorMsg}</div>}
       <form onSubmit={handleSubmit}>

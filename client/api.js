@@ -1,6 +1,4 @@
 import request from 'superagent'
-
-const localHost = '127.0.0.1:5173'
 const rootUrl = '/api/v1'
 
 export function getFruits() {
@@ -45,7 +43,6 @@ export function getUser(token) {
 }
 
 export function addUser(user, token) {
-  console.log(user, token)
   return request
     .post(`${rootUrl}/users`)
     .set('authorization', `Bearer ${token}`)

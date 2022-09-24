@@ -1,0 +1,32 @@
+.btn_contact {
+  background-color: transparent;
+  font-size: 1.02rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  border: none;
+}
+
+.btn_contact:hover {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.btn_details {
+  color: black;
+  display: block;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+}
+
+.red:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.blue:hover {
+  color: blue;
+  text-decoration: underline;
+}

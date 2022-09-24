@@ -1,10 +1,10 @@
 import React from 'react'
-
+import styles from '../../server/public/styles/Landing.module.css'
+import bird from '../../server/public/images/svg/bird.svg'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 
 function Nav() {
   const user = useSelector((state) => state.user)
@@ -22,8 +22,12 @@ function Nav() {
 
   return (
     <>
-      <nav className='bg-slate-600'>
-        <Link to="/">Logo or Name</Link>
+      <nav className={styles.nav}>
+        <Link to="/">
+          <div className={styles.logoWrapper}>
+            <img className={styles.logo} src={bird} alt="Logo" />
+          </div>
+        </Link>
         <IfAuthenticated>
           <Link to="/" onClick={handleLogoff}>
             Log off
@@ -36,12 +40,17 @@ function Nav() {
           </p>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          <Link to="/" onClick={handleSignIn}>
+          <Link className={styles.loginOption} to="/" onClick={handleSignIn}>
             Sign In
+          </Link>
+          <Link className={styles.loginOption} to="/" onClick={handleSignIn}>
+            Register
+          </Link>
+          <Link className={styles.dashLink} to="/dashboard">
+            To Dashboard
           </Link>
         </IfNotAuthenticated>
       </nav>
-      <h1>All about us</h1>
     </>
   )
 }

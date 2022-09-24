@@ -1,0 +1,42 @@
+.flex {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.border {
+  padding: 5px;
+  margin-top: 30px;
+  /* border: 1px solid black; */
+}
+.mid_container {
+  width: 40vw;
+}
+
+.leftside_container {
+  width: 25vw;
+  position:fixed;
+  left: 2%;
+}
+
+.rightside_container {
+  width: 25vw;
+  position:fixed;
+  right: 0%;
+  top: 30%;
+}
+
+.border p {
+  width: 100%;
+  border-bottom: 2px dotted black;
+  padding: 10px 10px 2px 0px;
+}
+
+.mid_container .child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightside_container p{
+  border: none;
+}
+

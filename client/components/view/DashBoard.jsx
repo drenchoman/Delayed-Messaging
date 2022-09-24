@@ -1,7 +1,12 @@
 import React from 'react'
+import NavTwo from './NavTwo'
 
 function DashBoard() {
-  return <></>
+  return (
+    <>
+      <NavTwo />
+    </>
+  )
 }
 
 export default DashBoard
