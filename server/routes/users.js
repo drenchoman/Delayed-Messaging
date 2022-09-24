@@ -22,13 +22,14 @@ router.get('/', (req, res) => {
 // TODO: use checkJwt as middleware
 // POST /api/v1/users
 router.post('/', checkJwt, (req, res) => {
+  console.log('hiting')
   const auth0_id = req.user?.sub
-  const { username, name, email } = req.body
+  const { username } = req.body
   const userDetails = {
     auth0_id,
     username,
-    name,
-    email,
+    name: null,
+    email: null,
     delay_id: 1,
   }
 

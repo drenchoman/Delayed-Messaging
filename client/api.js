@@ -1,5 +1,6 @@
 import request from 'superagent'
 
+const localHost = '127.0.0.1:5173'
 const rootUrl = '/api/v1'
 
 export function getFruits() {
@@ -44,9 +45,10 @@ export function getUser(token) {
 }
 
 export function addUser(user, token) {
+  console.log(user, token)
   return request
     .post(`${rootUrl}/users`)
-    .set('Authorization', `Bearer ${token}`)
+    .set('authorization', `Bearer ${token}`)
     .send(user)
     .catch(logError)
 }
@@ -60,7 +62,7 @@ function logError(err) {
     )
   } else {
     // eslint-disable-next-line no-console
-    console.error('Error consuming the API (in client/api.js):', err.message)
+    console.error('Error consuming the API (in client/api.js):', err)
     throw err
   }
 }

@@ -6,27 +6,6 @@ import { addUser } from '../api'
 import { updateLoggedInUser } from '../slices/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
-const icons = [
-  '🍇',
-  '🍈',
-  '🍉',
-  '🍊',
-  '🍋',
-  '🍌',
-  '🍍',
-  '🥭',
-  '🍎',
-  '🍏',
-  '🍐',
-  '🍑',
-  '🍒',
-  '🍓',
-  '🫐',
-  '🥝',
-  '🍅',
-  '🥥',
-]
-
 function Register() {
   const user = useSelector((state) => state.user)
   const { getAccessTokenSilently } = useAuth0()
@@ -34,7 +13,6 @@ function Register() {
   const dispatch = useDispatch()
   const [form, setForm] = useState({
     username: '',
-    icon: '',
   })
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -51,8 +29,10 @@ function Register() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
+
     const userInfo = {
       auth0Id: user.auth0Id,
+      username: form.username,
       email: user.email,
       ...form,
     }
@@ -81,25 +61,7 @@ function Register() {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="icon">
-          Which fruit best represents your personality?
-        </label>
-        <label id="icon">
-          {icons.map((fruit) => (
-            <label key={fruit} selected={form.icon === fruit}>
-              <input
-                type="radio"
-                id={fruit}
-                value={fruit}
-                name="icon"
-                onChange={handleChange}
-              />
-              {fruit}
-            </label>
-          ))}
-        </label>
-
-        <button disabled={!(form.username && form.icon)}>Save Profile</button>
+        <button disabled={!form.username}>Save Profile</button>
       </form>
     </>
   )
