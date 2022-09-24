@@ -5,10 +5,15 @@ export default function ContactBtn({ name, setDetails }) {
   const { btn_contact } = styles
 
   function details(e) {
-    setDetails(`${e.target.value}`)
+    
+    setDetails((state) => { return {...state, name: e.target.value}})
   }
 
   return (
-    <button value={name} className={btn_contact} onClick={details} >...</button>
+    <button 
+      value={name} 
+      className={btn_contact} 
+      onClick={details} >...
+    </button>
   )
 }

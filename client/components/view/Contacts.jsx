@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
 
 import ContactList from "./Fragments/ContactList";
+import ContactDetails from "./Fragments/ContactDetails";
 
 function Contacts() {
   const { flex, 
@@ -10,9 +11,23 @@ function Contacts() {
     rightside_container,
     leftside_container, 
     child, 
-    btn } = styles
+    btn
+  } = styles
 
-  const [ details, setDetails ] = useState('')
+  const [ details, setDetails ] = useState({
+    name: '',
+    newCorrespondence: 'New Correspondence',
+    edit: 'Edit',
+    delete: 'Delete',
+    block: 'Block'
+  })
+
+  function displayDetail() {
+    // console.log(details.name.length);
+    if (details.name.length > 1) {
+      return <ContactDetails details={details}/>
+    }
+  }
   
   return (
     <div className={flex}>
@@ -26,7 +41,7 @@ function Contacts() {
        <ContactList child={child} btn={btn} setDetails={setDetails} />
       </div>
       <div className={border + ' ' + rightside_container}>
-        <p>{details}</p>
+        {displayDetail()}
       </div>
     </div>
   )
