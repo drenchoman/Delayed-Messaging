@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import NavTwo from './NavTwo'
 
-
 function NewCorrespondence() {
   const [form, setForm] = useState({
     recipient: '',
