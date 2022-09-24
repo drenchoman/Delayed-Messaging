@@ -4,6 +4,7 @@
   letter-spacing: 0.2rem;
   text-align: center;
   border: none;
+  width: 50px;
 }
 
 .btn_contact:hover {

@@ -2,7 +2,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  padding-top: 10vh;
+  padding-top: 12vh;
 }
 .border {
   padding: 5px;
@@ -10,7 +10,7 @@
   /* border: 1px solid black; */
 }
 .mid_container {
-  width: 40vw;
+  width: 60vw;
 }
 
 .leftside_container {
@@ -31,7 +31,9 @@
   border-bottom: 2px dotted black;
   padding: 10px 10px 2px 0px;
 }
-
+.child {
+  width: 50vw;
+}
 .mid_container .child {
   display: flex;
   justify-content: space-between;
