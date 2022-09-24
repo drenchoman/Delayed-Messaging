@@ -1,11 +1,11 @@
 import React from "react";
 import styles from '../../../../server/public/styles/Buttons.module.css'
 
-export default function ContactBtn({ name }) {
+export default function ContactBtn({ name, setDetails }) {
   const { btn_contact } = styles
 
   function details(e) {
-    console.log(e.target.value);
+    setDetails(`${e.target.value}`)
   }
 
   return (

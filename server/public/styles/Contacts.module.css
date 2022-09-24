@@ -12,10 +12,17 @@
   width: 40vw;
 }
 
-.side_container {
+.leftside_container {
   width: 25vw;
   position:fixed;
   left: 2%;
+}
+
+.rightside_container {
+  width: 25vw;
+  position:fixed;
+  right: 4%;
+  top: 15%;
 }
 
 .border p {
@@ -29,3 +36,6 @@
   justify-content: space-between;
 }
 
+.rightside_container p{
+  border: none;
+}

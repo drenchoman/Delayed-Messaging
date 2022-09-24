@@ -1,7 +1,7 @@
 import React from "react";
 import ContactBtn from "./ContactBtn";
 
-export default function ContactList({ child }) {
+export default function ContactList({ child, setDetails }) {
 
   const list = [
     'Elizabeth',
@@ -52,7 +52,7 @@ export default function ContactList({ child }) {
         return (
           <div key={name} className={child} >
             <p>{name}</p>
-            <ContactBtn name={name} />
+            <ContactBtn name={name} setDetails={setDetails} />
           </div>
         )
       })}
