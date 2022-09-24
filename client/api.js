@@ -43,6 +43,8 @@ export function getUser(token) {
 }
 
 export function addUser(user, token) {
+  console.log('testing')
+  console.log(user)
   return request
     .post(`${rootUrl}/users`)
     .set('authorization', `Bearer ${token}`)
