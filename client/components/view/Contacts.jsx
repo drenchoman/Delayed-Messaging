@@ -6,7 +6,12 @@ import ContactList from "./Fragments/ContactList";
 function Contacts() {
   console.log('contact page working');
 
-  const { flex, mid_container, border, side_container, child, btn } = styles
+  const { flex, 
+    mid_container, 
+    border, 
+    side_container, 
+    child, 
+    btn } = styles
 
   return (
     <div className={flex}>
@@ -16,10 +21,10 @@ function Contacts() {
       </div>
       <div className={mid_container + ' ' + border}>
         <h5>Name</h5>
+        {/* <h5>Add</h5> */}
        <ContactList child={child} btn={btn} />
       </div>
       <div className={border + ' ' + side_container}>
-        <h5>Add</h5>
       </div>
     </div>
   )

@@ -41,7 +41,8 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <>
+    <>  
+      <NavTwo />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
