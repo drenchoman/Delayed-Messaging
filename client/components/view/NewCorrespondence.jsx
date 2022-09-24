@@ -23,7 +23,6 @@ function NewCorrespondence() {
   return (
     <>
     <NavTwo />
-   
     <form>
       <div>
         <label htmlFor="recipient">Recipient</label>
