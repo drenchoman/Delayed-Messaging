@@ -30,17 +30,19 @@ function Recieved() {
 
   return (
     <>
-      {messages.map((message) => {
-        return (
-          <Letter
-            message={message}
-            id={message.id}
-            key={message.id}
-            state={state}
-            setState={setState}
-          />
-        )
-      })}
+      <div style={{ borderBottom: '5px solid black' }}>
+        {messages.map((message) => {
+          return (
+            <Letter
+              message={message}
+              id={message.id}
+              key={message.id}
+              state={state}
+              setState={setState}
+            ></Letter>
+          )
+        })}
+      </div>
       <div
         style={{ height: '700px' }}
         onClick={() => {

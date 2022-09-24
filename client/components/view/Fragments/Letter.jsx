@@ -24,47 +24,23 @@ function Letter(props) {
   }
 
   return (
-    <div>
+    <>
       {props.state === 0 && (
-        <div>
-          {letterState === 'closed' && (
-            <div
-              style={{ height: '50px', width: '100%', border: '5px solid red' }}
-              onMouseEnter={hover}
-              onFocus={hover}
-            ></div>
-          )}
-          {letterState === 'hover' && (
-            <div
-              style={{ border: '5px solid red' }}
-              onMouseLeave={closed}
-              onClick={open}
-            >
-              <h3>From: {message.sender}</h3>
-              <h3>Subject: {message.subject}</h3>
-            </div>
-          )}
-        </div>
-      )}
-      {props.state === props.id && (
-        <div style={{ border: '5px solid red' }} onClick={closeOpened}>
-          <h3>From: {message.sender}</h3>
-          <h3>Subject: {message.subject}</h3>
-          <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
-        </div>
-      )}
-      {props.state !== props.id && props.state !== 0 && (
         <>
           {letterState === 'closed' && (
             <div
-              style={{ height: '50px', width: '100%', border: '5px solid red' }}
+              style={{
+                height: '50px',
+                width: '100%',
+                borderTop: '5px solid black',
+              }}
               onMouseEnter={hover}
               onFocus={hover}
             ></div>
           )}
           {letterState === 'hover' && (
             <div
-              style={{ border: '5px solid red' }}
+              style={{ borderTop: '5px solid black' }}
               onMouseLeave={closed}
               onClick={open}
             >
@@ -74,7 +50,39 @@ function Letter(props) {
           )}
         </>
       )}
-    </div>
+      {props.state === props.id && (
+        <div style={{ borderTop: '5px solid black' }} onClick={closeOpened}>
+          <h3>From: {message.sender}</h3>
+          <h3>Subject: {message.subject}</h3>
+          <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
+        </div>
+      )}
+      {props.state !== props.id && props.state !== 0 && (
+        <>
+          {letterState === 'closed' && (
+            <div
+              style={{
+                height: '50px',
+                width: '100%',
+                borderTop: '5px solid black',
+              }}
+              onMouseEnter={hover}
+              onFocus={hover}
+            ></div>
+          )}
+          {letterState === 'hover' && (
+            <div
+              style={{ borderTop: '5px solid black' }}
+              onMouseLeave={closed}
+              onClick={open}
+            >
+              <h3>From: {message.sender}</h3>
+              <h3>Subject: {message.subject}</h3>
+            </div>
+          )}
+        </>
+      )}
+    </>
   )
 }
 
