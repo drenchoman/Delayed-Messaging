@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
 
 
-
+import NavTwo from './NavTwo'
 import ContactList from "./Fragments/ContactList";
 import ContactDetails from "./Fragments/ContactDetails";
 
@@ -32,6 +32,8 @@ function Contacts() {
   }
   
   return (
+    <>
+    <NavTwo />
     <div className={flex}>
       <div className={border + ' ' + leftside_container}>
         <h5>New Contact +</h5>
@@ -46,6 +48,7 @@ function Contacts() {
         {displayDetail()}
       </div>
     </div>
+    </>
   )
 }
 

@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
 // import Nav from './Nav'
-import NavTwo from './view/NavTwo'
+// import NavTwo from './view/NavTwo'
 import DashBoard from './view/DashBoard'
 import NewCorrespondence from './view/NewCorrespondence'
 import Contacts from './view/Contacts'
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>  
-      <NavTwo />
+      {/* <NavTwo /> */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
