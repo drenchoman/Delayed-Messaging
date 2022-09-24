@@ -12,7 +12,8 @@ function Contacts() {
     rightside_container,
     leftside_container, 
     child, 
-    btn
+    btn,
+    add_contact
   } = styles
 
   const [ details, setDetails ] = useState({
@@ -36,7 +37,7 @@ function Contacts() {
     <div className={flex}>
       <div className={border + ' ' + leftside_container}>
         <h5>New Contact +</h5>
-        <input type='text' placeholder="enter username"/>
+        <input className={add_contact} type='text' placeholder="enter username"/>
       </div>
       <div className={mid_container + ' ' + border}>
         <h5>Name</h5>
