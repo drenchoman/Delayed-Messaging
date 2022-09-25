@@ -7,35 +7,26 @@ module.exports = {
   deleteContact,
 }
 
-function sort(userArray) {
-  const allUsers = [...userArray]
-  allUsers.sort((a, b) => a.id - b.id)
-  return allUsers
+async function getContacts(userId, db = connection) {
+  return db('contacts').where('user_id', userId).select()
 }
 
-async function getContacts(db = connection) {
-  return db('contacts').select()
-}
-
-async function addContact(contact, db = connection) {
-  return db('contacts')
-    .insert(contact)
-    .then(() => db)
-    .then(getContacts)
-    .then(sort)
+async function addContact(newContact, db = connection) {
+  const { userId, name, username } = newContact
+  return db('contacts').insert({ user_id: userId, name, username })
 }
 
 async function updateContact(newContact, user, db = connection) {
   return db('contacts')
     .where('id', newContact.id)
     .first()
-    .then((fruit) => authorizeUpdate(fruit, user))
+    .then((contact) => authorizeUpdate(contact, user))
     .then(() => {
       return db('fruits').where('id', newContact.id).update(newContact)
     })
     .then(() => db)
     .then(getContacts)
-    .then(sort)
+    // .then(sort)
 }
 
 async function deleteContact(id, auth0Id, db = connection) {
@@ -48,7 +39,7 @@ async function deleteContact(id, auth0Id, db = connection) {
     })
     .then(() => db)
     .then(getContacts)
-    .then(sort)
+    // .then(sort)
 }
 
 function authorizeUpdate(contact, auth0Id) {

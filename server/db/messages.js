@@ -1,11 +1,11 @@
 const connection = require('./connection')
 
 module.exports = {
-  getAllMessages,
+  getMessages,
   addMessage,
 }
 
-function getAllMessages(username, db = connection) {
+function getMessages(username, db = connection) {
   return db('messages').select().where('recipient_username', username)
 }
 
