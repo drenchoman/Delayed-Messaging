@@ -289,12 +289,45 @@
 .testiCard{
   min-width: 800px;
   height: 100%;
-  min-height: 300px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  animation: fade 1s forwards;
+  
+}
 
+.testiInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.testiInfo > * {
+  margin: var(--margin-md);
+}
+
+
+.rightArrow{
+  position: absolute;
+  right: 1rem;
+}
+
+.rightArrow > img {
+  width: 50px;
+  height: 50px;
+}
+
+.leftArrow{
+  position: absolute;
+  left: 1rem;
+}
+
+.leftArrow > img {
+  width: 50px;
+  height: 50px;
 }
 
 .testiHeader{
@@ -303,6 +336,8 @@
 
 .testiMessage{
   font-size: var(--font-mds);
+  max-width: 35ch;
+  text-align: center;
 }
 
 .testiCard > * {
@@ -355,3 +390,4 @@
 .secThreeRight:nth-child(1){
   transition-delay: 300ms;
 }
+

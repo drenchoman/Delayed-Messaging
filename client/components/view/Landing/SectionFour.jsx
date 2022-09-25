@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../../../../server/public/styles/Landing.module.css'
 import Testimonial from './Testimonial'
 import face from '../../../../server/public/images/svg/face.svg'
 import birds from '../../../../server/public/images/birds.png'
+import { act } from 'react-dom/test-utils'
 
 const testi = [
   {
@@ -15,7 +16,7 @@ const testi = [
     id: 2,
     name: 'Oscar Harron',
     image: face,
-    message: 'Pog! It feels like I am actually writing a letter!',
+    message: 'It feels like I am actually writing a letter!',
   },
   {
     id: 3,
@@ -27,6 +28,38 @@ const testi = [
 ]
 
 export default function SectionFour() {
+  const [activeCard, setActiveCard] = useState(0)
+
+  useEffect(() => {
+    const changeTesti = setTimeout(() => {
+      updateActive(activeCard)
+    }, 6000)
+    return () => clearTimeout(changeTesti)
+  }, [activeCard])
+
+  function updateActive() {
+    if (activeCard == 2) {
+      setActiveCard(0)
+    } else {
+      setActiveCard((activeCard) => activeCard + 1)
+    }
+  }
+
+  function handleRightClick() {
+    if (activeCard == 2) {
+      setActiveCard(0)
+    } else {
+      setActiveCard((activeCard) => activeCard + 1)
+    }
+  }
+
+  function handleLeftClick() {
+    if (activeCard == 0) {
+      setActiveCard(2)
+    } else {
+      setActiveCard((activeCard) => activeCard - 1)
+    }
+  }
   return (
     <div className={styles.sectionFour}>
       <div className={styles.secFourBirdsWrapper}>
@@ -37,9 +70,12 @@ export default function SectionFour() {
       </div>
       <div className={styles.secFourBot}>
         <div className={styles.testimonialWrapper}>
-          {testi.map((test) => (
-            <Testimonial key={test.id} test={test} />
-          ))}
+          <Testimonial
+            test={testi[`${activeCard}`]}
+            activeCard={activeCard}
+            handleRightClick={handleRightClick}
+            handleLeftClick={handleLeftClick}
+          />
         </div>
       </div>
     </div>
