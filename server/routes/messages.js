@@ -8,6 +8,7 @@ const router = express.Router()
 // TODO: ADD AUTH
 router.get('/:username', async (req, res) => {
   // const auth0_id = req.user?.sub
+  console.log('here')
   const username = req.params.username
   try {
     const messages = await db.getAllMessages(username)
