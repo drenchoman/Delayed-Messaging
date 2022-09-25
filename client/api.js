@@ -1,38 +1,7 @@
 import request from 'superagent'
 const rootUrl = '/api/v1'
 
-export function getFruits() {
-  return request
-    .get(`${rootUrl}/fruits`)
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function addFruit(fruit, token) {
-  return request
-    .post(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function updateFruit(fruit, token) {
-  return request
-    .put(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function deleteFruit(id, token) {
-  return request
-    .delete(`${rootUrl}/fruits/${id}`)
-    .set('authorization', `Bearer ${token}`)
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
+// USER CALLS
 
 export function getUser(token) {
   return request
@@ -49,6 +18,99 @@ export function addUser(user, token) {
     .post(`${rootUrl}/users`)
     .set('authorization', `Bearer ${token}`)
     .send(user)
+    .catch(logError)
+}
+
+export function updateDelay(updatedDelay, token) {
+  return request
+    .patch(`${rootUrl}/users`)
+    .set('Authorization', `Bearer ${token}`)
+    .semd(updatedDelay)
+    .then((res) => res.body)
+    .catch(logError)
+}
+
+// MESSAGE CALLS
+
+export function getAllViewableMessages(username, token) {
+  return request
+    .get(`${rootUrl}/messages/${username}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+    .catch(logError)
+}
+
+export function getAllDraftedMessages(username, token) {
+  return request
+    .get(`${rootUrl}/messages/drafts/${username}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+    .catch(logError)
+}
+
+export function getAllArchivedMessages(username, token) {
+  return request
+    .get(`${rootUrl}/messages/archived/${username}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+    .catch(logError)
+}
+
+export function postNewMessage(newMessage, token) {
+  return request
+    .post(`${rootUrl}/messages`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(newMessage)
+    .catch(logError)
+}
+
+export function archiveMessage(id, token) {
+  return request
+    .patch(`${rootUrl}/messages/archived`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(id)
+    .catch(logError)
+}
+
+export function deleteMessage(id, token) {
+  return request
+    .patch(`${rootUrl}/messages/delete`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(id)
+    .catch(logError)
+}
+
+// CONTACT CALLS
+
+export function getAllContacts(authid, token) {
+  return request
+    .get(`${rootUrl}/contacts/${authid}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+    .catch(logError)
+}
+
+export function addContact(newContact, token) {
+  return request
+    .post(`${rootUrl}/contacts`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(newContact)
+    .catch(logError)
+}
+
+export function updateContact(updatedContact, token) {
+  return request
+    .patch(`${rootUrl}/contacts`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(updatedContact)
+    .catch(logError)
+}
+
+export function deleteContact(id, token) {
+  return request
+    .delete(`${rootUrl}/contacts`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(id)
     .catch(logError)
 }
 
