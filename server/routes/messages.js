@@ -9,7 +9,7 @@ router.get('/:username', async (req, res) => {
   const auth0_id = req.user?.sub
   const username = req.params.username
   try {
-    const messages = await db.getAllMessages(username)
+    const messages = await db.getMessagesByUsername(username)
     res.json({ messages })
   } catch (err) {
     console.error(err, username)

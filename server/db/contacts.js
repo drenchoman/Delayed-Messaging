@@ -1,16 +1,14 @@
 const connection = require('./connection')
 
 module.exports = {
-  getFruits,
+  getContacts,
   addFruit,
   updateFruit,
   deleteFruit,
 }
 
-function sort(fruitArray) {
-  const allFruits = [...fruitArray]
-  allFruits.sort((a, b) => a.id - b.id)
-  return allFruits
+async function getContacts(db = connection) {
+  return db('contacts').select()
 }
 
 async function getFruits(db = connection) {

@@ -1,10 +1,12 @@
 const express = require('express')
-const checkJwt = require('../auth0')
+// const checkJwt = require('../auth0')
 const db = require('../db/contacts')
 
 const router = express.Router()
 
 module.exports = router
+
+router.get('/')
 
 // A public endpoint that anyone can access
 // GET /api/v1/contacts
