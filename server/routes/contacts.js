@@ -6,16 +6,14 @@ const router = express.Router()
 
 module.exports = router
 
-router.get('/')
-
-// A public endpoint that anyone can access
-// GET /api/v1/contacts
-router.get('/', async (req, res) => {
+// GET /api/v1/contacts/username
+router.get('/:username', async (req, res) => {
   try {
-    const fruits = await db.getFruits()
-    res.json({ fruits })
-  } catch (err) {
-    console.error(err)
-    res.status(500).send(err.message)
+    // const username = req.params.username
+    const contacts = await db.getContacts()
+    res.json({ contacts })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send(error.message)
   }
 })
