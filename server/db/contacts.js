@@ -7,8 +7,8 @@ module.exports = {
   deleteFruit,
 }
 
-async function getContacts(db = connection) {
-  return db('contacts').select().where()
+async function getContacts(userId, db = connection) {
+  return db('contacts').where('user_id', userId).select()
 }
 
 async function getFruits(db = connection) {

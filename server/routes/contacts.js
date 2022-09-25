@@ -7,10 +7,10 @@ const router = express.Router()
 module.exports = router
 
 // GET /api/v1/contacts/username
-router.get('/:username', async (req, res) => {
+router.get('/:userId', async (req, res) => {
   try {
-    // const username = req.params.username
-    const contacts = await db.getContacts()
+    const userId = req.params.userId
+    const contacts = await db.getContacts(userId)
     res.json({ contacts })
   } catch (error) {
     console.error(error)
