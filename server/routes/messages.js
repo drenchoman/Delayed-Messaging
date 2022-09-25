@@ -11,7 +11,7 @@ router.get('/:username', async (req, res) => {
   console.log('here')
   const username = req.params.username
   try {
-    const messages = await db.getAllMessages(username)
+    const messages = await db.getMessages(username)
     res.json({ messages })
   } catch (err) {
     console.error(err, username)
