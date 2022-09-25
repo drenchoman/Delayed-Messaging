@@ -6,8 +6,11 @@ import friend from '../../../../server/public/images/svg/friend.svg'
 import mail from '../../../../server/public/images/svg/mail.svg'
 import flock from '../../../../server/public/images/inflight.png'
 import wind from '../../../../server/public/images/svg/wind.svg'
+import { useInView } from 'react-intersection-observer'
 
 export default function SectionTwo() {
+  const { ref, inView, entry } = useInView()
+
   return (
     <div className={styles.sectionTwo}>
       <div className={styles.flockWrapper}>
@@ -30,7 +33,10 @@ export default function SectionTwo() {
           feature="Big feature and lots of benefits"
         />
       </div>
-      <div className={styles.windWrapper}>
+      <div
+        ref={ref}
+        className={`${styles.windWrapper} ${inView ? styles.zoom : styles.out}`}
+      >
         <img src={wind} alt="windy"></img>
       </div>
     </div>

@@ -9,8 +9,6 @@ export default function Testimonial({
   handleLeftClick,
   activeCard,
 }) {
-  const animationName = `ani${activeCard}`
-
   return (
     <div className={styles.testiCard}>
       <div onClick={handleRightClick} className={styles.rightArrow}>
@@ -19,7 +17,7 @@ export default function Testimonial({
       <div onClick={handleLeftClick} className={styles.leftArrow}>
         <img src={left} alt="right"></img>
       </div>
-      <div className={`${styles.testiInfo} ${animationName}`}>
+      <div className={styles.testiInfo}>
         <div className={styles.testiImageWrapper}>
           <img src={test.image} alt="Beautiful Face"></img>
         </div>
