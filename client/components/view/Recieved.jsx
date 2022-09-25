@@ -1,38 +1,54 @@
-import React, { useState } from 'react'
-import NavTwo from './NavTwo'
-import styles from '../../../server/public/styles/Recieved.module.css'
+import { React, useState } from 'react'
+
+import Letter from './Fragments/Letter'
 
 function Recieved() {
-  const { body, hidden, show } = styles
-  const [ hide, setHide ] = useState(hidden)
-
-  const message = {
-    sender: 'John',
-    recipient: 'Elizabeth',
-    subject: 'Things ',
-    body: 'Dear Elizabeth \n\nI am so happy to hear your news,\n\nWhat else can you tell me?\n\nRegards \nJohn ',
-  }
-
-  function displayHandler() {
-    (hide != show) ? setHide(show) : setHide(hidden)
-  }
+  const [state, setState] = useState(0)
+  const messages = [
+    {
+      id: 1,
+      sender: 'John',
+      recipient: 'Elizabeth',
+      subject: 'Things ',
+      body: 'Dear Elizabeth \n\nI am so happy to hear your news,\n\nWhat else can you tell me?\n\nRegards \nJohn ',
+    },
+    {
+      id: 2,
+      sender: 'Elizabeth',
+      recipient: 'John',
+      subject: 'Things ',
+      body: 'Dear Elizabeth \n\nI am so happy to hear your news,\n\nWhat else can you tell me?\n\nRegards \nJohn ',
+    },
+    {
+      id: 3,
+      sender: 'Samuel',
+      recipient: 'Elizabeth',
+      subject: 'Things ',
+      body: 'Dear Elizabeth \n\nI am so happy to hear your news,\n\nWhat else can you tell me?\n\nRegards \nJohn ',
+    },
+  ]
 
   return (
     <>
-    <NavTwo />
-    <div className={body}>
-      <button></button>
-      <button></button>
-      <button onClick={displayHandler}>{message.sender}</button>
-      <div  className={hide}>
-        <h3>From: {message.sender}</h3>
-        <h3>Subject: {message.subject}</h3>
-        <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
+      <div style={{ borderBottom: '5px solid black' }}>
+        {messages.map((message) => {
+          return (
+            <Letter
+              message={message}
+              id={message.id}
+              key={message.id}
+              state={state}
+              setState={setState}
+            ></Letter>
+          )
+        })}
       </div>
-      <button></button>
-      <button></button>
-      <button></button>
-    </div>
+      <div
+        style={{ height: '700px' }}
+        onClick={() => {
+          setState(0)
+        }}
+      ></div>
     </>
   )
 }
