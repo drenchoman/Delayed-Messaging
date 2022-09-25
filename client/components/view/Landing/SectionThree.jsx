@@ -27,9 +27,11 @@ export default function SectionThree() {
           No Hassle. No Obligations. No Stress.
         </h2>
         <p className={styles.threeTalk}>
-          Messages arive when they need to so you can relax and take your time.
+          Messages arrive when they need to so you can relax and take your time.
         </p>
-        <p>Reply when you need to. There are no expectations. </p>
+        <p className={styles.threeTalk}>
+          Reply when you need to. There are no expectations.{' '}
+        </p>
       </div>
     </div>
   )

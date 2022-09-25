@@ -19,6 +19,16 @@ router.get('/', (req, res) => {
   }
 })
 
+router.patch('/', async (req, res) => {
+  try {
+    await db.updateDelay(req.body)
+    res.sendStatus(201)
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})
+
 // TODO: Need to add checkJwt middleware but it breaks the function,
 // maybe not set up properly in auth0.js or vite issue?
 // Need to check with Ahmad

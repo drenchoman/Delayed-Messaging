@@ -7,9 +7,9 @@ function DashBoard() {
 
   return (
     <>
-      <NavTwo />
-      <div className={body}>
-
+      <div className={styles.fade}>
+        <NavTwo />
+        <div className={body}></div>
       </div>
     </>
   )

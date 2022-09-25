@@ -11,7 +11,7 @@ Helps with consistency across our components
   --font-mds: 1.5rem;
   --font-sm: 1rem;
   --main-color: antiquewhite;
-  --accent-color: ##BFB5B5;
+  --accent-color: #f8fad7;
   --margin-sm: 0.5rem;
   --margin-md: 1rem;
   --margin-lg: 2rem;
@@ -23,7 +23,23 @@ Helps with consistency across our components
 
 }
 
+@keyframes fade {
+  0%{opacity: 0;}
+  100%{
+    opacity: 1;
+  }
+  
+}
+.ani0{
+  animation: fade 1.25s ease-in-out forwards;
 
+}
+.ani1{
+  animation: fade 1.25s ease-in-out forwards;
+}
+.ani2{
+animation: fade 1.25s ease-in-out forwards;
+}
 
 
 
