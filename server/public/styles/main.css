@@ -23,7 +23,23 @@ Helps with consistency across our components
 
 }
 
+@keyframes fade {
+  0%{opacity: 0;}
+  100%{
+    opacity: 1;
+  }
+  
+}
+.ani0{
+  animation: fade 1.25s ease-in-out forwards;
 
+}
+.ani1{
+  animation: fade 1.25s ease-in-out forwards;
+}
+.ani2{
+animation: fade 1.25s ease-in-out forwards;
+}
 
 
 

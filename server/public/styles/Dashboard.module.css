@@ -3,3 +3,18 @@
   height: 100vh;
   background-image: url('../images/inflight-nobackground.png');
 }
+
+
+.fade{
+  animation: fade 1.5s forwards ease-in-out;
+}
+
+
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

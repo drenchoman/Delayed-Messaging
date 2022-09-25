@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-import { addUser } from '../api'
-import { updateLoggedInUser } from '../slices/user'
+import styles from '../../../../server/public/styles/Register.module.css'
+import { addUser } from '../../../api'
+import { updateLoggedInUser } from '../../../slices/user'
 import { useAuth0 } from '@auth0/auth0-react'
-import Nav from './Nav'
 
-function Register() {
+export default function Form({ setCreated }) {
+  const [form, setForm] = useState({
+    username: '',
+  })
   const user = useSelector((state) => state.user)
   const { getAccessTokenSilently } = useAuth0()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [form, setForm] = useState({
-    username: '',
-  })
-  const [errorMsg, setErrorMsg] = useState('')
 
   useEffect(() => {
-    if (user.username) navigate('/')
+    if (user.username) {
+      setCreated(true)
+      setTimeout(() => navigate('/dashboard'), 1600)
+    }
   }, [user])
 
   const handleChange = (evt) => {
@@ -39,23 +40,24 @@ function Register() {
     }
 
     addUser(userInfo, user.token)
-      .then(() => dispatch(updateLoggedInUser(userInfo)))
+      .then(() => {
+        dispatch(updateLoggedInUser(userInfo))
+      })
       .catch((err) => setErrorMsg(err.message))
   }
 
   const hideError = () => {
     setErrorMsg('')
   }
-
+  const [errorMsg, setErrorMsg] = useState('')
   return (
     <>
-      <Nav />
-      <h2>Complete profile set up</h2>
       {errorMsg && <div onClick={hideError}>Error: {errorMsg}</div>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.label} htmlFor="username">
           Username:
           <input
+            className={styles.formInput}
             type="text"
             id="username"
             name="username"
@@ -63,10 +65,10 @@ function Register() {
             onChange={handleChange}
           />
         </label>
-        <button disabled={!form.username}>Save Profile</button>
+        <button className={styles.button} disabled={!form.username}>
+          Save Profile
+        </button>
       </form>
     </>
   )
 }
-
-export default Register
