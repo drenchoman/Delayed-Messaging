@@ -2,8 +2,7 @@ exports.up = (knex) => {
   return knex.schema.createTable('contacts', (table) => {
     table.increments('id').primary()
     table.string('user_id').references('users.auth0_id')
-    table.string('name')
-    table.string('username')
+    table.string('friend').references('users.auth0_id')
     table.boolean('blocked')
   })
 }
