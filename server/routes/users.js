@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 })
 
 // TODO: Need to add checkJwt middleware but it breaks the function,
-// maybe not set up properly in auth0.js or VEET issue?
+// maybe not set up properly in auth0.js or vite issue?
 // Need to check with Ahmad
 
 // POST /api/v1/users
