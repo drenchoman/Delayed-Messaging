@@ -35,4 +35,5 @@ function deleteContact(id, db = connection) {
 
 function checkInDb(username, db = connection) {
   return db('contacts').select().where('username', username)
+
 }

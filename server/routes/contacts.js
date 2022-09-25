@@ -1,5 +1,5 @@
 const express = require('express')
-const checkJwt = require('../auth0')
+// const checkJwt = require('../auth0')
 const db = require('../db/contacts')
 
 const router = express.Router()
@@ -58,3 +58,22 @@ router.delete('/', async (req, res) => {
     res.status(500).send(err.message)
   }
 })
+
+router.post('/:userId', async (req, res) => {
+  const userId = req.params.userId
+  const { name, username } = req.body
+  try {
+    const newContact = {
+      name,
+      username,
+      userId,
+    }
+    await db.addContact(newContact)
+    res.sendStatus(201)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send(error.message)
+  }
+})
+
+
