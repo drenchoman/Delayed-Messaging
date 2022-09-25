@@ -1,7 +1,10 @@
 import { React, useState } from 'react'
+import styles from '../../../../server/public/styles/Recieved.module.css'
 
 function Letter(props) {
   const [letterState, setLetterState] = useState('closed')
+
+  const { closedLetter, border_top, flex } = styles
 
   const message = props.message
 
@@ -29,31 +32,39 @@ function Letter(props) {
         <>
           {letterState === 'closed' && (
             <div
-              style={{
-                height: '50px',
-                width: '100%',
-                borderTop: '5px solid black',
-              }}
+              className={closedLetter}
               onMouseEnter={hover}
               onFocus={hover}
-            ></div>
+            >From: {message.sender}</div>
           )}
           {letterState === 'hover' && (
             <div
-              style={{ borderTop: '5px solid black' }}
+              className={border_top}
               onMouseLeave={closed}
               onClick={open}
             >
-              <h3>From: {message.sender}</h3>
-              <h3>Subject: {message.subject}</h3>
+              <div className={flex}>
+                <p>From: </p>
+                <h3>{message.sender}</h3>
+              </div>
+              <div className={flex}>
+                <p>Subject: </p>
+                <h3>{message.subject}</h3>
+              </div>
             </div>
           )}
         </>
       )}
       {props.state === props.id && (
-        <div style={{ borderTop: '5px solid black' }} onClick={closeOpened}>
-          <h3>From: {message.sender}</h3>
-          <h3>Subject: {message.subject}</h3>
+        <div className={border_top} onClick={closeOpened}>
+           <div className={flex}>
+              <p>From: </p>
+              <h3>{message.sender}</h3>
+            </div>
+            <div className={flex}>
+              <p>Subject: </p>
+              <h3>{message.subject}</h3>
+            </div>
           <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
         </div>
       )}
@@ -61,23 +72,25 @@ function Letter(props) {
         <>
           {letterState === 'closed' && (
             <div
-              style={{
-                height: '50px',
-                width: '100%',
-                borderTop: '5px solid black',
-              }}
+              className={closedLetter}
               onMouseEnter={hover}
               onFocus={hover}
             ></div>
           )}
           {letterState === 'hover' && (
             <div
-              style={{ borderTop: '5px solid black' }}
+              className={border_top}
               onMouseLeave={closed}
               onClick={open}
             >
-              <h3>From: {message.sender}</h3>
-              <h3>Subject: {message.subject}</h3>
+            <div className={flex}>
+              <p>From: </p>
+              <h3>{message.sender}</h3>
+            </div>
+            <div className={flex}>
+              <p>Subject: </p>
+              <h3>{message.subject}</h3>
+            </div>
             </div>
           )}
         </>

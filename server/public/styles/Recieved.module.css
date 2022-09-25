@@ -1,35 +1,32 @@
-<<<<<<< HEAD
-.background{
-  background-color: blueviolet;
-=======
-.body {
-  padding-top: 10vh;
+.center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-button {
-  width: 80vw;
-  height: 30px;
-  padding: 10px;
-  border: none;
-  background-color: transparent;
-  border-bottom: 2px solid rgba(78, 77, 77, 0.526);
-  text-align: start;
-  line-height: 2px;
+.flex {
+  display: flex;
 }
 
-button:hover {
-  background-color: rgba(250, 235, 215, 0.264);
+.flex p {
+  
+  text-align: left;
+}
+.marginTop{
+  padding-top: 100px;
+  border-bottom: 2px solid black;
+  width: 50vw;
 }
 
-.hidden {
- display: none;
+.closedLetter{
+  height:30px;
+  width:50vw;
+  border-top:2px solid black
 }
 
-.show {
-  display: block;
->>>>>>> 82aaedec288949297b70c1bc76897731869341eb
+.border_top{
+  border-top: 2px solid black;
+  width: 50vw;
+  height: ;
 }
+

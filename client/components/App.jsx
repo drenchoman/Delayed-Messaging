@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useCacheUser } from '../auth0-utils'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -14,6 +14,7 @@ import Draft from './view/Draft'
 import Recieved from './view/Recieved'
 import Archive from './view/Archive'
 import Landing from './view/Landing/Landing'
+import Register from './Register'
 
 function App() {
   useCacheUser()
@@ -38,7 +39,7 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <>  
+    <>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
