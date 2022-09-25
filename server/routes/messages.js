@@ -8,6 +8,8 @@ const userDb = require('../db/users')
 const router = express.Router()
 
 // TODO: ADD AUTH CHECK
+
+// GET api/v1/messages/banana_llama
 router.get('/:username', async (req, res) => {
   // const auth0_id = req.user?.sub
   console.log('here')
@@ -22,8 +24,7 @@ router.get('/:username', async (req, res) => {
   }
 })
 
-// api/v1/messages/
-// TODO: ADD POST ROUTE FOR NEW MESSAGES
+//POST api/v1/messages/
 router.post('/', async (req, res) => {
   // const auth0_id = req.user?.sub
   let delayValue = await userDb.getDelay(req.params.username)
@@ -54,6 +55,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+//PATCH api/v1/messages/archived
 router.patch('/archived', async (req, res) => {
   const { id } = req.body
   try {
@@ -65,6 +67,7 @@ router.patch('/archived', async (req, res) => {
   }
 })
 
+// PATCH api/v1/messages/delete
 router.patch('/delete', async (req, res) => {
   const { id } = req.body
   try {
@@ -76,6 +79,7 @@ router.patch('/delete', async (req, res) => {
   }
 })
 
+// GET api/v1/messages/archived/banana_llama
 router.get('/archived/:username', async (req, res) => {
   const username = req.params.username
   try {
@@ -87,6 +91,7 @@ router.get('/archived/:username', async (req, res) => {
   }
 })
 
+// GET api/v1/messages/drafts/banana_llama
 router.get('/drafts/:username', async (req, res) => {
   const username = req.params.username
   try {

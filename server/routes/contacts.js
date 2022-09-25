@@ -20,6 +20,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+// POST /api/v1/contacts
 router.post('/', async (req, res) => {
   const { username, authId } = req.body
   const contactAlreadyExists = await db.checkInDb(username)
@@ -39,6 +40,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+// PATCH /api/v1/contacts
 router.patch('/', async (req, res) => {
   try {
     await db.updateContact(req.body)
@@ -49,6 +51,7 @@ router.patch('/', async (req, res) => {
   }
 })
 
+// DELETE /api/v1/delete
 router.delete('/', async (req, res) => {
   try {
     await db.deleteContact(req.body.id)
@@ -58,22 +61,3 @@ router.delete('/', async (req, res) => {
     res.status(500).send(err.message)
   }
 })
-
-router.post('/:userId', async (req, res) => {
-  const userId = req.params.userId
-  const { name, username } = req.body
-  try {
-    const newContact = {
-      name,
-      username,
-      userId,
-    }
-    await db.addContact(newContact)
-    res.sendStatus(201)
-  } catch (error) {
-    console.error(error)
-    res.status(500).send(error.message)
-  }
-})
-
-
