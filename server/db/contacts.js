@@ -2,6 +2,7 @@ const connection = require('./connection')
 
 module.exports = {
   getContacts,
+  addContact,
   addFruit,
   updateFruit,
   deleteFruit,
@@ -9,6 +10,11 @@ module.exports = {
 
 async function getContacts(userId, db = connection) {
   return db('contacts').where('user_id', userId).select()
+}
+
+async function addContact(newContact, db = connection) {
+  const { userId, name, username } = newContact
+  return db('contacts').insert({ user_id: userId, name, username })
 }
 
 async function getFruits(db = connection) {
