@@ -25,9 +25,9 @@
 
 .dashLink{
   position: absolute;
-  top: 1rem;
+  top: 2.2rem;
   right: 5rem;
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
 }
 
 /* LANDING */
@@ -37,6 +37,11 @@
   position: relative;
   flex-direction: column;
   overflow: hidden;
+  background: rgb(250,235,215);
+background: -moz-linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
+background: linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endColorstr="#d7e6fa",GradientType=1);
 }
 
 .layout{
@@ -52,7 +57,7 @@
 }
 
 .sectionOne{
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   grid-area: sec1;
   display: flex;
   flex-direction: row;
@@ -109,13 +114,13 @@
   text-align: left;
   margin: var(--margin-sm) 0;
   font-size: var(--font-mds);
-  width: 35ch;
+  max-width: 35ch;
 }
 
 
 
 .ctaButton{
-  background-color: var(--accent-color);
+  background-color: var(--main-color);
   border: 1px solid white;
   border-radius: var(--border-radius);
   z-index: 4;
@@ -137,7 +142,7 @@
 /* SECTION TWO */
 
 .sectionTwo{
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   grid-area: sec2;
   display: flex;
   flex-direction: column;
@@ -184,6 +189,7 @@
   margin:  var(--margin-md);
   padding: var(--padding-md);
   border-radius: var(--border-radius);
+  background-color: var(--main-color);
 }
 
 .benefitCardTop{
@@ -219,7 +225,7 @@
 /* Section Three */
 
 .sectionThree{
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   grid-area: sec3;
   display: flex;
   flex-direction: row;
@@ -268,7 +274,7 @@
 /* SECTION FOUR */
 
 .sectionFour{
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   grid-area: sec4;
   display: flex;
   flex-direction: column;
@@ -286,6 +292,10 @@
   
 }
 
+.testimonialWrapper:nth-child(1){
+  animation-delay: 1s;
+}
+
 .testiCard{
   min-width: 800px;
   height: 100%;
@@ -297,6 +307,10 @@
   position: relative;
   animation: fade 1s forwards;
   
+}
+
+.testiImageWrapper{
+  width: 70px;
 }
 
 .testiInfo{
@@ -366,7 +380,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: thistle;
 }
 
 
@@ -391,3 +404,79 @@
   transition-delay: 300ms;
 }
 
+.out{
+  transform: translateX(-100%);
+}
+
+.zoom{
+  transform: translateX(0%);
+  transition: all 1s;
+}
+
+@media screen and (max-width: 420px){
+  .layout{
+    grid-template-rows: repeat( 4, minmax(100vh, 1fr));
+  }
+  .header{
+    font-size: var(--font-mdl);
+  }
+  .sectionOne{
+    flex-direction: column;
+    max-width: 420px;
+  }
+  .sec1Left{
+    align-items: center;
+  }
+  .sec1Left > * {
+  margin: var(--margin-lg) ;
+  }
+  .sec1Right{
+    width: 85%;
+  }
+  .flockWrapper{
+    top: -18rem;
+    left: -5rem;
+  }
+  .benefitsWrapper{
+    flex-direction: column;
+    max-width: 420px;
+  }
+  .sectionThree{
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    padding: var(--padding-md) 0;
+  }
+  .secThreeImageWrapper{
+    justify-content: flex-start;
+  }
+
+  .secThreeRight > * {
+    margin: var(--margin-md) 0 ;
+  }
+
+  .threeHeader{
+    max-width: 15ch;
+    font-size: var(--font-mdl);
+  }
+  .threeTalk{
+    max-width: 30ch;
+  }
+  .relaxImage{
+    width: 350px;
+    height: 200px;
+  }
+  .windWrapper{
+    width: 200px;
+    height: 200px;
+    bottom: -17rem;
+    right: 5rem;
+  }
+  .testimonialWrapper{
+    max-width: 425px;
+  }
+
+  .testiCard{
+    max-width: 425px;
+    min-width: 0;
+  }
+}

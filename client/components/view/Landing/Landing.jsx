@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../../../../server/public/styles/Landing.module.css'
-import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import Nav from '../../Nav'
 import SectionOne from './SectionOne'
