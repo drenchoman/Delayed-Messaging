@@ -46,7 +46,7 @@ function Nav() {
           <Link className={styles.loginOption} to="/" onClick={handleSignIn}>
             Register
           </Link>
-          <Link className={styles.dashLink} to="/dashboard">
+          <Link className={styles.dashLink} to="/correspondence/:userid/dashboard">
             To Dashboard
           </Link>
         </IfNotAuthenticated>
