@@ -2,6 +2,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+  padding-top: 12vh;
 }
 .border {
   padding: 5px;
@@ -9,11 +10,22 @@
   /* border: 1px solid black; */
 }
 .mid_container {
-  width: 40vw;
+  width: 50vw;
 }
 
-.side_container {
+.leftside_container {
   width: 25vw;
+  position:fixed;
+  left: 2%;
+}
+
+.rightside_container {
+  width: 25vw;
+  position:fixed;
+  right: -2px;
+  top: 30%;
+  display: flex;
+  justify-content: center;
 }
 
 .border p {
@@ -21,15 +33,18 @@
   border-bottom: 2px dotted black;
   padding: 10px 10px 2px 0px;
 }
-
+.child {
+  padding-top: 10px;
+  width: 50vw;
+}
 .mid_container .child {
   display: flex;
   justify-content: space-between;
 }
 
-.btn {
-  background-color: transparent;
-  font-size: 1.2rem;
-  letter-spacing: 0.5rem;
-  text-align: center;
+.rightside_container p{
+  border: none;
+}
+.add_contact {
+  width: 80%;
 }

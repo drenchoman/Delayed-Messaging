@@ -1,27 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
 
+import NavTwo from "./NavTwo";
 import ContactList from "./Fragments/ContactList";
+import ContactDetails from "./Fragments/ContactDetails";
 
 function Contacts() {
-  console.log('contact page working');
+  const { flex, 
+    mid_container, 
+    border, 
+    rightside_container,
+    leftside_container, 
+    child, 
+    btn,
+    add_contact
+  } = styles
 
-  const { flex, mid_container, border, side_container, child, btn } = styles
+  const [ details, setDetails ] = useState({
+    name: '',
+    newCorrespondence: 'New Correspondence',
+    edit: 'Edit',
+    delete: 'Delete',
+    block: 'Block'
+  })
 
+  function displayDetail() {
+    // console.log(details.name.length);
+    if (details.name.length > 1) {
+      return <ContactDetails details={details}/>
+    }
+  }
+  
   return (
+    <>
+    <NavTwo />
     <div className={flex}>
-      <div className={border + ' ' + side_container}>
+      <div className={border + ' ' + leftside_container}>
         <h5>New Contact +</h5>
-        <input type='text' placeholder="enter username"/>
+        <input className={add_contact} type='text' placeholder="enter username"/>
       </div>
       <div className={mid_container + ' ' + border}>
         <h5>Name</h5>
-       <ContactList child={child} btn={btn} />
+        {/* <h5>Add</h5> */}
+       <ContactList child={child} btn={btn} setDetails={setDetails} />
       </div>
-      <div className={border + ' ' + side_container}>
-        <h5>Add</h5>
+      <div className={border + ' ' + rightside_container}>
+        {displayDetail()}
       </div>
     </div>
+    </>
   )
 }
 

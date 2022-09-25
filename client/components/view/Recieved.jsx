@@ -28,6 +28,10 @@ function Recieved() {
     },
   ]
 
+  function displayHandler() {
+    (hide != show) ? setHide(show) : setHide(hidden)
+  }
+
   return (
     <>
       <div style={{ borderBottom: '5px solid black' }}>

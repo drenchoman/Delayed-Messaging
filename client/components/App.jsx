@@ -7,8 +7,13 @@ import { getUser } from '../api'
 import { useDispatch } from 'react-redux'
 import { clearLoggedInUser, updateLoggedInUser } from '../slices/user'
 
-// import Nav from './Nav'
-import UserRoutes from '../UserRoutes'
+import DashBoard from './view/DashBoard'
+import NewCorrespondence from './view/NewCorrespondence'
+import Contacts from './view/Contacts'
+import Draft from './view/Draft'
+import Recieved from './view/Recieved'
+import Archive from './view/Archive'
+import Landing from './view/Landing/Landing'
 
 function App() {
   useCacheUser()
@@ -33,8 +38,18 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <>
-      <UserRoutes />
+    <>  
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/NewCorrespondence" element={<NewCorrespondence />} />
+        <Route path="/recieved" element={<Recieved />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/draft" element={<Draft />} />
+        <Route path="/archive" element={<Archive />} />
+      </Routes>
     </>
   )
 }
