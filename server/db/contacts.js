@@ -22,7 +22,7 @@ async function updateContact(newContact, user, db = connection) {
     .first()
     .then((contact) => authorizeUpdate(contact, user))
     .then(() => {
-      return db('fruits').where('id', newFruit.id).update(newFruit)
+      return db('fruits').where('id', newContact.id).update(newContact)
     })
     .then(() => db)
     .then(getFruits)
@@ -52,7 +52,6 @@ async function getFruits(db = connection) {
     )
     .then(sort)
 }
-
 
 function authorizeUpdate(fruit, auth0Id) {
   if (fruit.added_by_user !== auth0Id) {
