@@ -15,12 +15,12 @@ function UserRoutes() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/dashboard" element={<DashBoard />} />
-      <Route path="/NewCorrespondence" element={<NewCorrespondence />} />
-      <Route path="/recieved" element={<Recieved />} />
-      <Route path="/contacts" element={<Contacts />} />
-      <Route path="/draft" element={<Draft />} />
-      <Route path="/archive" element={<Archive />} />
+      <Route path="/correspondence/:userid/dashboard" element={<DashBoard />} />
+      <Route path="/correspondence/:userid/NewCorrespondence" element={<NewCorrespondence />} />
+      <Route path="/correspondence/:userid/recieved" element={<Recieved />} />
+      <Route path="/correspondence/:userid/contacts" element={<Contacts />} />
+      <Route path="/correspondence/:userid/draft" element={<Draft />} />
+      <Route path="/correspondence/:userid/archive" element={<Archive />} />
     </Routes>
   )
 }
