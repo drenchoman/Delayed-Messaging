@@ -1,6 +1,8 @@
 import { React, useState } from 'react'
 
 import Letter from './Fragments/Letter'
+import NavTwo from './NavTwo'
+import styles from '../../../server/public/styles/Recieved.module.css'
 
 function Recieved() {
   const [state, setState] = useState(0)
@@ -28,9 +30,13 @@ function Recieved() {
     },
   ]
 
+  const { marginTop, center } = styles
+
   return (
     <>
-      <div style={{ borderBottom: '5px solid black' }}>
+      <NavTwo />
+    <div className={center}>
+      <div className={marginTop}>
         {messages.map((message) => {
           return (
             <Letter
@@ -49,6 +55,7 @@ function Recieved() {
           setState(0)
         }}
       ></div>
+    </div>
     </>
   )
 }

@@ -30,8 +30,10 @@ function Register() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
+
     const userInfo = {
       auth0Id: user.auth0Id,
+      username: form.username,
       email: user.email,
       ...form,
     }
@@ -61,7 +63,6 @@ function Register() {
             onChange={handleChange}
           />
         </label>
-
         <button disabled={!form.username}>Save Profile</button>
       </form>
     </>
