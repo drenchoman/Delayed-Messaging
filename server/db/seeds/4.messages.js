@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
   await knex('messages').insert([
     {
       id: 1,
-      recepient_username: 'banana_llama',
+      recipient_username: 'banana_llama',
       sender_username: 'grape_gatsby',
       message: `Hey, I think you,re really cool, maybe we should hand out or something?`,
       subject: 'A Proposal',
@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 2,
-      recepient_username: 'grape_gatsby',
+      recipient_username: 'grape_gatsby',
       sender_username: 'banana_llama',
       message: `Hey, this is a short test letter`,
       subject: 'Testing',
@@ -31,7 +31,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 3,
-      recepient_username: 'grape_gatsby',
+      recipient_username: 'grape_gatsby',
       sender_username: 'banana_llama',
       message: `Hello world`,
       subject: 'Hiya, this is a draft',
@@ -42,7 +42,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 4,
-      recepient_username: 'banana_llama',
+      recipient_username: 'banana_llama',
       sender_username: 'grape_gatsby',
       message: `Heartfelt letter`,
       subject: 'Meaningful Header',
@@ -53,7 +53,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 5,
-      recepient_username: 'banana_llama',
+      recipient_username: 'banana_llama',
       sender_username: 'grape_gatsby',
       message: `You will get this one day`,
       subject: 'Muhahaha',
