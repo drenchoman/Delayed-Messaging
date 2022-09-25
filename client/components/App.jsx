@@ -14,7 +14,7 @@ import Draft from './view/Draft'
 import Recieved from './view/Recieved'
 import Archive from './view/Archive'
 import Landing from './view/Landing/Landing'
-import Register from './Register'
+import Register from './view/Register/Register'
 
 function App() {
   useCacheUser()
