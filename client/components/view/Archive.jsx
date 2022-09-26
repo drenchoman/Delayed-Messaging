@@ -1,12 +1,49 @@
-import React from "react";
-import NavTwo from "./NavTwo";
+import React, { useState, useEffect } from 'react'
+import NavTwo from './NavTwo'
+import styles from '../../../server/public/styles/Recieved.module.css'
+import Letter from './Fragments/Letter'
+import { getAllArchivedMessages } from '../../api'
+import { useSelector } from 'react-redux'
 
 function Archive() {
-  console.log('archive page working...');
+  const { marginTop, center } = styles
+  const [state, setState] = useState(0)
+  const [messages, setMessages] = useState([])
+  const user = useSelector((state) => state.user)
+
+  useEffect(async () => {
+    const messages = getAllArchivedMessages(user.username)
+    setMessages(messages)
+  }, [])
+
   return (
     <>
-    <NavTwo />
-    <div></div>
+      <NavTwo />
+      <div className={center}>
+        <div className={marginTop}>
+          {messages.length > 0 ? (
+            messages.map((message) => {
+              return (
+                <Letter
+                  message={message}
+                  id={message.id}
+                  key={message.id}
+                  state={state}
+                  setState={setState}
+                ></Letter>
+              )
+            })
+          ) : (
+            <div>No Archived Messages </div>
+          )}
+        </div>
+        <div
+          style={{ height: '700px' }}
+          onClick={() => {
+            setState(0)
+          }}
+        ></div>
+      </div>
     </>
   )
 }

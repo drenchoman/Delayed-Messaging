@@ -17,7 +17,6 @@ export async function useCacheUser() {
         email: user?.email,
         token: token,
       }
-      console.log('test')
       dispatch(updateLoggedInUser(userToSave))
     } catch (err) {
       console.error(err)
