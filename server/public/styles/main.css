@@ -14,6 +14,7 @@ Helps with consistency across our components
   --main-color: antiquewhite;
   --accent-color: #f8fad7;
   --comp-color: rgba(215,230,250,1);
+  --text-primary: black;
   --margin-sm: 0.5rem;
   --margin-md: 1rem;
   --margin-lg: 2rem;
@@ -23,6 +24,13 @@ Helps with consistency across our components
   --border-radius: 10px;
   
 
+}
+
+[data-theme='dark']{
+  --main-color: black;
+  --text-primary: white;
+  --accent: darkred;
+  --fill: invert(100%) sepia(100%) saturate(38%) hue-rotate(254deg) brightness(110%) contrast(110%);
 }
 
 @keyframes fade {
