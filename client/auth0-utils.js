@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useDispatch } from 'react-redux'
-
+import { getUserById } from './api'
 import { updateLoggedInUser } from './slices/user'
 
 // eslint-disable-next-line no-unused-vars
@@ -17,7 +17,7 @@ export async function useCacheUser() {
         email: user?.email,
         token: token,
       }
-
+      console.log('test')
       dispatch(updateLoggedInUser(userToSave))
     } catch (err) {
       console.error(err)

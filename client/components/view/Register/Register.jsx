@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styles from '../../../../server/public/styles/Register.module.css'
 import Nav from '../../Nav'
 import Form from './Form'
+import { useNavigate } from 'react-router-dom'
 
 function Register() {
   const [created, setCreated] = useState(false)
+  const navigate = useNavigate()
+  const user = useSelector((state) => state.user)
+
+  useEffect(() => {
+    if (user.username.length > 1) {
+      navigate(`/correspondence${user.auth0Id}/dashboard`)
+    }
+  }, [])
 
   return (
     <>

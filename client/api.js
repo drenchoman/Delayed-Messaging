@@ -11,6 +11,17 @@ export function getUser(token) {
     .catch(logError)
 }
 
+export function getUserById(id, token) {
+  console.log(id)
+  return (
+    request
+      .get(`${rootUrl}/users/${id}`)
+      // .set(`Authorization, Bearer ${token}`)
+      .then((res) => res.body)
+      .catch(logError)
+  )
+}
+
 export function addUser(user, token) {
   console.log('testing')
   console.log(user)

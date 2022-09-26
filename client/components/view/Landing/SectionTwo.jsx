@@ -16,6 +16,7 @@ export default function SectionTwo() {
       <div className={styles.flockWrapper}>
         <img src={flock} alt="flock of birds"></img>
       </div>
+      <h2 className={styles.sec2header}>Easy as 1 2 3</h2>
       <div className={styles.benefitsWrapper}>
         <Card
           image={face}
