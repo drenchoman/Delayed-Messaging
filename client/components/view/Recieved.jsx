@@ -28,17 +28,21 @@ function Recieved() {
       <NavTwo />
       <div className={center}>
         <div className={marginTop}>
-          {letters.map((letter) => {
-            return (
-              <Letter
-                letter={letter}
-                id={letter.id}
-                key={letter.id}
-                othersClicked={othersClicked}
-                setOthersClicked={setOthersClicked}
-              ></Letter>
-            )
-          })}
+          {letters?.length > 0 ? (
+            letters.map((letter) => {
+              return (
+                <Letter
+                  letter={letter}
+                  id={letter.id}
+                  key={letter.id}
+                  othersClicked={othersClicked}
+                  setOthersClicked={setOthersClicked}
+                ></Letter>
+              )
+            })
+          ) : (
+            <div>No Recieved Messages </div>
+          )}
         </div>
         <div
           style={{ height: '700px' }}
