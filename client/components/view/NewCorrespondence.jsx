@@ -7,20 +7,23 @@ import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
-  // const dispatch = useDispatch
-
-  useEffect(() => {
-    postNewMessage(user.token).then(res => {
-      console.log(res)
-    })
-    .catch(error => { console.error(error)})
-  }, [])
 
   const [form, setForm] = useState({
     recipient: '',
     subject: '',
     body: '',
   })
+
+  useEffect(() => {
+    postNewMessage(user.token)
+      .then((res) => {
+        console.log(res)
+        setForm(form)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -75,7 +78,6 @@ function NewCorrespondence() {
             Send
           </button>
         </div>
-        <p style={{ whiteSpace: 'pre-line' }}>{form.body}</p>
       </form>
     </>
   )
