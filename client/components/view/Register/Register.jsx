@@ -12,7 +12,7 @@ function Register() {
 
   useEffect(() => {
     if (user.username.length > 1) {
-      navigate(`/correspondence${user.auth0Id}/dashboard`)
+      navigate(`/correspondence/${user.auth0Id}/dashboard`)
     }
   }, [])
 
