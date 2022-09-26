@@ -4,9 +4,13 @@ import styles from '../../../../server/public/styles/Landing.module.css'
 export default function SectionFive() {
   return (
     <div className={styles.sectionFive}>
-      <div>
-        <h3>Take back your communication</h3>
+      <div className={styles.sec5Left}>
+        <h3 className={styles.sec5Header}>
+          Escape Instant Messaging And Begin Crafting Your Correspondence Today
+        </h3>
+        <button className={styles.ctaButton}>Create</button>
       </div>
+      <div className={styles.sec5Right}></div>
     </div>
   )
 }

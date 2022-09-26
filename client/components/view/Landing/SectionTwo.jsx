@@ -5,8 +5,8 @@ import face from '../../../../server/public/images/svg/face.svg'
 import friend from '../../../../server/public/images/svg/friend.svg'
 import mail from '../../../../server/public/images/svg/mail.svg'
 import flock from '../../../../server/public/images/inflight.png'
-import wind from '../../../../server/public/images/svg/wind.svg'
 import { useInView } from 'react-intersection-observer'
+import Wind from './Wind'
 
 export default function SectionTwo() {
   const { ref, inView, entry } = useInView()
@@ -16,30 +16,32 @@ export default function SectionTwo() {
       <div className={styles.flockWrapper}>
         <img src={flock} alt="flock of birds"></img>
       </div>
-      <h2 className={styles.sec2header}>Easy as 1 2 3</h2>
+      <h2
+        ref={ref}
+        className={`${styles.sec2header} ${
+          inView ? styles.show : styles.hidden
+        }`}
+      >
+        Correspondence Is Simple
+      </h2>
       <div className={styles.benefitsWrapper}>
         <Card
-          image={face}
-          header="Benefit One"
-          feature="Big feature and lots of benefits and this will change your life probably"
-        />
-        <Card
           image={mail}
-          header="Benefit One"
-          feature="Big feature and lots of benefits"
+          header="Craft Your Message"
+          feature="Our minimal design keeps things simple and helps you focus"
         />
         <Card
           image={friend}
-          header="Benefit One"
-          feature="Big feature and lots of benefits"
+          header="Choose a Recipient"
+          feature="Perfect for those people whom you love but are far away from."
+        />
+        <Card
+          image={face}
+          header="Relax"
+          feature="Our unique delay function means messages arrive when they need to."
         />
       </div>
-      <div
-        ref={ref}
-        className={`${styles.windWrapper} ${inView ? styles.zoom : styles.out}`}
-      >
-        <img src={wind} alt="windy"></img>
-      </div>
+      <Wind />
     </div>
   )
 }

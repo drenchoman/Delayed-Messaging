@@ -27,10 +27,12 @@ export default function SectionThree() {
           No Hassle. No Obligations. No Stress.
         </h2>
         <p className={styles.threeTalk}>
-          Messages arrive when they need to so you can relax and take your time.
+          When will my message arrive? 5 Days? 5 Months? 5 Years? Anything is
+          possible with Correspondence.
         </p>
         <p className={styles.threeTalk}>
-          Reply when you need to. There are no expectations.{' '}
+          Reminisce in how communication used to be, reply when you need to,
+          reply when you can.
         </p>
       </div>
     </div>

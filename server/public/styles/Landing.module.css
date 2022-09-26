@@ -53,7 +53,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   "sec1"
   "sec2"
   "sec3"
-  "sec4";
+  "sec4"
+  "sec5";
 }
 
 .sectionOne{
@@ -147,7 +148,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.sec2header{
+ position: relative;
+ font-size: var(--font-mdl);
+top: 10rem;
 }
 
 .benefitsWrapper{
@@ -369,8 +378,41 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   position: absolute;
   overflow: hidden;
   bottom: -5rem;
-  right: -10rem;
+  right: -18rem;
   width: 800px;
+}
+
+
+/* SECTION FIVE */
+.sectionFive{
+  /* background-color: var(--main-color); */
+  grid-area: sec5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--margin-lg);
+  padding-bottom: var(--padding-lg);
+  /* min-height: 50vh; */
+}
+
+.sec5Left{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.sec5Right{
+width: 0;  
+}
+
+.sec5Header{
+  max-width: 35ch;
+  text-align: center;
+  font-size: var(--font-md);
 }
 
 /* Footer */
@@ -380,6 +422,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--padding-lg) 0;
+  margin: var(--margin-lg) 0;
 }
 
 
@@ -415,7 +459,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 
 @media screen and (max-width: 420px){
   .layout{
-    grid-template-rows: repeat( 4, minmax(100vh, 1fr));
+    grid-template-rows: repeat( 5, minmax(100vh, 1fr));
   }
   .header{
     font-size: var(--font-mdl);
