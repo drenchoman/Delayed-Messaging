@@ -6,7 +6,9 @@ function Letter(props) {
 
   const { closedLetter, border_top, flex } = styles
 
-  const message = props.message
+  const letter = props.letter
+
+  const { sender_username, message, subject } = letter
 
   function closed() {
     setLetterState('closed')
@@ -17,58 +19,52 @@ function Letter(props) {
   }
 
   function open() {
-    props.setState(props.id)
+    props.setOthersClicked(props.id)
     setLetterState('closed')
   }
 
   function closeOpened() {
-    props.setState(0)
+    props.setOthersClicked(0)
     setLetterState('hover')
   }
 
   return (
     <>
-      {props.state === 0 && (
+      {props.othersClicked === 0 && (
         <>
           {letterState === 'closed' && (
-            <div
-              className={closedLetter}
-              onMouseEnter={hover}
-              onFocus={hover}
-            >From: {message.sender}</div>
+            <div className={closedLetter} onMouseEnter={hover} onFocus={hover}>
+              From: {sender_username}
+            </div>
           )}
           {letterState === 'hover' && (
-            <div
-              className={border_top}
-              onMouseLeave={closed}
-              onClick={open}
-            >
+            <div className={border_top} onMouseLeave={closed} onClick={open}>
               <div className={flex}>
                 <p>From: </p>
-                <h3>{message.sender}</h3>
+                <h3>{sender_username}</h3>
               </div>
               <div className={flex}>
                 <p>Subject: </p>
-                <h3>{message.subject}</h3>
+                <h3>{subject}</h3>
               </div>
             </div>
           )}
         </>
       )}
-      {props.state === props.id && (
+      {props.othersClicked === props.id && (
         <div className={border_top} onClick={closeOpened}>
-           <div className={flex}>
-              <p>From: </p>
-              <h3>{message.sender}</h3>
-            </div>
-            <div className={flex}>
-              <p>Subject: </p>
-              <h3>{message.subject}</h3>
-            </div>
-          <p style={{ whiteSpace: 'pre-line' }}>{message.body}</p>
+          <div className={flex}>
+            <p>From: </p>
+            <h3>{sender_username}</h3>
+          </div>
+          <div className={flex}>
+            <p>Subject: </p>
+            <h3>{subject}</h3>
+          </div>
+          <p style={{ whiteSpace: 'pre-line' }}>{message}</p>
         </div>
       )}
-      {props.state !== props.id && props.state !== 0 && (
+      {props.othersClicked !== props.id && props.othersClicked !== 0 && (
         <>
           {letterState === 'closed' && (
             <div
@@ -78,19 +74,15 @@ function Letter(props) {
             ></div>
           )}
           {letterState === 'hover' && (
-            <div
-              className={border_top}
-              onMouseLeave={closed}
-              onClick={open}
-            >
-            <div className={flex}>
-              <p>From: </p>
-              <h3>{message.sender}</h3>
-            </div>
-            <div className={flex}>
-              <p>Subject: </p>
-              <h3>{message.subject}</h3>
-            </div>
+            <div className={border_top} onMouseLeave={closed} onClick={open}>
+              <div className={flex}>
+                <p>From: </p>
+                <h3>{sender_username}</h3>
+              </div>
+              <div className={flex}>
+                <p>Subject: </p>
+                <h3>{subject}</h3>
+              </div>
             </div>
           )}
         </>

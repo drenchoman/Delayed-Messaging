@@ -11,7 +11,6 @@ module.exports = router
 // GET /api/v1/contacts
 router.get('/:id', async (req, res) => {
   const { id } = req.params
-  console.log(id)
   try {
     const contacts = await db.getContacts(id)
     res.json(contacts)

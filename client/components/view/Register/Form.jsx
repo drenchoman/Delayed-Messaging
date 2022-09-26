@@ -18,12 +18,15 @@ export default function Form({ setCreated }) {
   useEffect(() => {
     if (user.username) {
       setCreated(true)
-      setTimeout(
+      const timeOut = setTimeout(
         () => navigate(`/correspondence/${user.auth0Id}/dashboard`),
         1600
       )
+      return () => {
+        clearTimeout(timeOut)
+      }
     }
-  }, [user])
+  }, [user.username])
 
   const handleChange = (evt) => {
     setForm({
