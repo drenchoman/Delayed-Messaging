@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
-import { getAllContacts } from "../../api";
+import { getAllContacts, addContact } from "../../api";
 
 import NavTwo from "./NavTwo";
 import ContactList from "./Fragments/ContactList";
@@ -49,8 +49,8 @@ function Contacts() {
       <div className={`${border} ${leftside_container}`}>
         <ContactAdd 
           add_contact={add_contact} 
-          setList={setList} 
           getContacts={getContacts}
+          addContact={addContact}
         />
       </div>
       <div className={`${mid_container} ${border}`}>

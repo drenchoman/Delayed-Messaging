@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { addContact } from "../../../api";
+// import { addContact } from "../../../api";
 
-export default function ContactAdd({getContacts, add_contact, setList}) {
+export default function ContactAdd({getContacts, addContact, add_contact, setList}) {
   const [addName, setAddName ] = useState('')
 
   function onchangeHandler(e) {
