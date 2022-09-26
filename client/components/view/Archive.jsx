@@ -6,41 +6,48 @@ import { getAllArchivedMessages } from '../../api'
 import { useSelector } from 'react-redux'
 
 function Archive() {
-  const { marginTop, center, empty } = styles
-  const [state, setState] = useState(0)
-  const [messages, setMessages] = useState([])
+  const { marginTop, center } = styles
+  const [othersClicked, setOthersClicked] = useState(0)
+  const [letters, setLetters] = useState([])
   const user = useSelector((state) => state.user)
 
   useEffect(async () => {
-    const messages = getAllArchivedMessages(user.username)
-    setMessages(messages)
+    getAllArchivedMessages(user.username, user.token)
+      .then((letters) => {
+        setLetters(letters)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }, [])
+
+  console.log('Letters length', letters?.length, letters)
 
   return (
     <>
       <NavTwo />
       <div className={center}>
         <div className={marginTop}>
-          {messages.length > 0 ? (
-            messages.map((message) => {
+          {letters?.length > 0 ? (
+            letters.map((letter) => {
               return (
                 <Letter
-                  message={message}
-                  id={message.id}
-                  key={message.id}
-                  state={state}
-                  setState={setState}
+                  letter={letter}
+                  id={letter.id}
+                  key={letter.id}
+                  othersClicked={othersClicked}
+                  setOthersClicked={setOthersClicked}
                 ></Letter>
               )
             })
           ) : (
-            <div className={empty}>No Archived Messages </div>
+            <div>No Archived Messages </div>
           )}
         </div>
         <div
           style={{ height: '700px' }}
           onClick={() => {
-            setState(0)
+            setOthersClicked(0)
           }}
         ></div>
       </div>
