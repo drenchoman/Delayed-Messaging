@@ -6,7 +6,7 @@ import { getAllArchivedMessages } from '../../api'
 import { useSelector } from 'react-redux'
 
 function Archive() {
-  const { marginTop, center } = styles
+  const { marginTop, center, empty } = styles
   const [state, setState] = useState(0)
   const [messages, setMessages] = useState([])
   const user = useSelector((state) => state.user)
@@ -34,7 +34,7 @@ function Archive() {
               )
             })
           ) : (
-            <div>No Archived Messages </div>
+            <div className={empty}>No Archived Messages </div>
           )}
         </div>
         <div
