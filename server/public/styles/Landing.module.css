@@ -17,17 +17,15 @@
 
 .logo{
   width: 50px;
+  filter: var(--fill);
 }
 
 .loginOption{
   margin: var(--margin-sm);
 }
 
-.dashLink{
-  position: absolute;
-  top: 2.2rem;
-  right: 5rem;
-  font-size: var(--font-sm);
+.userName{
+  margin: 0 var(--margin-sm);
 }
 
 /* LANDING */
@@ -37,11 +35,12 @@
   position: relative;
   flex-direction: column;
   overflow: hidden;
-  background: rgb(250,235,215);
 background: -moz-linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
 background: -webkit-linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
 background: linear-gradient(180deg, rgba(250,235,215,1) 0%, rgba(215,230,250,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endColorstr="#d7e6fa",GradientType=1);
+background: var(--main-color);
+color: var(--text-primary);
 }
 
 .layout{
@@ -122,7 +121,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 
 .ctaButton{
   background-color: var(--comp-color);
-  border: 1px solid white;
+  border: 1px solid var(--text-primary);
   border-radius: var(--border-radius);
   z-index: 4;
   max-width: 150px;
@@ -183,6 +182,7 @@ top: 10rem;
   position: absolute;
   top: -18rem;
   left: -25rem;
+  filter: var(--fill);
 }
 
 .benefitCard{
@@ -194,7 +194,7 @@ top: 10rem;
   max-height: 300px;
   min-height:300px;
   max-width: 250px;
-  border: 1px solid black;
+  border: 1px solid var(--text-primary);
   margin:  var(--margin-md);
   padding: var(--padding-md);
   border-radius: var(--border-radius);
@@ -220,10 +220,12 @@ top: 10rem;
   position: absolute;
   bottom: -12rem;
   right: 7rem;
+  filter: var(--fill);
 }
 
 .cardImageWrapper{
-  margin: var(--margin-md)
+  margin: var(--margin-md);
+  filter: var(--fill);
 }
 .cardImage{
   width: 60px;
@@ -278,6 +280,7 @@ top: 10rem;
 .relaxImage{
   transform: scaleX(-1);
   width: 500px;
+  filter: var(--fill);
 }
 
 
@@ -294,7 +297,7 @@ top: 10rem;
 }
 
 .testimonialWrapper{
-  border: 1px solid black;
+  border: 1px solid var(--text-primary);
   border-radius: var(--border-radius);
   display: flex;
   overflow: scroll;
@@ -339,6 +342,11 @@ top: 10rem;
 .rightArrow{
   position: absolute;
   right: 1rem;
+  top: 5rem;
+  filter: var(--fill);
+}
+.rightArrow:hover{
+  cursor: pointer;
 }
 
 .rightArrow > img {
@@ -349,11 +357,17 @@ top: 10rem;
 .leftArrow{
   position: absolute;
   left: 1rem;
+  top: 5rem;
+  filter: var(--fill);
 }
 
 .leftArrow > img {
   width: 50px;
   height: 50px;
+}
+
+.leftArrow:hover{
+  cursor: pointer;
 }
 
 .testiHeader{
@@ -391,6 +405,7 @@ top: 10rem;
   bottom: -5rem;
   right: -21rem;
   width: 800px;
+  filter: var(--fill);
 }
 
 
@@ -426,7 +441,7 @@ width: 0;
   font-size: var(--font-md);
 }
 .ctaButton2{
-  background-color: var(--main-color);
+  background-color: var(--accent-color);
   border: 1px solid white;
   border-radius: var(--border-radius);
   z-index: 4;
