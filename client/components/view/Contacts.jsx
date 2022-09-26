@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
-import { addContact } from "../../api";
+import { getAllContacts } from "../../api";
 
 import NavTwo from "./NavTwo";
 import ContactList from "./Fragments/ContactList";
 import ContactDetails from "./Fragments/ContactDetails";
-import ContactAdd from './Fragments/ContactAdd';
+import ContactAdd from "./Fragments/ContactAdd";
 
 function Contacts() {
+  const [list, setList] = useState([])
+
+  async function getContacts() {
+    const contacts = await getAllContacts('auth0|123')
+    setList(contacts)
+  }
+
+  useEffect(() => getContacts(),[])
+
   const { flex, 
     mid_container, 
     border, 
@@ -27,32 +36,38 @@ function Contacts() {
   })
 
   function displayDetail() {
-    // console.log(details.name.length);
     if (details.name.length > 1) {
       return <ContactDetails details={details}/>
     }
   }
 
   
-  
   return (
     <>
     <NavTwo />
     <div className={flex}>
-      <div className={border + ' ' + leftside_container}>
-        <ContactAdd add_contact={add_contact} />
+      <div className={`${border} ${leftside_container}`}>
+        <ContactAdd 
+          add_contact={add_contact} 
+          setList={setList} 
+          getContacts={getContacts}
+        />
       </div>
-      <div className={mid_container + ' ' + border}>
+      <div className={`${mid_container} ${border}`}>
         <h5>Name</h5>
         {/* <h5>Add</h5> */}
-       <ContactList child={child} btn={btn} setDetails={setDetails} />
+       <ContactList 
+        list={list} 
+        child={child} 
+        btn={btn} 
+        setDetails={setDetails} />
       </div>
-      <div className={border + ' ' + rightside_container}>
+      <div className={`${border} ${rightside_container}`}>
         {displayDetail()}
       </div>
     </div>
     </>
   )
-} 
+}
 
 export default Contacts

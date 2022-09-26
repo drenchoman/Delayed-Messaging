@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { addContact } from "../../../api";
 
-export default function ContactAdd({add_contact}) {
+export default function ContactAdd({getContacts, add_contact, setList}) {
   const [addName, setAddName ] = useState('')
 
   function onchangeHandler(e) {
@@ -18,10 +18,7 @@ export default function ContactAdd({add_contact}) {
     addContact(newContact)
   }
 
-  async function getContacts() {
-    const contacts = await getAllContacts('auth0|123')
-    setList(contacts)
-  }
+  const updateList = () => getContacts()
 
   return (
     <form onSubmit={submitHandler}>
@@ -33,7 +30,11 @@ export default function ContactAdd({add_contact}) {
         placeholder="enter username"
         value={addName}
       />
-      <button type="submit" onClick={getContacts}>Add</button>
+      <button 
+        type="submit" 
+        onClick={updateList}>
+          Add
+      </button>
     </form>
   )
 }

@@ -1,21 +1,17 @@
 import React from "react";
 import ContactBtn from "./ContactBtn";
-
-import { useSelector } from "react-redux";
-
  
-export default function ContactList({ child, setDetails }) {
-  const list = useSelector(state => state.contacts)
-  console.log(list);
+export default function ContactList({ list, child, setDetails }) {
 
+ const isName = (name, username) => (name) ? name : username
 
   return (
     <>
       {list.map( arr => {
-        const { id, name } = arr        
+        const { id, name, username } = arr        
         return (
           <div key={id} className={child} >
-            <p>{name}</p>
+            <p>{isName(name,username)}</p>
             <ContactBtn name={name} setDetails={setDetails} />
           </div>
         )

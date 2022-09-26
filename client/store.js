@@ -12,4 +12,3 @@ const store = configureStore({
 })
 
 export default store
-export const dispatch = store.dispatch
