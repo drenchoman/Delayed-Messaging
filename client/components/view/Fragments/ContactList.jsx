@@ -1,19 +1,13 @@
 import React from "react";
 import ContactBtn from "./ContactBtn";
-import {getAllContacts} from '../../../api.js'
-import { useEffect } from "react";
-import { useState } from "react";
+
+import { useSelector } from "react-redux";
+
  
 export default function ContactList({ child, setDetails }) {
+  const list = useSelector(state => state.contacts)
+  console.log(list);
 
-  const [list, setList] = useState([])
-
-  async function getContacts() {
-    const contacts = await getAllContacts('auth0|123')
-    setList(contacts)
-  }
-
-  useEffect(() => getContacts(),[])
 
   return (
     <>
