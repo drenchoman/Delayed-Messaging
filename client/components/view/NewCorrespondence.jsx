@@ -7,6 +7,9 @@ import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
+  // TO BE LINKED WITH REDUX list WHEN AVAILABLE
+  // const list = useSelector((state) => state.list)
+  const listofnames = ['banana_llama', 'steve', 'grape_gatsby']
 
   const [form, setForm] = useState({
     recipientUsername: '',
@@ -39,10 +42,16 @@ function NewCorrespondence() {
           <input
             type="text"
             name="recipientUsername"
+            list="friendsList"
             placeholder="Recipient..."
             onChange={handleChange}
             value={form.recipientUsername}
           />
+          <datalist id="friendsList">
+            {listofnames.map((n) => (
+              <option key={n} value={n}></option>
+            ))}
+          </datalist>
         </div>
         <div>
           {/* <label htmlFor="plate">Subject</label> */}
