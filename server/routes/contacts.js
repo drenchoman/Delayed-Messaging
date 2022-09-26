@@ -1,6 +1,7 @@
 const express = require('express')
 // const checkJwt = require('../auth0')
 const db = require('../db/contacts')
+const userDb = require('../db/users')
 
 const router = express.Router()
 
@@ -23,9 +24,14 @@ router.get('/:id', async (req, res) => {
 // POST /api/v1/contacts
 router.post('/', async (req, res) => {
   const { username, authId } = req.body
+  const userExists = await userDb.userExists(username)
+
   const contactAlreadyExists = await db.checkInDb(username)
   if (contactAlreadyExists.length > 0) {
     res.status(409).json({ errorMessage: 'Contact already added.' })
+  }
+  if (!userExists) {
+    res.status(409).json({ errorMessage: 'Username does not exist' })
   }
   try {
     const newContact = {
