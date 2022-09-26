@@ -36,7 +36,7 @@ export function updateDelay(updatedDelay, token) {
   return request
     .patch(`${rootUrl}/users`)
     .set('Authorization', `Bearer ${token}`)
-    .semd(updatedDelay)
+    .send(updatedDelay)
     .then((res) => res.body)
     .catch(logError)
 }
@@ -68,6 +68,7 @@ export function getAllArchivedMessages(username, token) {
 }
 
 export function postNewMessage(newMessage, token) {
+  console.log('postNewMessage')
   return request
     .post(`${rootUrl}/messages`)
     .set('Authorization', `Bearer ${token}`)
