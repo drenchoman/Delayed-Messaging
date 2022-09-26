@@ -63,6 +63,7 @@ function Contacts() {
       <div className={`${border} ${rightside_container}`}>
         {displayDetail()}
       </div>
+     </div>
     </>
   )
 }
