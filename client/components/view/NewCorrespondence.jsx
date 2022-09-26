@@ -26,45 +26,44 @@ function NewCorrespondence() {
 
   return (
     <>
-    <NavTwo />
-    <form className={formInput}>
-      <div>
-        {/* <label htmlFor="recipient">Recipient</label> */}
-        <input
-          type="text"
-          name="recipient"
-          placeholder="Recipient..."
-          onChange={handleChange}
-          value={form.recipient}
-        />
-      </div>
-      <div>
-        {/* <label htmlFor="plate">Subject</label> */}
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject.."
-          onChange={handleChange}
-          value={form.subject}
-        />
-      </div>
-      <div>
-        {/* <label htmlFor="plate">Message</label> */}
-        <textarea
-          type="text"
-          name="body"
-          placeholder="Message..."
-          onChange={handleChange}
-          value={form.body}
-        />
-      </div>
-      <div>
-        <button className={btn_submit} type="button" onClick={handleSubmit}>
-          Send
-        </button>
-      </div>
-      <p style={{ whiteSpace: 'pre-line' }}>{form.body}</p>
-    </form>
+      <NavTwo />
+      <form className={formInput}>
+        <div>
+          {/* <label htmlFor="recipient">Recipient</label> */}
+          <input
+            type="text"
+            name="recipient"
+            placeholder="Recipient..."
+            onChange={handleChange}
+            value={form.recipient}
+          />
+        </div>
+        <div>
+          {/* <label htmlFor="plate">Subject</label> */}
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject.."
+            onChange={handleChange}
+            value={form.subject}
+          />
+        </div>
+        <div>
+          {/* <label htmlFor="plate">Message</label> */}
+          <textarea
+            type="text"
+            name="body"
+            placeholder="Message..."
+            onChange={handleChange}
+            value={form.body}
+          />
+        </div>
+        <div>
+          <button className={btn_submit} type="button" onClick={handleSubmit}>
+            Send
+          </button>
+        </div>
+      </form>
     </>
   )
 }
