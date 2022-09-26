@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import ContactBtn from './ContactBtn'
-import { getAllContacts } from '../../../api.js'
-import { useSelector } from 'react-redux'
+import React from "react";
+import ContactBtn from "./ContactBtn";
+ 
+export default function ContactList({ list, child, setDetails }) {
 
-export default function ContactList({ child, setDetails }) {
-  const user = useSelector((state) => state.user)
-  const [list, setList] = useState([])
-
-  async function getContacts() {
-    const contacts = await getAllContacts(user.userName)
-    setList(contacts)
-  }
-
-  useEffect(() => getContacts(), [])
+  const isName = (name, username) => (name) ? name : username
 
   return (
     <>
@@ -20,10 +11,10 @@ export default function ContactList({ child, setDetails }) {
         <div>You have no contacts :(</div>
       ) : (
         list.map((arr) => {
-          const { id, name } = arr
+          const { id, name, username } = arr    
           return (
             <div key={id} className={child}>
-              <p>{name}</p>
+              <p>{isName(name,username)}</p>
               <ContactBtn name={name} setDetails={setDetails} />
             </div>
           )

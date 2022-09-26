@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react";
 import styles from '../../../server/public/styles/Contacts.module.css'
-import { addContact } from '../../api'
+import { getAllContacts, addContact } from "../../api";
 
-import NavTwo from './NavTwo'
-import ContactList from './Fragments/ContactList'
-import ContactDetails from './Fragments/ContactDetails'
+import NavTwo from "./NavTwo";
+import ContactList from "./Fragments/ContactList";
+import ContactDetails from "./Fragments/ContactDetails";
+import ContactAdd from "./Fragments/ContactAdd";
 
 function Contacts() {
-  const {
-    flex,
-    mid_container,
-    border,
+  const [list, setList] = useState([])
+
+  async function getContacts() {
+    const contacts = await getAllContacts('auth0|123')
+    setList(contacts)
+  }
+
+  useEffect(() => getContacts(),[list])
+
+  const { flex, 
+    mid_container, 
+    border, 
     rightside_container,
     leftside_container,
     child,
@@ -32,47 +41,27 @@ function Contacts() {
     }
   }
 
-  const [addName, setAddName] = useState('')
-
-  function onchangeHandler(e) {
-    setAddName(e.target.value)
-  }
-
-  function submitHandler(e) {
-    e.preventDefault()
-    console.log(addName)
-    const newContact = {
-      username: addName,
-      authId: 'auth0|123',
-    }
-    addContact(newContact)
-  }
-
   return (
     <>
-      <NavTwo />
-      <div className={flex}>
-        <div className={border + ' ' + leftside_container}>
-          <form onSubmit={submitHandler}>
-            <h5>New Contact +</h5>
-            <input
-              onChange={onchangeHandler}
-              className={add_contact}
-              type="text"
-              placeholder="enter username"
-              value={addName}
-            />
-            <button type="submit">Add</button>
-          </form>
-        </div>
-        <div className={mid_container + ' ' + border}>
-          <h5>Name</h5>
-          {/* <h5>Add</h5> */}
-          <ContactList child={child} btn={btn} setDetails={setDetails} />
-        </div>
-        <div className={border + ' ' + rightside_container}>
-          {displayDetail()}
-        </div>
+    <NavTwo />
+    <div className={flex}>
+      <div className={`${border} ${leftside_container}`}>
+        <ContactAdd 
+          add_contact={add_contact} 
+          addContact={addContact}
+        />
+      </div>
+      <div className={`${mid_container} ${border}`}>
+        <h5>Name</h5>
+        {/* <h5>Add</h5> */}
+       <ContactList 
+        list={list} 
+        child={child} 
+        btn={btn} 
+        setDetails={setDetails} />
+      </div>
+      <div className={`${border} ${rightside_container}`}>
+        {displayDetail()}
       </div>
     </>
   )
