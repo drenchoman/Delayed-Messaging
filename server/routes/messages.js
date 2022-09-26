@@ -25,7 +25,7 @@ router.get('/:username', async (req, res) => {
 
 //POST api/v1/messages/
 router.post('/', async (req, res) => {
-  // const auth0_id = req.user?.sub
+  const auth0_id = req.user?.sub
   let delayValue = await userDb.getDelay(req.body.senderUsername)
   let delayLimit = delayValue[0].value
   delayValue = Math.floor(Math.random() * delayLimit)
