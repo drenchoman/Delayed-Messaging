@@ -23,16 +23,20 @@ function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
+  const { isAuthenticated, getAccessTokenSilently  } = useAuth0()
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!isAuthenticated) {
       dispatch(clearLoggedInUser())
-    } else if (isAuthenticated) {
-      const token = await getAccessTokenSilently
-      const u = await getUserById(user?.sub, token)
-      dispatch(updateLoggedInUser(u))
-      navigate('/register')
+    } else {
+      getAccessTokenSilently()
+        .then((token) => getUser(token))
+        .then((userInDb) => {
+          userInDb
+            ? dispatch(updateLoggedInUser(userInDb))
+            : navigate('/register')
+        })
+        .catch((err) => console.error(err))
     }
   }, [isAuthenticated])
 
