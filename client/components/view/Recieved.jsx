@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 
 import Letter from './Fragments/Letter'
 import NavTwo from './NavTwo'
@@ -35,27 +35,27 @@ function Recieved() {
   return (
     <>
       <NavTwo />
-    <div className={center}>
-      <div className={marginTop}>
-        {messages.map((message) => {
-          return (
-            <Letter
-              message={message}
-              id={message.id}
-              key={message.id}
-              state={state}
-              setState={setState}
-            ></Letter>
-          )
-        })}
+      <div className={center}>
+        <div className={marginTop}>
+          {messages.map((message) => {
+            return (
+              <Letter
+                message={message}
+                id={message.id}
+                key={message.id}
+                state={state}
+                setState={setState}
+              ></Letter>
+            )
+          })}
+        </div>
+        <div
+          style={{ height: '700px' }}
+          onClick={() => {
+            setState(0)
+          }}
+        ></div>
       </div>
-      <div
-        style={{ height: '700px' }}
-        onClick={() => {
-          setState(0)
-        }}
-      ></div>
-    </div>
     </>
   )
 }
