@@ -12,7 +12,6 @@ const router = express.Router()
 // GET api/v1/messages/banana_llama
 router.get('/:username', async (req, res) => {
   // const auth0_id = req.user?.sub
-  console.log('here')
   const username = req.params.username
   const dateNow = new Date()
   try {

@@ -7,16 +7,16 @@ import styles from '../../../server/public/styles/Recieved.module.css'
 import { getAllViewableMessages } from '../../api'
 
 function Recieved() {
-  const [state, setState] = useState(0)
-  const [messages, setMessages] = useState([])
+  const [othersClicked, setOthersClicked] = useState(0)
+  const [letters, setLetters] = useState([])
 
   const user = useSelector((state) => state.user)
 
   useEffect(() => {
     getAllViewableMessages(user.username, user.token)
-      .then((messages) => {
-        console.log(messages)
-        setMessages(messages)
+      .then((res) => {
+        const letters = res.messages
+        setLetters(letters)
       })
       .catch((err) => console.error(err))
   }, [])
@@ -28,22 +28,22 @@ function Recieved() {
       <NavTwo />
       <div className={center}>
         <div className={marginTop}>
-          {/* {messages.map((message) => {
+          {letters.map((letter) => {
             return (
               <Letter
-                message={message}
-                id={message.id}
-                key={message.id}
-                state={state}
-                setState={setState}
+                letter={letter}
+                id={letter.id}
+                key={letter.id}
+                othersClicked={othersClicked}
+                setOthersClicked={setOthersClicked}
               ></Letter>
             )
-          })} */}
+          })}
         </div>
         <div
           style={{ height: '700px' }}
           onClick={() => {
-            setState(0)
+            setOthersClicked(0)
           }}
         ></div>
       </div>

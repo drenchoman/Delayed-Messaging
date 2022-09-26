@@ -32,7 +32,6 @@ function App() {
       getAccessTokenSilently()
         .then((token) => getUser(token))
         .then((userInDb) => {
-          console.log(userInDb)
           if (userInDb) {
             dispatch(updateLoggedInUser(userInDb))
             navigate(`/correspondence/${userInDb.username}/dashboard`)
