@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { React, useState } from 'react'
-import { useSelector } from 'react-redux'
-=======
 import { React, useState, useEffect } from 'react'
->>>>>>> d492e5ba6241d859217eadf3790ea3f0e34ba693
 
 import Letter from './Fragments/Letter'
 import NavTwo from './NavTwo'
