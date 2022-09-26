@@ -2,11 +2,15 @@
   width: 100vw;
   height: 100vh;
   background-image: url('../images/inflight-nobackground.png');
+
+  filter: var(--fill);
 }
 
 
 .fade{
   animation: fade 1.5s forwards ease-in-out;
+  background-color: var(--main-color);
+
 }
 
 

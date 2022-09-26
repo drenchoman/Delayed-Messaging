@@ -67,6 +67,7 @@ export default function Form({ setCreated }) {
             type="text"
             id="username"
             name="username"
+            placeholder="Your username"
             value={form.username}
             onChange={handleChange}
           />
