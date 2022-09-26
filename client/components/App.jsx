@@ -32,7 +32,6 @@ function App() {
       getAccessTokenSilently()
         .then((token) => getUser(token))
         .then((userInDb) => {
-          console.log(userInDb)
           if (userInDb) {
             dispatch(updateLoggedInUser(userInDb))
             navigate(`/correspondence/${userInDb.username}/dashboard`)
@@ -51,17 +50,23 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route
-          path="/correspondence/:userid/dashboard"
+          path="/correspondence/:username/dashboard"
           element={<DashBoard />}
         />
         <Route
-          path="/correspondence/:userid/NewCorrespondence"
+          path="/correspondence/:username/NewCorrespondence"
           element={<NewCorrespondence />}
         />
-        <Route path="/correspondence/:userid/recieved" element={<Recieved />} />
-        <Route path="/correspondence/:userid/contacts" element={<Contacts />} />
-        <Route path="/correspondence/:userid/draft" element={<Draft />} />
-        <Route path="/correspondence/:userid/archive" element={<Archive />} />
+        <Route
+          path="/correspondence/:username/recieved"
+          element={<Recieved />}
+        />
+        <Route
+          path="/correspondence/:username/contacts"
+          element={<Contacts />}
+        />
+        <Route path="/correspondence/:username/draft" element={<Draft />} />
+        <Route path="/correspondence/:username/archive" element={<Archive />} />
       </Routes>
     </>
   )

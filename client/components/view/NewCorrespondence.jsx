@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
+import { postNewMessage } from '../../api'
+import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 
-import NavTwo from './NavTwo'
-
 function NewCorrespondence() {
+  const user = useSelector((state) => state.user)
+  // TO BE LINKED WITH REDUX list WHEN AVAILABLE
+  // const list = useSelector((state) => state.list)
+  const listofnames = ['banana_llama', 'steve', 'grape_gatsby']
+
   const [form, setForm] = useState({
-    recipient: '',
+    recipientUsername: '',
     subject: '',
-    body: '',
+    message: '',
   })
 
   function handleSubmit(event) {
     event.preventDefault()
+    form.senderUsername = user.username
     console.log(form)
+    postNewMessage(form, user.token)
   }
 
   function handleChange(event) {
@@ -26,45 +35,50 @@ function NewCorrespondence() {
 
   return (
     <>
-    <NavTwo />
-    <form className={formInput}>
-      <div>
-        {/* <label htmlFor="recipient">Recipient</label> */}
-        <input
-          type="text"
-          name="recipient"
-          placeholder="Recipient..."
-          onChange={handleChange}
-          value={form.recipient}
-        />
-      </div>
-      <div>
-        {/* <label htmlFor="plate">Subject</label> */}
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject.."
-          onChange={handleChange}
-          value={form.subject}
-        />
-      </div>
-      <div>
-        {/* <label htmlFor="plate">Message</label> */}
-        <textarea
-          type="text"
-          name="body"
-          placeholder="Message..."
-          onChange={handleChange}
-          value={form.body}
-        />
-      </div>
-      <div>
-        <button className={btn_submit} type="button" onClick={handleSubmit}>
-          Send
-        </button>
-      </div>
-      <p style={{ whiteSpace: 'pre-line' }}>{form.body}</p>
-    </form>
+      <NavTwo />
+      <form className={formInput}>
+        <div>
+          {/* <label htmlFor="recipient">Recipient</label> */}
+          <input
+            type="text"
+            name="recipientUsername"
+            list="friendsList"
+            placeholder="Recipient..."
+            onChange={handleChange}
+            value={form.recipientUsername}
+          />
+          <datalist id="friendsList">
+            {listofnames.map((n) => (
+              <option key={n} value={n}></option>
+            ))}
+          </datalist>
+        </div>
+        <div>
+          {/* <label htmlFor="plate">Subject</label> */}
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject.."
+            onChange={handleChange}
+            value={form.subject}
+          />
+        </div>
+        <div>
+          {/* <label htmlFor="plate">Message</label> */}
+          <textarea
+            type="text"
+            name="message"
+            placeholder="Message..."
+            onChange={handleChange}
+            value={form.message}
+          />
+        </div>
+        <div>
+          <button className={btn_submit} type="button" onClick={handleSubmit}>
+            Send
+          </button>
+        </div>
+      </form>
     </>
   )
 }

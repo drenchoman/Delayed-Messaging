@@ -21,27 +21,26 @@ function Contacts() {
     mid_container, 
     border, 
     rightside_container,
-    leftside_container, 
-    child, 
+    leftside_container,
+    child,
     btn,
-    add_contact
+    add_contact,
   } = styles
 
-  const [ details, setDetails ] = useState({
+  const [details, setDetails] = useState({
     name: '',
     newCorrespondence: 'New Correspondence',
     edit: 'Edit',
     delete: 'Delete',
-    block: 'Block'
+    block: 'Block',
   })
 
   function displayDetail() {
     if (details.name.length > 1) {
-      return <ContactDetails details={details}/>
+      return <ContactDetails details={details} />
     }
   }
 
-  
   return (
     <>
     <NavTwo />
@@ -64,7 +63,6 @@ function Contacts() {
       <div className={`${border} ${rightside_container}`}>
         {displayDetail()}
       </div>
-    </div>
     </>
   )
 }

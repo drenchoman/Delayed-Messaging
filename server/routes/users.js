@@ -7,7 +7,6 @@ const router = express.Router()
 // TODO: use checkJwt as middleware
 // GET /api/v1/users
 router.get('/', checkJwt, (req, res) => {
-  console.log(req.user)
   const auth0_id = req.user?.sub
   if (!auth0_id) {
     res.send(null)
@@ -23,7 +22,6 @@ router.get('/', checkJwt, (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const id = req.params.id
-  console.log(id)
   try {
     const user = await db.getUserById(id)
     res.status(200).json(user)
@@ -49,9 +47,7 @@ router.patch('/', async (req, res) => {
 
 // POST /api/v1/users
 router.post('/', (req, res) => {
-  // console.log(req.user?.sub)
   // const auth0_id = req.user?.sub
-  console.log(req.body)
   const { username, email, auth0Id } = req.body
   const userDetails = {
     auth0_id: auth0Id,
