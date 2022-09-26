@@ -121,7 +121,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 
 
 .ctaButton{
-  background-color: var(--main-color);
+  background-color: var(--comp-color);
   border: 1px solid white;
   border-radius: var(--border-radius);
   z-index: 4;
@@ -269,6 +269,7 @@ top: 10rem;
 }
 .threeTalk{
   width: 50ch;
+  font-size: var(--font-sml);
 }
 .secThreeImageWrapper{
   display: flex;
@@ -298,6 +299,8 @@ top: 10rem;
   display: flex;
   overflow: scroll;
   max-width: 800px;
+  margin: var(--margin-md);
+  width: 100%;
   
 }
 
@@ -306,7 +309,7 @@ top: 10rem;
 }
 
 .testiCard{
-  min-width: 800px;
+  width: 100%;
   height: 100%;
   min-height: 320px;
   display: flex;
@@ -367,7 +370,15 @@ top: 10rem;
   margin: var(--margin-md);
 }
 
-
+.secFourBot{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--margin-md);
+  padding: var(--padding-md);
+}
 
 .secFourHeader{
   font-size: var(--font-mdl);
@@ -378,7 +389,7 @@ top: 10rem;
   position: absolute;
   overflow: hidden;
   bottom: -5rem;
-  right: -18rem;
+  right: -21rem;
   width: 800px;
 }
 
@@ -414,6 +425,23 @@ width: 0;
   text-align: center;
   font-size: var(--font-md);
 }
+.ctaButton2{
+  background-color: var(--main-color);
+  border: 1px solid white;
+  border-radius: var(--border-radius);
+  z-index: 4;
+  max-width: 150px;
+  width: 100%;
+  align-self: center;
+  margin: var(--margin-md) 0;
+  padding: var(--padding-md) var(--padding-sm);
+}
+
+.ctaButton2:hover{
+  cursor: pointer;
+  background-color: var(--accent-color);
+}
+
 
 /* Footer */
 .footerWrapper{
@@ -477,6 +505,11 @@ width: 0;
   .sec1Right{
     width: 85%;
   }
+  .sec2header{
+    top: 0;
+    text-align: center;
+    font-size: var(--font-md);
+  }
   .flockWrapper{
     top: -18rem;
     left: -5rem;
@@ -495,7 +528,8 @@ width: 0;
   }
 
   .secThreeRight > * {
-    margin: var(--margin-md) 0 ;
+    margin: var(--margin-md) auto ;
+    width: 100%;
   }
 
   .threeHeader{
@@ -517,10 +551,17 @@ width: 0;
   }
   .testimonialWrapper{
     max-width: 425px;
+    margin: 0 var(--margin-md);
   }
 
   .testiCard{
     max-width: 425px;
     min-width: 0;
+  }
+  .leftArrow{
+    top: 1rem;
+  }
+  .rightArrow{
+    top: 1rem;
   }
 }
