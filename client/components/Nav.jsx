@@ -5,6 +5,7 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Theme from './view/Fragments/Theme'
 
 function Nav() {
   const user = useSelector((state) => state.user)
@@ -23,6 +24,7 @@ function Nav() {
   return (
     <>
       <nav className={styles.nav}>
+        <Theme />
         <Link to="/">
           <div className={styles.logoWrapper}>
             <img className={styles.logo} src={bird} alt="Logo" />
@@ -32,12 +34,7 @@ function Nav() {
           <Link to="/" onClick={handleLogoff}>
             Log off
           </Link>
-          <p>
-            <span role="img" alt={user?.icon}>
-              {user?.icon}
-            </span>
-            {' ' + user.username}
-          </p>
+          <span className={styles.userName}>{user.username}</span>
         </IfAuthenticated>
         <IfNotAuthenticated>
           <Link className={styles.loginOption} to="/" onClick={handleSignIn}>
