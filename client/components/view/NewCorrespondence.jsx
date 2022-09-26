@@ -9,25 +9,16 @@ function NewCorrespondence() {
   const user = useSelector((state) => state.user)
 
   const [form, setForm] = useState({
-    recipient: '',
+    recipientUsername: '',
     subject: '',
-    body: '',
+    message: '',
   })
-
-  useEffect(() => {
-    postNewMessage(user.token)
-      .then((res) => {
-        console.log(res)
-        setForm(form)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }, [])
 
   function handleSubmit(event) {
     event.preventDefault()
+    form.senderUsername = user.username
     console.log(form)
+    postNewMessage(form, user.token)
   }
 
   function handleChange(event) {
@@ -47,10 +38,10 @@ function NewCorrespondence() {
           {/* <label htmlFor="recipient">Recipient</label> */}
           <input
             type="text"
-            name="recipient"
+            name="recipientUsername"
             placeholder="Recipient..."
             onChange={handleChange}
-            value={form.recipient}
+            value={form.recipientUsername}
           />
         </div>
         <div>
@@ -67,10 +58,10 @@ function NewCorrespondence() {
           {/* <label htmlFor="plate">Message</label> */}
           <textarea
             type="text"
-            name="body"
+            name="message"
             placeholder="Message..."
             onChange={handleChange}
-            value={form.body}
+            value={form.message}
           />
         </div>
         <div>

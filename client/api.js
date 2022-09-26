@@ -69,6 +69,7 @@ export function getAllArchivedMessages(username, token) {
 
 export function postNewMessage(newMessage, token) {
   console.log('postNewMessage')
+  console.log(newMessage)
   return request
     .post(`${rootUrl}/messages`)
     .set('Authorization', `Bearer ${token}`)
