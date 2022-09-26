@@ -15,7 +15,7 @@ function Contacts() {
     setList(contacts)
   }
 
-  useEffect(() => getContacts(),[])
+  useEffect(() => getContacts(),[list])
 
   const { flex, 
     mid_container, 
@@ -49,7 +49,6 @@ function Contacts() {
       <div className={`${border} ${leftside_container}`}>
         <ContactAdd 
           add_contact={add_contact} 
-          getContacts={getContacts}
           addContact={addContact}
         />
       </div>

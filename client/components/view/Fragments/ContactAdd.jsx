@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { addContact } from "../../../api";
 
-export default function ContactAdd({getContacts, addContact, add_contact, setList}) {
+export default function ContactAdd({ addContact, add_contact, setList}) {
   const [addName, setAddName ] = useState('')
 
   function onchangeHandler(e) {
@@ -18,7 +18,7 @@ export default function ContactAdd({getContacts, addContact, add_contact, setLis
     addContact(newContact)
   }
 
-  const updateList = () => getContacts()
+  const updateList = () => setTrigger(true)
 
   return (
     <form onSubmit={submitHandler}>
