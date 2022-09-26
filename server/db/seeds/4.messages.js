@@ -15,7 +15,7 @@ exports.seed = async function (knex) {
       subject: 'A Proposal',
       active_time: today,
       read: false,
-      archived: false,
+      archived: true,
       sent: true,
     },
     {
@@ -26,7 +26,7 @@ exports.seed = async function (knex) {
       subject: 'A Proposal',
       active_time: today,
       read: false,
-      archived: false,
+      archived: true,
       sent: true,
     },
     {
