@@ -1,9 +1,17 @@
 import React from 'react'
 import styles from '../../../../server/public/styles/Landing.module.css'
 import { useInView } from 'react-intersection-observer'
+import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function SectionOne() {
   const { ref, inView, entry } = useInView()
+  const { logout, loginWithRedirect } = useAuth0()
+
+  function handleSignIn(e) {
+    e.preventDefault()
+    loginWithRedirect()
+  }
 
   return (
     <div ref={ref} className={styles.sectionOne}>
@@ -15,7 +23,9 @@ export default function SectionOne() {
           <p className={styles.ctaText}>
             Thoughtful communication for a hyper-connected world
           </p>
-          <button className={styles.ctaButton}>Create</button>
+          <button onClick={handleSignIn} className={styles.ctaButton}>
+            Create
+          </button>
         </div>
       </div>
 

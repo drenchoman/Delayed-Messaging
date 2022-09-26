@@ -1,56 +1,26 @@
 import React from "react";
 import ContactBtn from "./ContactBtn";
-
+import {getAllContacts} from '../../../api.js'
+import { useEffect } from "react";
+import { useState } from "react";
+ 
 export default function ContactList({ child, setDetails }) {
 
-  const list = [
-    'Elizabeth',
-    'Samuel',
-    'Keagan',
-    'Daniel',
-    'Gracie',
-    'Bryden',
-    'Livingston',
-    'Oscar',
-    'Elizabet1',
-    'Samuel1',
-    'Keagan1',
-    'Daniel1',
-    'Gracie1',
-    'Bryden1',
-    'Livingston1',
-    'Oscar1',
-    'Elizabeth2',
-    'Samuel2',
-    'Keagan2',
-    'Daniel2',
-    'Gracie2',
-    'Bryden2',
-    'Livingston2',
-    'Oscar2',
-    'Elizabeth3',
-    'Samuel3',
-    'Keagan3',
-    'Daniel3',
-    'Gracie3',
-    'Bryden3',
-    'Livingston3',
-    'Oscar3',
-    'Elizabeth4',
-    'Samuel4',
-    'Keagan4',
-    'Daniel4',
-    'Gracie4',
-    'Bryden4',
-    'Livingston4',
-    'Oscar4'
-  ]
+  const [list, setList] = useState([])
+
+  async function getContacts() {
+    const contacts = await getAllContacts('auth0|123')
+    setList(contacts)
+  }
+
+  useEffect(() => getContacts(),[])
 
   return (
     <>
-      {list.map( name => {        
+      {list.map( arr => {
+        const { id, name } = arr        
         return (
-          <div key={name} className={child} >
+          <div key={id} className={child} >
             <p>{name}</p>
             <ContactBtn name={name} setDetails={setDetails} />
           </div>

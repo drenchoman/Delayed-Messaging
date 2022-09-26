@@ -23,7 +23,7 @@ function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { isAuthenticated, getAccessTokenSilently  } = useAuth0()
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -32,9 +32,13 @@ function App() {
       getAccessTokenSilently()
         .then((token) => getUser(token))
         .then((userInDb) => {
-          userInDb
-            ? dispatch(updateLoggedInUser(userInDb))
-            : navigate('/register')
+          console.log(userInDb)
+          if (userInDb) {
+            dispatch(updateLoggedInUser(userInDb))
+            navigate(`/correspondence/${userInDb.username}/dashboard`)
+          } else {
+            navigate('/register')
+          }
         })
         .catch((err) => console.error(err))
     }

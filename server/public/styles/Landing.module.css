@@ -53,7 +53,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   "sec1"
   "sec2"
   "sec3"
-  "sec4";
+  "sec4"
+  "sec5";
 }
 
 .sectionOne{
@@ -120,7 +121,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 
 
 .ctaButton{
-  background-color: var(--main-color);
+  background-color: var(--comp-color);
   border: 1px solid white;
   border-radius: var(--border-radius);
   z-index: 4;
@@ -147,7 +148,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.sec2header{
+ position: relative;
+ font-size: var(--font-mdl);
+top: 10rem;
 }
 
 .benefitsWrapper{
@@ -260,6 +269,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 }
 .threeTalk{
   width: 50ch;
+  font-size: var(--font-sml);
 }
 .secThreeImageWrapper{
   display: flex;
@@ -289,6 +299,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   display: flex;
   overflow: scroll;
   max-width: 800px;
+  margin: var(--margin-md);
+  width: 100%;
   
 }
 
@@ -297,7 +309,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 }
 
 .testiCard{
-  min-width: 800px;
+  width: 100%;
   height: 100%;
   min-height: 320px;
   display: flex;
@@ -358,7 +370,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   margin: var(--margin-md);
 }
 
-
+.secFourBot{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--margin-md);
+  padding: var(--padding-md);
+}
 
 .secFourHeader{
   font-size: var(--font-mdl);
@@ -369,9 +389,59 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   position: absolute;
   overflow: hidden;
   bottom: -5rem;
-  right: -10rem;
+  right: -21rem;
   width: 800px;
 }
+
+
+/* SECTION FIVE */
+.sectionFive{
+  /* background-color: var(--main-color); */
+  grid-area: sec5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--margin-lg);
+  padding-bottom: var(--padding-lg);
+  /* min-height: 50vh; */
+}
+
+.sec5Left{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.sec5Right{
+width: 0;  
+}
+
+.sec5Header{
+  max-width: 35ch;
+  text-align: center;
+  font-size: var(--font-md);
+}
+.ctaButton2{
+  background-color: var(--main-color);
+  border: 1px solid white;
+  border-radius: var(--border-radius);
+  z-index: 4;
+  max-width: 150px;
+  width: 100%;
+  align-self: center;
+  margin: var(--margin-md) 0;
+  padding: var(--padding-md) var(--padding-sm);
+}
+
+.ctaButton2:hover{
+  cursor: pointer;
+  background-color: var(--accent-color);
+}
+
 
 /* Footer */
 .footerWrapper{
@@ -380,6 +450,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--padding-lg) 0;
+  margin: var(--margin-lg) 0;
 }
 
 
@@ -415,7 +487,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
 
 @media screen and (max-width: 420px){
   .layout{
-    grid-template-rows: repeat( 4, minmax(100vh, 1fr));
+    grid-template-rows: repeat( 5, minmax(100vh, 1fr));
   }
   .header{
     font-size: var(--font-mdl);
@@ -432,6 +504,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   }
   .sec1Right{
     width: 85%;
+  }
+  .sec2header{
+    top: 0;
+    text-align: center;
+    font-size: var(--font-md);
   }
   .flockWrapper{
     top: -18rem;
@@ -451,7 +528,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   }
 
   .secThreeRight > * {
-    margin: var(--margin-md) 0 ;
+    margin: var(--margin-md) auto ;
+    width: 100%;
   }
 
   .threeHeader{
@@ -473,10 +551,17 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faebd7",endCo
   }
   .testimonialWrapper{
     max-width: 425px;
+    margin: 0 var(--margin-md);
   }
 
   .testiCard{
     max-width: 425px;
     min-width: 0;
+  }
+  .leftArrow{
+    top: 1rem;
+  }
+  .rightArrow{
+    top: 1rem;
   }
 }
