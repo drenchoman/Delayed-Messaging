@@ -9,9 +9,11 @@ Helps with consistency across our components
   --font-mdl: 2.5rem;
   --font-md: 2rem;
   --font-mds: 1.5rem;
+  --font-sml: 1.25rem;
   --font-sm: 1rem;
   --main-color: antiquewhite;
   --accent-color: #f8fad7;
+  --comp-color: rgba(215,230,250,1);
   --margin-sm: 0.5rem;
   --margin-md: 1rem;
   --margin-lg: 2rem;
