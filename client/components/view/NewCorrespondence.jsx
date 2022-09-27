@@ -7,6 +7,7 @@ import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
+  const [err, setErr] = useState('')
 
   const [list, setList] = useState([])
 
@@ -17,16 +18,35 @@ function NewCorrespondence() {
   useEffect(() => getContacts(), [])
 
   const [form, setForm] = useState({
-    recipientUsername: '',
-    subject: '',
-    message: '',
+    recipientUsername: undefined,
+    subject: undefined,
+    message: undefined,
   })
+
+  function checkError() {
+    if (
+      form.recipientUsername == undefined ||
+      '' ||
+      form.subject == undefined ||
+      '' ||
+      form.message == undefined ||
+      ''
+    ) {
+      setErr('Please enter a value')
+      return true
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault()
-    form.senderUsername = user.username
-    console.log(form)
-    postNewMessage(form, user.token)
+    let error = checkError()
+    if (error) {
+      return
+    } else {
+      form.senderUsername = user.username
+      console.log(form)
+      postNewMessage(form, user.token)
+    }
   }
 
   function handleChange(event) {
@@ -41,20 +61,20 @@ function NewCorrespondence() {
   return (
     <>
       <NavTwo />
-      <form className={formInput}>
+      <form onSubmit={handleSubmit} className={formInput}>
         <div>
           {/* <label htmlFor="recipient">Recipient</label> */}
           <input
             type="text"
             name="recipientUsername"
             list="friendsList"
-            placeholder="Recipient..."
+            placeholder={err ? `${err}` : 'Recipient...'}
             onChange={handleChange}
             value={form.recipientUsername}
           />
           <datalist id="friendsList">
             {list.map((n) => (
-              <option key={n} value={n}></option>
+              <option key={n.id} value={n.username}></option>
             ))}
           </datalist>
         </div>
@@ -63,7 +83,7 @@ function NewCorrespondence() {
           <input
             type="text"
             name="subject"
-            placeholder="Subject.."
+            placeholder={err ? `${err}` : 'Subject...'}
             onChange={handleChange}
             value={form.subject}
           />
@@ -73,7 +93,7 @@ function NewCorrespondence() {
           <textarea
             type="text"
             name="message"
-            placeholder="Message..."
+            placeholder={err ? `${err}` : 'Message...'}
             onChange={handleChange}
             value={form.message}
           />
