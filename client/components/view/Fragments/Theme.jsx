@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
+import styles from '../../../../server/public/styles/Landing.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateDarkMode } from '../../../slices/darkmode'
+import sun from '../../../../server/public/images/svg/sun.svg'
+import moon from '../../../../server/public/images/svg/moon.svg'
 
 export default function Theme() {
   const theme = useSelector((state) => state.darkmode)
@@ -18,10 +21,13 @@ export default function Theme() {
   }
 
   return (
-    <div>
-      <button className={`${theme}`} onClick={handleChange}>
-        Change
-      </button>
+    <div className={styles.themeToggle}>
+      <img
+        src={theme == 'dark' ? moon : sun}
+        alt="Toggle Dark Mode"
+        className={`${theme}`}
+        onClick={handleChange}
+      ></img>
     </div>
   )
 }

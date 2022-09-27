@@ -22,10 +22,16 @@
 
 .loginOption{
   margin: var(--margin-sm);
+  filter: var(--fill);
 }
 
 .userName{
   margin: 0 var(--margin-sm);
+}
+
+.themeToggle{
+  cursor: pointer;
+  margin: var(--margin-sm);
 }
 
 /* LANDING */
