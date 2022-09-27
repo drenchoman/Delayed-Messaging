@@ -7,6 +7,21 @@ const userDb = require('../db/users')
 
 const router = express.Router()
 
+// GET MESSAGE DELAY- CAN MOVE TO OTHER FOLDER
+async function setMessageDelay(req) {
+  let delayValue = await userDb.getDelay(req.body.senderUsername)
+  if (delayValue == 0) {
+    return new Date()
+  } else {
+    let delayLimit = delayValue[0].value
+    delayValue = Math.floor(Math.random() * delayLimit)
+
+    const today = new Date()
+    const activeTime = new Date()
+    return activeTime.setDate(today.getDate() + delayValue)
+  }
+}
+
 // TODO: ADD AUTH CHECK
 
 // GET api/v1/messages/banana_llama
@@ -26,13 +41,7 @@ router.get('/:username', async (req, res) => {
 //POST api/v1/messages/
 router.post('/', async (req, res) => {
   const auth0_id = req.user?.sub
-  let delayValue = await userDb.getDelay(req.body.senderUsername)
-  let delayLimit = delayValue[0].value
-  delayValue = Math.floor(Math.random() * delayLimit)
-
-  const today = new Date()
-  const activeTime = new Date()
-  activeTime.setDate(today.getDate() + delayValue)
+  const activeTime = await setMessageDelay(req)
 
   try {
     const { message, subject, senderUsername, recipientUsername } = req.body
