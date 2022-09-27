@@ -1,0 +1,42 @@
+.birdWrapper{
+  transform: rotate(-20deg);
+  animation: delivery 8s ease-in-out forwards;
+  position: absolute;
+  bottom: 1rem
+}
+
+.sentMessage{
+animation: fadein 3s ease-in-out forwards;
+animation-delay: 5s; 
+align-self: center;
+color: var(--text-primary);
+justify-self: center;
+z-index: 10;opacity: 0;
+}
+
+
+@keyframes delivery {
+  0%{
+    opacity: 0;
+  }
+  
+  20%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-100%) translateX(300%) scale(0.2);
+    
+  }
+  
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+  
+}
