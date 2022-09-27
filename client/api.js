@@ -130,10 +130,10 @@ export function deleteContact(id, token) {
 function logError(err) {
   if (err.response.text === 'Username Taken') {
     throw new Error('Username already taken - please choose another')
-  } else if (err.message === 'Forbidden') {
-    throw new Error(
-      'Only the user who added the fruit may update and delete it'
-    )
+  } else if (err.response.text === 'Contact already added.') {
+    throw new Error('Contact already added.')
+  } else if (err.response.text === 'Username does not exist.') {
+    throw new Error('Username does not exist.')
   } else {
     // eslint-disable-next-line no-console
     console.error('Error consuming the API (in client/api.js):', err)

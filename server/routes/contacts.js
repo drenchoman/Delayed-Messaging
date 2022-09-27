@@ -23,16 +23,16 @@ router.get('/:id', async (req, res) => {
 // POST /api/v1/contacts
 router.post('/', async (req, res) => {
   const { username, authId } = req.body
-  const userExists = await userDb.userExists(username)
-
-  const contactAlreadyExists = await db.checkInDb(username)
-  if (contactAlreadyExists.length > 0) {
-    res.status(409).json({ errorMessage: 'Contact already added.' })
-  }
-  if (!userExists) {
-    res.status(409).json({ errorMessage: 'Username does not exist' })
-  }
   try {
+    const userExists = await userDb.userExists(username)
+
+    const contactAlreadyExists = await db.checkInDb(username)
+    if (contactAlreadyExists.length > 0) {
+      throw new Error('Contact already added.')
+    }
+    if (!userExists) {
+      throw new Error('Username does not exist.')
+    }
     const newContact = {
       username,
       authId,
@@ -40,8 +40,17 @@ router.post('/', async (req, res) => {
     await db.addContact(newContact)
     res.sendStatus(201)
   } catch (err) {
-    console.error(err)
-    res.status(500).send(err.message)
+    console.log(err.message)
+    if (
+      err.message === 'Contact already added.' ||
+      err.message === 'Username does not exist.'
+    ) {
+      res.status(400).send(err.message)
+      return
+    } else {
+      res.status(500).send(err.message)
+      return
+    }
   }
 })
 
