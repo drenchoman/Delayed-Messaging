@@ -30,7 +30,7 @@ function updateContact(updateInfo, db = connection) {
 }
 
 function deleteContact(id, db = connection) {
-  return db('contacts').where({ id: id }).delete()
+  return db('contacts').where('id', id).delete()
 }
 
 function checkInDb(username, db = connection) {
