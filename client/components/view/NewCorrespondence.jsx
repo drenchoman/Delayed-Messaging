@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-
+import BirdSent from './Fragments/BirdSent'
+import SentMessage from './Fragments/SentMessage'
 import { postNewMessage, getAllContacts } from '../../api'
 import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
@@ -8,6 +9,7 @@ import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
   const [err, setErr] = useState('')
+  const [sent, setSent] = useState(false)
 
   const [list, setList] = useState([])
 
@@ -44,8 +46,8 @@ function NewCorrespondence() {
       return
     } else {
       form.senderUsername = user.username
-      console.log(form)
       postNewMessage(form, user.token)
+      setSent(true)
     }
   }
 
@@ -61,52 +63,59 @@ function NewCorrespondence() {
   return (
     <>
       <NavTwo />
-      <form onSubmit={handleSubmit} className={formInput}>
-        <div>
-          {/* <label htmlFor="recipient">Recipient</label> */}
-          <input
-            required="required"
-            type="text"
-            name="recipientUsername"
-            list="friendsList"
-            placeholder={err ? `${err}` : 'Recipient...'}
-            onChange={handleChange}
-            value={form.recipientUsername}
-          />
-          <datalist id="friendsList">
-            {list.map((n) => (
-              <option key={n.id} value={n.username}></option>
-            ))}
-          </datalist>
+      {!sent ? (
+        <form onSubmit={handleSubmit} className={formInput}>
+          <div>
+            {/* <label htmlFor="recipient">Recipient</label> */}
+            <input
+              required="required"
+              type="text"
+              name="recipientUsername"
+              list="friendsList"
+              placeholder={err ? `${err}` : 'Recipient...'}
+              onChange={handleChange}
+              value={form.recipientUsername}
+            />
+            <datalist id="friendsList">
+              {list.map((n) => (
+                <option key={n.id} value={n.username}></option>
+              ))}
+            </datalist>
+          </div>
+          <div>
+            {/* <label htmlFor="plate">Subject</label> */}
+            <input
+              required="required"
+              type="text"
+              name="subject"
+              placeholder={err ? `${err}` : 'Subject...'}
+              onChange={handleChange}
+              value={form.subject}
+            />
+          </div>
+          <div>
+            {/* <label htmlFor="plate">Message</label> */}
+            <textarea
+              required
+              type="text"
+              name="message"
+              placeholder={err ? `${err}` : 'Message...'}
+              onChange={handleChange}
+              value={form.message}
+            />
+          </div>
+          <div>
+            <button className={btn_submit} type="button" onClick={handleSubmit}>
+              Send
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div className={styles.sentWrapper}>
+          <BirdSent />
+          <SentMessage />
         </div>
-        <div>
-          {/* <label htmlFor="plate">Subject</label> */}
-          <input
-            required="required"
-            type="text"
-            name="subject"
-            placeholder={err ? `${err}` : 'Subject...'}
-            onChange={handleChange}
-            value={form.subject}
-          />
-        </div>
-        <div>
-          {/* <label htmlFor="plate">Message</label> */}
-          <textarea
-            required
-            type="text"
-            name="message"
-            placeholder={err ? `${err}` : 'Message...'}
-            onChange={handleChange}
-            value={form.message}
-          />
-        </div>
-        <div>
-          <button className={btn_submit} type="button" onClick={handleSubmit}>
-            Send
-          </button>
-        </div>
-      </form>
+      )}
     </>
   )
 }
