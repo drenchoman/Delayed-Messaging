@@ -56,7 +56,6 @@ function Recieved() {
         </div>
         <div
           className={rightsideContainer}
-          style={{ height: '700px' }}
           onClick={() => {
             setOthersClicked(0)
           }}

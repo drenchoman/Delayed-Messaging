@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Theme from './Fragments/Theme'
 
 function NavTwo() {
-  const { container, links, flex, anchor } = styles
+  const { container, links, flex, anchor, theme } = styles
   const { logout } = useAuth0()
 
   const user = useSelector((state) => state.user)
@@ -24,7 +24,7 @@ function NavTwo() {
             className={anchor}
             to={`/correspondence/${user.username}/newcorrespondence`}
           >
-            new
+            New Correspondence
           </Link>
         </div>
         <div className={links}>
@@ -32,7 +32,7 @@ function NavTwo() {
             className={anchor}
             to={`/correspondence/${user.username}/recieved`}
           >
-            recieved
+            Recieved
           </Link>
         </div>
         <div className={links}>
@@ -40,7 +40,7 @@ function NavTwo() {
             className={anchor}
             to={`/correspondence/${user.username}/contacts`}
           >
-            contacts
+            Contacts
           </Link>
         </div>
         <div className={links}>
@@ -48,13 +48,13 @@ function NavTwo() {
             className={anchor}
             to={`/correspondence/${user.username}/archive`}
           >
-            archives
+            Archives
           </Link>
         </div>
         <div className={styles.links}>
           <IfAuthenticated>
             <Link className={anchor} to="/" onClick={handleLogoff}>
-              log off
+              Log off
             </Link>
           </IfAuthenticated>
         </div>

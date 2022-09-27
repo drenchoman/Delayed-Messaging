@@ -1,55 +1,76 @@
 .middleContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  width: 50vw;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--main-font);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .flex {
   display: flex;
   background-color: var(--main-color);
   color: var(--text-primary);
-  padding-top: 12vh;
+  padding-top: 10vh;
 }
 
-.empty{
+.hover_letter {
+  display: flex;
+  height: 40px;
+  align-items: flex-end;
+}
+
+.open_letter{
+  display: flex;
+  height: 40px;
+  align-items: flex-end;
+}
+
+.empty {
   color: var(--text-primary);
 }
 
 .flex p {
-  
   text-align: left;
+  font-size: 16px;
+  padding-right: 42px;
 }
-.marginTop{
-  padding-top: 100px;
-  border-bottom: 2px solid var(--text-primary);
+
+.flex span {
+  font-size: 13px;
+  text-decoration: ;
+}
+
+.marginTop {
+  padding-top: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 50vw;
 }
 
-.closedLetter{
-  height:30px;
-  width:50vw;
-  border-top:2px solid var(--text-primary);
+.closedLetter {
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.border_top{
-  border-top: 2px solid var(--text-primary);
-  width: 50vw;
+.border_top {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
-.noneHeader{
+.noneHeader {
   color: var(--text-primary);
   font-size: var(--font-sml);
-  border-bottom: 2px solid var(--text-primary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .leftsideContainer {
-  width: 25vw;
+  /* width: 25vw; */
   justify-content: center;
   display: flex;
 }
 .rightsideContainer {
-  width: 25vw;
+  /* width: 25vw; */
   /* position:fixed; */
   right: -2px;
   top: 30%;
@@ -57,18 +78,18 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 420px){
-  .flex{
+@media screen and (max-width: 420px) {
+  .flex {
     flex-direction: column;
   }
-  .leftsideContainer{
+  .leftsideContainer {
     width: 100%;
   }
-  .middleContainer{
+  .middleContainer {
     width: 100%;
     padding: 0 var(--padding-lg);
   }
-  .child{
+  .child {
     width: 100%;
   }
 }

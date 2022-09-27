@@ -4,16 +4,24 @@ font-size: var(--font-lg);
 Helps with consistency across our components
 */
 
-:root{
+:root {
   --font-lg: 4rem;
   --font-mdl: 2.5rem;
   --font-md: 2rem;
   --font-mds: 1.5rem;
   --font-sml: 1.25rem;
   --font-sm: 1rem;
-  --main-color: antiquewhite;
+  --main-font: 'Lora', serif;
+  --main-color: #f2e8d4;
+  --main-gradient: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.118) 14.17%,
+    rgba(0, 0, 0, 0) 88.55%
+  );
+  --transparent: transparent;
   --accent-color: #f8fad7;
-  --comp-color: rgba(215,230,250,1);
+  --comp-color: rgba(215, 230, 250, 1);
   --text-primary: black;
   --margin-sm: 0.5rem;
   --margin-md: 1rem;
@@ -22,40 +30,39 @@ Helps with consistency across our components
   --padding-md: 1rem;
   --padding-lg: 2rem;
   --border-radius: 10px;
-  
-
 }
 
-[data-theme='dark']{
+[data-theme='dark'] {
   --main-color: black;
   --text-primary: white;
   --accent: darkred;
-  --fill: invert(100%) sepia(100%) saturate(38%) hue-rotate(254deg) brightness(110%) contrast(110%);
+  --fill: invert(100%) sepia(100%) saturate(38%) hue-rotate(254deg)
+    brightness(110%) contrast(110%);
 }
 
 @keyframes fade {
-  0%{opacity: 0;}
-  100%{
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
-  
 }
-.ani0{
-  animation: fade 1.25s ease-in-out forwards;
-
-}
-.ani1{
+.ani0 {
   animation: fade 1.25s ease-in-out forwards;
 }
-.ani2{
-animation: fade 1.25s ease-in-out forwards;
+.ani1 {
+  animation: fade 1.25s ease-in-out forwards;
 }
-
-
+.ani2 {
+  animation: fade 1.25s ease-in-out forwards;
+}
 
 /* 
 CSS RESET- DON'T REMOVE */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -63,7 +70,8 @@ CSS RESET- DON'T REMOVE */
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background-color: var(--main-color);
 }
@@ -73,23 +81,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
-.dark{
-  filter:var(--fill);
+.dark {
+  filter: var(--fill);
 }

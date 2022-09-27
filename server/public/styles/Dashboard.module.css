@@ -1,24 +1,23 @@
 .body {
   width: 100vw;
   height: 100vh;
-  background-image: url('../images/inflight-nobackground.png');
-
+  background-image: var(--main-gradient);
+  background-image: url(../images/svg/main-background-birds.svg);
+  background-position: center;
+  background-repeat: no-repeat;
   filter: var(--fill);
 }
 
-
-.fade{
+.fade {
   animation: fade 1.5s forwards ease-in-out;
   background-color: var(--main-color);
-
 }
 
-
 @keyframes fade {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
