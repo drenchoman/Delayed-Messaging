@@ -21,14 +21,14 @@ function Contacts() {
     dispatch(updateContactList(contacts))
   }
 
-  useEffect(() => getContacts(), [])
+  useEffect(() => getContacts(), [contactList])
 
   const {
     flex,
-    mid_container,
+    middleContainer,
     border,
-    rightside_container,
-    leftside_container,
+    rightsideContainer,
+    leftsideContainer,
     child,
     btn,
     add_contact,
@@ -54,14 +54,14 @@ function Contacts() {
     <>
       <NavTwo />
       <div className={flex}>
-        <div className={`${border} ${leftside_container}`}>
+        <div className={`${border} ${leftsideContainer}`}>
           <ContactAdd
             add_contact={add_contact}
             addContact={addContact}
             setList={setList}
           />
         </div>
-        <div className={`${mid_container} ${border}`}>
+        <div className={`${middleContainer} ${border}`}>
           <div className={midContent}>
             <h5 className={containerHeader}>Username</h5>
             {/* <h5>Add</h5> */}
@@ -73,7 +73,7 @@ function Contacts() {
             />
           </div>
         </div>
-        <div className={`${border} ${rightside_container}`}>
+        <div className={`${border} ${rightsideContainer}`}>
           {displayDetail()}
         </div>
       </div>

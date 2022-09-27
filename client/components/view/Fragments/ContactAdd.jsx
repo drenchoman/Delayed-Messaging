@@ -30,7 +30,6 @@ export default function ContactAdd({ addContact, add_contact }) {
         setAddName('')
       })
       .catch((err) => {
-        console.log(err)
         setErrorMsg(err.message)
       })
   }

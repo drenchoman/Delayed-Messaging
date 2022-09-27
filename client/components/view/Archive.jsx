@@ -6,7 +6,7 @@ import { getAllArchivedMessages } from '../../api'
 import { useSelector } from 'react-redux'
 
 function Archive() {
-  const { marginTop, center } = styles
+  const { flex, leftsideContainer, middleContainer } = styles
   const [othersClicked, setOthersClicked] = useState(0)
   const [letters, setLetters] = useState([])
   const user = useSelector((state) => state.user)
@@ -21,14 +21,13 @@ function Archive() {
       })
   }, [])
 
-  console.log('Letters length', letters?.length, letters)
-
   return (
     <>
       <NavTwo />
-      <div className={center}>
-        <div className={marginTop}>
-          {letters?.length > 0 ? (
+      <div className={flex}>
+        <div className={leftsideContainer}></div>
+        <div className={middleContainer}>
+          {letters.length > 0 ? (
             letters.map((letter) => {
               return (
                 <Letter
@@ -41,15 +40,19 @@ function Archive() {
               )
             })
           ) : (
-            <div>No Archived Messages </div>
+            <div>
+              <h2 className={styles.noneHeader}>No Archived Messages</h2>{' '}
+            </div>
           )}
+
+          <div
+            style={{ height: '700px' }}
+            onClick={() => {
+              setOthersClicked(0)
+            }}
+          ></div>
         </div>
-        <div
-          style={{ height: '700px' }}
-          onClick={() => {
-            setOthersClicked(0)
-          }}
-        ></div>
+        <div className={styles.rightsideContainer}></div>
       </div>
     </>
   )
