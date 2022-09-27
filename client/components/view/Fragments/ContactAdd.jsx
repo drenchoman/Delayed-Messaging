@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 export default function ContactAdd({ addContact, add_contact, setList }) {
   const [addName, setAddName] = useState('')
   const user = useSelector((state) => state.user)
+  const [errorMsg, setErrorMsg] = useState('')
 
   function onchangeHandler(e) {
     setAddName(e.target.value)
@@ -13,28 +14,40 @@ export default function ContactAdd({ addContact, add_contact, setList }) {
     return Math.floor(Math.random() * 99999)
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault()
     const newContact = {
       id: randomNumber(),
       username: addName,
       authId: user.auth0Id,
     }
-    setList((prevState) => [...prevState, newContact])
     addContact(newContact)
+      .then(() => {
+        setList((prevState) => [...prevState, newContact])
+        setErrorMsg('')
+        setAddName('')
+      })
+      .catch((err) => {
+        console.log(err)
+        setErrorMsg(err.message)
+      })
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <h5>New Contact +</h5>
-      <input
-        onChange={onchangeHandler}
-        className={add_contact}
-        type="text"
-        placeholder="enter username"
-        value={addName}
-      />
-      <button>Add</button>
-    </form>
+    <>
+      <form onSubmit={submitHandler}>
+        <h5>New Contact +</h5>
+        <input
+          onChange={onchangeHandler}
+          className={add_contact}
+          type="text"
+          placeholder="enter username"
+          value={addName}
+        />
+
+        <button>Add</button>
+      </form>
+      {errorMsg ? <span>{errorMsg}</span> : ''}
+    </>
   )
 }
