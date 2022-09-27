@@ -25,6 +25,10 @@
   background-color: transparent;
 }
 
+.btn_details:hover{
+  cursor: pointer;
+}
+
 .red:hover {
   color: red;
   text-decoration: underline;
