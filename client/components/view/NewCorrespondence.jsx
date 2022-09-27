@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { postNewMessage } from '../../api'
+import { postNewMessage, getAllContacts } from '../../api'
 import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
-  // TO BE LINKED WITH REDUX list WHEN AVAILABLE
-  // const list = useSelector((state) => state.list)
-  const listofnames = ['banana_llama', 'steve', 'grape_gatsby']
+
+  const [list, setList] = useState([])
+
+  async function getContacts() {
+    const contacts = await getAllContacts(user.auth0Id)
+    setList(contacts)
+  }
+  useEffect(() => getContacts(), [])
 
   const [form, setForm] = useState({
     recipientUsername: '',
@@ -48,7 +53,7 @@ function NewCorrespondence() {
             value={form.recipientUsername}
           />
           <datalist id="friendsList">
-            {listofnames.map((n) => (
+            {list.map((n) => (
               <option key={n} value={n}></option>
             ))}
           </datalist>

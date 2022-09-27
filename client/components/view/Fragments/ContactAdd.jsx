@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
-// import { addContact } from "../../../api";
+import { useSelector } from 'react-redux'
 
-export default function ContactAdd({ addContact, add_contact, setList}) {
-  const [addName, setAddName ] = useState('')
+export default function ContactAdd({ addContact, add_contact, setList }) {
+  const [addName, setAddName] = useState('')
+  const user = useSelector((state) => state.user)
 
   function onchangeHandler(e) {
     setAddName(e.target.value)
   }
 
-  function submitHandler(e) {
-    e.preventDefault()
-    console.log(addName);
-    const newContact = {
-      username: addName,
-      authId: 'auth0|123'
-    }
-    addContact(newContact)
+  function randomNumber() {
+    return Math.floor(Math.random() * 99999)
   }
 
-  const updateList = () => setTrigger(true)
+  function submitHandler(e) {
+    e.preventDefault()
+    const newContact = {
+      id: randomNumber(),
+      username: addName,
+      authId: user.auth0Id,
+    }
+    setList((prevState) => [...prevState, newContact])
+    addContact(newContact)
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -30,11 +34,7 @@ export default function ContactAdd({ addContact, add_contact, setList}) {
         placeholder="enter username"
         value={addName}
       />
-      <button 
-        type="submit" 
-        onClick={updateList}>
-          Add
-      </button>
+      <button>Add</button>
     </form>
   )
 }
