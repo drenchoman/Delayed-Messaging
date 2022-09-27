@@ -6,16 +6,19 @@ import NavTwo from './NavTwo'
 import ContactList from './Fragments/ContactList'
 import ContactDetails from './Fragments/ContactDetails'
 import ContactAdd from './Fragments/ContactAdd'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateContactList } from '../../slices/contacts'
 
 function Contacts() {
   const [list, setList] = useState([])
   const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
 
   async function getContacts() {
     const contacts = await getAllContacts(user.auth0Id)
     console.log(contacts)
     setList(contacts)
+    dispatch(updateContactList(contacts))
   }
 
   useEffect(() => getContacts(), [])
