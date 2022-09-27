@@ -6,7 +6,7 @@ const slice = createSlice({
   name: 'contacts',
   initialState: newContact,
   reducers: {
-    updateContactList: (state, { payload }) => (console.log(payload),[...payload]) 
+    updateContactList: (state, { payload }) => [...payload],
   },
 })
 

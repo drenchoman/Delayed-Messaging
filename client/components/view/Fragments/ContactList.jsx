@@ -1,9 +1,8 @@
-import React from "react";
-import ContactBtn from "./ContactBtn";
- 
-export default function ContactList({ list, child, setDetails }) {
+import React from 'react'
+import ContactBtn from './ContactBtn'
 
-  const isName = (name, username) => (name) ? name : username
+export default function ContactList({ list, child, setDetails }) {
+  const isName = (name, username) => (name ? name : username)
 
   return (
     <>
@@ -11,10 +10,10 @@ export default function ContactList({ list, child, setDetails }) {
         <div>You have no contacts :(</div>
       ) : (
         list.map((arr) => {
-          const { id, name, username } = arr    
+          const { id, name, username } = arr
           return (
             <div key={id} className={child}>
-              <p>{isName(name,username)}</p>
+              <p>{isName(name, username)}</p>
               <ContactBtn name={name} setDetails={setDetails} />
             </div>
           )
