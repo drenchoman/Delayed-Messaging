@@ -1,15 +1,15 @@
 import React from 'react'
 import ContactBtn from './ContactBtn'
 
-export default function ContactList({ list, child, setDetails }) {
+export default function ContactList({ contactList, child, setDetails }) {
   const isName = (name, username) => (name ? name : username)
 
   return (
     <>
-      {list.length == 0 ? (
+      {contactList.length == 0 ? (
         <div>You have no contacts :(</div>
       ) : (
-        list.map((arr) => {
+        contactList.map((arr) => {
           const { id, name, username } = arr
           return (
             <div key={id} className={child}>

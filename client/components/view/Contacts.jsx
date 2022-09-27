@@ -11,13 +11,12 @@ import { updateContactList } from '../../slices/contacts'
 
 function Contacts() {
   const [list, setList] = useState([])
+  const contactList = useSelector((state) => state.contacts)
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   async function getContacts() {
     const contacts = await getAllContacts(user.auth0Id)
-    console.log(contacts)
-    setList(contacts)
     dispatch(updateContactList(contacts))
   }
 
@@ -63,7 +62,7 @@ function Contacts() {
           <h5>Name</h5>
           {/* <h5>Add</h5> */}
           <ContactList
-            list={list}
+            contactList={contactList}
             child={child}
             btn={btn}
             setDetails={setDetails}
