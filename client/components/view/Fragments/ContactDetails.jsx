@@ -22,7 +22,7 @@ export default function ContactDetails({ details }) {
   }
 
   return (
-    <div>
+    <div className={styles.detailsContainer}>
       <p>Name: {name}</p>
       <Link className={`${btn_details} ${blue}`} to="/newcorrespondence">
         {newCorrespondence}

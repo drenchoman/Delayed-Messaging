@@ -16,7 +16,7 @@
 }
 
 .btn_details {
-  color: black;
+  color: var(--text-primary);
   display: block;
   text-decoration: none;
   font-size: 0.8rem;
@@ -33,4 +33,10 @@
 .blue:hover {
   color: blue;
   text-decoration: underline;
+}
+
+
+.detailsContainer{
+  color: var(--text-primary);
+  text-decoration: var(--text-primary);
 }
