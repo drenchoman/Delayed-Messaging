@@ -21,13 +21,21 @@ function Recieved() {
       .catch((err) => console.error(err))
   }, [])
 
-  const { marginTop, center } = styles
+  const {
+    marginTop,
+    center,
+    flex,
+    leftsideContainer,
+    middleContainer,
+    rightsideContainer,
+  } = styles
 
   return (
     <>
       <NavTwo />
-      <div className={center}>
-        <div className={marginTop}>
+      <div className={flex}>
+        <div className={leftsideContainer}></div>
+        <div className={middleContainer}>
           {letters?.length > 0 ? (
             letters.map((letter) => {
               return (
@@ -41,10 +49,13 @@ function Recieved() {
               )
             })
           ) : (
-            <div>No Recieved Messages </div>
+            <div>
+              <h2 className={styles.noneHeader}>No Recieved Messages</h2>
+            </div>
           )}
         </div>
         <div
+          className={rightsideContainer}
           style={{ height: '700px' }}
           onClick={() => {
             setOthersClicked(0)

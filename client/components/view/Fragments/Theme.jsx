@@ -16,7 +16,6 @@ export default function Theme() {
 
   const handleChange = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
-    console.log(next)
     dispatch(updateDarkMode(next))
   }
 
