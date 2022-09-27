@@ -13,8 +13,6 @@ export default function ContactDetails({ details }) {
     state.contacts.find((contact) => contact.name === name)
   )
 
-  console.log(contact.id)
-
   return (
     <div>
       <p>Name: {name}</p>
@@ -26,7 +24,7 @@ export default function ContactDetails({ details }) {
       </Link>
       <button
         className={`${btn_details} ${red}`}
-        // onClick={() => deleteContact(contact.id, user.token)}
+        onClick={() => deleteContact({ id: contact.id }, user.token)}
       >
         {details.delete}
       </button>

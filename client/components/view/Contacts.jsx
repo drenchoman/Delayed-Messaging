@@ -16,7 +16,6 @@ function Contacts() {
 
   async function getContacts() {
     const contacts = await getAllContacts(user.auth0Id)
-    console.log(contacts)
     setList(contacts)
     dispatch(updateContactList(contacts))
   }
