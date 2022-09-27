@@ -25,7 +25,8 @@ z-index: 10;opacity: 0;
     transform: translateY(0);
   }
   100%{
-    transform: translateY(-100%) translateX(300%) scale(0.2);
+    transform: translateY(-100%) translateX(350%) scale(0);
+   
     
   }
   
