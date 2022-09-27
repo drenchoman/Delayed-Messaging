@@ -4,7 +4,7 @@ import styles from '../../../../server/public/styles/Recieved.module.css'
 function Letter(props) {
   const [letterState, setLetterState] = useState('closed')
 
-  const { closedLetter, border_top, flex } = styles
+  const { closedLetter, border_top, flex, btn_letter } = styles
 
   const letter = props.letter
 
@@ -28,6 +28,10 @@ function Letter(props) {
     setLetterState('hover')
   }
 
+  function archiveBtn() {
+    return (<button className={btn_letter}>save</button>)
+  }
+
   return (
     <>
       {props.othersClicked === 0 && (
@@ -40,8 +44,11 @@ function Letter(props) {
           {letterState === 'hover' && (
             <div className={border_top} onMouseLeave={closed} onClick={open}>
               <div className={flex}>
-                <p>From: </p>
-                <h3>{sender_username}</h3>
+                <div>
+                  <p>From: </p>
+                  <h3>{sender_username}</h3>
+                </div>
+                {archiveBtn()}
               </div>
               <div className={flex}>
                 <p>Subject: </p>
@@ -56,6 +63,7 @@ function Letter(props) {
           <div className={flex}>
             <p>From: </p>
             <h3>{sender_username}</h3>
+            {archiveBtn()}
           </div>
           <div className={flex}>
             <p>Subject: </p>

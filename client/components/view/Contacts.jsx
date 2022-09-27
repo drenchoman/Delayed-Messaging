@@ -59,6 +59,7 @@ function Contacts() {
             add_contact={add_contact}
             addContact={addContact}
             setList={setList}
+            list={list}
           />
         </div>
         <div className={`${middleContainer} ${border}`}>
