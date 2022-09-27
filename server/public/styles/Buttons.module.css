@@ -6,12 +6,13 @@
   border: none;
   width: 50px;
   color: var(--text-primary);
+  padding: var(--padding-sm) 0;
 }
 
 .btn_contact:hover {
-  font-size: 1.2rem;
-  color: black;
-  background-color: rgba(255, 228, 196, 0.096);
+  transform: scale(1.2);
+  color: var(--text-primary);
+  cursor: pointer;
 }
 
 .btn_details {
