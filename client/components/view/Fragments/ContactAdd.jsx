@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import styles from '../../../../server/public/styles/Contacts.module.css'
+import { updateContactList } from '../../../slices/contacts'
 
-export default function ContactAdd({ addContact, add_contact, setList }) {
+export default function ContactAdd({ addContact, add_contact }) {
   const [addName, setAddName] = useState('')
   const user = useSelector((state) => state.user)
   const [errorMsg, setErrorMsg] = useState('')
+  const dispatch = useDispatch()
 
   function onchangeHandler(e) {
     setAddName(e.target.value)
@@ -23,7 +26,6 @@ export default function ContactAdd({ addContact, add_contact, setList }) {
     }
     addContact(newContact)
       .then(() => {
-        setList((prevState) => [...prevState, newContact])
         setErrorMsg('')
         setAddName('')
       })
@@ -35,19 +37,19 @@ export default function ContactAdd({ addContact, add_contact, setList }) {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
-        <h5>New Contact +</h5>
+      <form className={styles.addForm} onSubmit={submitHandler}>
+        <h5 className={styles.formHeader}>New Contact +</h5>
         <input
           onChange={onchangeHandler}
           className={add_contact}
           type="text"
-          placeholder="enter username"
+          placeholder="Enter Username"
           value={addName}
         />
+        {errorMsg ? <span>{errorMsg}</span> : ''}
 
-        <button>Add</button>
+        <button className={styles.addButton}>Add</button>
       </form>
-      {errorMsg ? <span>{errorMsg}</span> : ''}
     </>
   )
 }

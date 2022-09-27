@@ -17,6 +17,7 @@ function Contacts() {
 
   async function getContacts() {
     const contacts = await getAllContacts(user.auth0Id)
+    setList(contacts)
     dispatch(updateContactList(contacts))
   }
 
@@ -31,6 +32,8 @@ function Contacts() {
     child,
     btn,
     add_contact,
+    containerHeader,
+    midContent,
   } = styles
 
   const [details, setDetails] = useState({
@@ -59,14 +62,16 @@ function Contacts() {
           />
         </div>
         <div className={`${mid_container} ${border}`}>
-          <h5>Name</h5>
-          {/* <h5>Add</h5> */}
-          <ContactList
-            contactList={contactList}
-            child={child}
-            btn={btn}
-            setDetails={setDetails}
-          />
+          <div className={midContent}>
+            <h5 className={containerHeader}>Username</h5>
+            {/* <h5>Add</h5> */}
+            <ContactList
+              contactList={contactList}
+              child={child}
+              btn={btn}
+              setDetails={setDetails}
+            />
+          </div>
         </div>
         <div className={`${border} ${rightside_container}`}>
           {displayDetail()}

@@ -12,18 +12,55 @@
   /* border: 1px solid black; */
 }
 .mid_container {
-  width: 50vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.midContent{
+
+}
+
+.containerHeader{
+  font-size: var(--font-sml);
+
 }
 
 .leftside_container {
   width: 25vw;
-  position:fixed;
-  left: 2%;
+  justify-content: center;
+  display: flex;
+}
+
+.addForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.addForm > * {
+  margin: var(--margin-sm) 0;
+}
+
+.addButton{
+  
+    padding: var(--padding-sm) var(--padding-sm);
+    background-color: var(--text-primary);
+    color: var(--main-color);
+    border: 1px solid var(--text-primary);
+    
+  
+}
+
+.formHeader{
+  font-size: var(--font-sml);
 }
 
 .rightside_container {
   width: 25vw;
-  position:fixed;
+  /* position:fixed; */
   right: -2px;
   top: 30%;
   display: flex;
@@ -32,8 +69,10 @@
 
 .border p {
   width: 100%;
-  border-bottom: 2px dotted var(--text-primary);
-  padding: 10px 10px 2px 0px;
+  border-bottom: 2px solid var(--text-primary);
+  /* padding: 10px 10px 2px 0px; */
+  padding: var(--padding-sm);
+  padding-left: 0;
 }
 .child {
   padding-top: 10px;
@@ -49,5 +88,22 @@
   border: none;
 }
 .add_contact {
-  width: 80%;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 420px){
+  .flex{
+    flex-direction: column;
+  }
+  .leftside_container{
+    width: 100%;
+  }
+  .midContent{
+    width: 100%;
+    padding: 0 var(--padding-lg);
+  }
+  .child{
+    width: 100%;
+  }
 }
