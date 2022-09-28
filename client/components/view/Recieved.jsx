@@ -28,10 +28,11 @@ function Recieved() {
     leftsideContainer,
     middleContainer,
     rightsideContainer,
+    body
   } = styles
 
   return (
-    <>
+    <div className={body}>
       <NavTwo />
       <div className={flex}>
         <div className={leftsideContainer}></div>
@@ -61,7 +62,7 @@ function Recieved() {
           }}
         ></div>
       </div>
-    </>
+    </div>
   )
 }
 

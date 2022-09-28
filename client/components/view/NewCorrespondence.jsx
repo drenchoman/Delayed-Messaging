@@ -49,6 +49,7 @@ function NewCorrespondence() {
       postNewMessage(form, user.token)
       setSent(true)
     }
+    console.log(form.message)
   }
 
   function handleChange(event) {
@@ -58,10 +59,10 @@ function NewCorrespondence() {
     })
   }
 
-  const { formInput, btn_submit } = styles
+  const { formInput, btn_submit, body } = styles
 
   return (
-    <>
+    <div className={body}>
       <NavTwo />
       {!sent ? (
         <form onSubmit={handleSubmit} className={formInput}>
@@ -116,7 +117,7 @@ function NewCorrespondence() {
           <SentMessage />
         </div>
       )}
-    </>
+    </div>
   )
 }
 
