@@ -85,7 +85,7 @@ function Letter(props) {
             className={open_letter_body}
             style={{ whiteSpace: 'pre-line' }}
           >
-            {hardcoded}
+            {message}
             {!props.archiv && <LetterBtn id={letter.id} />}
           </content>
         </div>
