@@ -16,13 +16,17 @@
 }
 
 .btn_details {
-  color: black;
+  color: var(--text-primary);
   display: block;
   text-decoration: none;
   font-size: 0.8rem;
   border: none;
   padding: 5px;
   background-color: transparent;
+}
+
+.btn_details:hover{
+  cursor: pointer;
 }
 
 .red:hover {
@@ -33,4 +37,10 @@
 .blue:hover {
   color: blue;
   text-decoration: underline;
+}
+
+
+.detailsContainer{
+  color: var(--text-primary);
+  text-decoration: var(--text-primary);
 }

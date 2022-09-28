@@ -59,6 +59,27 @@ exports.seed = (knex) => {
           username: 'Livi01',
           blocked: false,
         },
+        {
+          id: 9,
+          user_id: 'auth0|63336870d3036f897e16eadf',
+          name: 'Frey',
+          username: 'ceo_frey',
+          blocked: false,
+        },
+        {
+          id: 10,
+          user_id: 'auth0|63336870d3036f897e16eadf',
+          name: 'Daniel',
+          username: 'dan02',
+          blocked: false,
+        },
+        {
+          id: 11,
+          user_id: 'auth0|63336870d3036f897e16eadf',
+          name: 'Banana Man',
+          username: 'banana_llama',
+          blocked: false,
+        },
       ])
     })
 }

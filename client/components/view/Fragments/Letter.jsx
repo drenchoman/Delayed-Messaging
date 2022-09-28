@@ -39,6 +39,10 @@ function Letter(props) {
     setLetterState('hover')
   }
 
+  function archiveBtn() {
+    return (<button className={btn_letter}>save</button>)
+  }
+
   return (
     <>
       {props.othersClicked === 0 && (
