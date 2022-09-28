@@ -59,7 +59,7 @@ function NewCorrespondence() {
     })
   }
 
-  const { formInput, btn_submit, body } = styles
+  const { formInput, btn_submit, body, subject } = styles
 
   return (
     <div className={body}>
@@ -83,7 +83,7 @@ function NewCorrespondence() {
               ))}
             </datalist>
           </div>
-          <div>
+          <div className={subject}>
             {/* <label htmlFor="plate">Subject</label> */}
             <input
               required="required"
