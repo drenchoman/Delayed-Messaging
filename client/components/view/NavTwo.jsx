@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../../../server/public/styles/NavTwo.module.css'
 import { useSelector } from 'react-redux'
@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Theme from './Fragments/Theme'
 
 function NavTwo() {
-  const { container, links, flex, anchor } = styles
+  const { container, links, flex, anchor, blur } = styles
   const { logout } = useAuth0()
 
   const user = useSelector((state) => state.user)
@@ -15,19 +15,22 @@ function NavTwo() {
     e.preventDefault()
     logout()
   }
+  const [blurNewCorres, setBlurNewCorres] = useState(anchor)
+  const blurNC = () => setBlurNewCorres(`${anchor} ${blur}`)
+  console.log('20')
   return (
     <div className={container}>
       <nav className={flex}>
         <Theme />
         <div className={links}>
           <Link
-            className={anchor}
+            className={blurNewCorres}
             to={`/correspondence/${user.username}/newcorrespondence`}
           >
             new
           </Link>
         </div>
-        <div className={links}>
+        <div className={links} onClick={blurNC}>
           <Link
             className={anchor}
             to={`/correspondence/${user.username}/recieved`}
