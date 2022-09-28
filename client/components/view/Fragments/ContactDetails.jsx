@@ -35,13 +35,13 @@ export default function ContactDetails({ id, clicked }) {
       </span>
 
       <Link className={`${btn_details} ${blue}`} to="/">
-        Edit
+        <span>Edit</span>
       </Link>
       <button className={`${btn_details} ${red}`} onClick={handleDelete}>
-        Delete
+        <span>Delete</span>
       </button>
       <Link className={`${btn_details} ${red}`} to="/">
-        Block
+        <span>Block</span>
       </Link>
     </div>
   ) : null
