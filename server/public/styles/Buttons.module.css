@@ -34,3 +34,9 @@
   color: blue;
   text-decoration: underline;
 }
+
+.letterBtnWrap{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
