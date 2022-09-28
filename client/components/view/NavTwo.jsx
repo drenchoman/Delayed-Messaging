@@ -97,8 +97,10 @@ function NavTwo() {
         </div>
         <div className={styles.links}>
           <IfAuthenticated>
-            <Link className={blurLog} to="/" onClick={handleLogoff} >
-              log out
+
+            <Link className={blurLog} to="/" onClick={handleLogoff}>
+              Log out
+
             </Link>
           </IfAuthenticated>
         </div>

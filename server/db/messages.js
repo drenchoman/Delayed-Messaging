@@ -39,6 +39,7 @@ function archiveMessage(id, db = connection) {
 }
 
 function deleteMessage(id, db = connection) {
+  console.log(id)
   return db('messages')
     .where({ id: id })
     .update({ archived: false, read: true })

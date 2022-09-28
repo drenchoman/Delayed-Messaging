@@ -66,6 +66,7 @@ router.post('/', async (req, res) => {
 //PATCH api/v1/messages/archived
 router.patch('/archived', async (req, res) => {
   const { id } = req.body
+  console.log(id)
   try {
     await db.archiveMessage(id)
     res.sendStatus(201)
@@ -78,6 +79,7 @@ router.patch('/archived', async (req, res) => {
 // PATCH api/v1/messages/delete
 router.patch('/delete', async (req, res) => {
   const { id } = req.body
+  console.log(id)
   try {
     await db.deleteMessage(id)
     res.sendStatus(201)

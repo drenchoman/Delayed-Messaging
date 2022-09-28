@@ -34,6 +34,7 @@ function Archive() {
                   key={letter.id}
                   othersClicked={othersClicked}
                   setOthersClicked={setOthersClicked}
+                  archiv={true}
                 ></Letter>
               )
             })
