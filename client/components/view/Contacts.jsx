@@ -34,6 +34,7 @@ function Contacts() {
     add_contact,
     containerHeader,
     midContent,
+    body
   } = styles
 
   function displayDetail() {
@@ -43,7 +44,7 @@ function Contacts() {
   }
 
   return (
-    <>
+    <div className={body}>
       <NavTwo />
       <div className={flex}>
         <div className={`${border} ${leftsideContainer}`}>
@@ -56,13 +57,13 @@ function Contacts() {
         </div>
         <div className={`${middleContainer} ${border}`}>
           <div className={midContent}>
-            <h5 className={containerHeader}>Username</h5>
+            <span className={containerHeader}>Username</span>
             {/* <h5>Add</h5> */}
             <ContactList contactList={contactList} child={child} btn={btn} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

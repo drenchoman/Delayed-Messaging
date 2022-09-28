@@ -29,17 +29,21 @@ export default function ContactAdd({ addContact, add_contact }) {
       })
   }
 
+  const { new_contact_column } = styles
+
   return (
     <>
       <form className={styles.addForm} onSubmit={submitHandler}>
-        <h5 className={styles.formHeader}>New Contact +</h5>
-        <input
-          onChange={onchangeHandler}
-          className={add_contact}
-          type="text"
-          placeholder="Enter Username"
-          value={addName}
-        />
+        <div className={new_contact_column}>
+          <span className={styles.formHeader}>New Contact +</span>
+          <input
+            onChange={onchangeHandler}
+            className={add_contact}
+            type="text"
+            placeholder="Enter Username"
+            value={addName}
+          />
+        </div>
         {errorMsg ? <span>{errorMsg}</span> : ''}
 
         <button className={styles.addButton}>Add</button>

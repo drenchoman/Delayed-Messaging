@@ -118,14 +118,14 @@
 }
 
 .btn_letter {
-    padding: var(--padding-sm) var(--padding-sm);
-    background-color: var(--text-primary);
-    color: var(--main-color);
-    border: 1px solid var(--text-primary);
-    height: 40px;
-    border-radius: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+  padding: var(--padding-sm) var(--padding-sm);
+  background-color: var(--text-primary);
+  color: var(--main-color);
+  border: 1px solid var(--text-primary);
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .btn_letter:hover {
@@ -133,3 +133,7 @@
   color: white;
 }
 
+.exit_container {
+  height: 100%;
+  width: 100%;
+}
