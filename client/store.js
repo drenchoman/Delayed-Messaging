@@ -3,6 +3,7 @@ import user from './slices/user'
 import darkmode from './slices/darkmode'
 import contacts from './slices/contacts'
 import send from './slices/send'
+import messages from './slices/messages'
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     darkmode,
     contacts,
     send,
+    messages,
   },
 })
 

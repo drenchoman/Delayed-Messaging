@@ -46,3 +46,10 @@
   position: absolute;
   left: 52vw;
 }
+
+.letterBtnWrap{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+
+}

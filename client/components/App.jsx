@@ -17,6 +17,7 @@ import Archive from './view/Archive'
 import Landing from './view/Landing/Landing'
 import Register from './view/Register/Register'
 import UserRoutes from '../UserRoutes'
+import NavTwo from './view/NavTwo'
 
 function App() {
   useCacheUser()
@@ -43,8 +44,12 @@ function App() {
     }
   }, [isAuthenticated])
 
+  const isLoggedIn = () => (isAuthenticated) ? <NavTwo /> : <></>
+
   return (
     <>
+
+      {isLoggedIn()}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />

@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import styles from '../../../../server/public/styles/Recieved.module.css'
+import LetterBtn from './LetterBtn'
 
 function Letter(props) {
   const [letterState, setLetterState] = useState('closed')
@@ -19,7 +20,13 @@ function Letter(props) {
   const hardcoded =
     'Steven, \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies ipsum eu ante aliquet interdum. Fusce ut ultrices nulla, at semper metus. \n\nDonec tempus eros nibh, sed vestibulum diam aliquet nec. Integer dignissim mauris est, at feugiat neque cursus et. Donec neque est, pharetra vitae nisl quis, cursus tristique sem. Praesent rhoncus purus at arcu pellentesque molestie non ullamcorper enim. Nam consequat lectus sed neque gravida finibus. Mauris pharetra, ex non malesuada aliquam, nibh purus luctus nisl, a condimentum eros turpis et dui. Praesent erat urna, sodales in commodo nec, condimentum volutpat dolor. Aliquam blandit sapien purus, sed rhoncus arcu commodo sit amet. Proin cursus, massa et lacinia condimentum, nisi mauris efficitur nunc, a commodo sapien sem pretium libero. Suspendisse vehicula et elit in lobortis. Proin scelerisque dui augue, ultricies dictum ante pellentesque sed.\n\nNam eget ultricies mi. Mauris non quam cursus, blandit arcu non, venenatis orci. Suspendisse porttitor tempor est sed maximus. Suspendisse odio sapien, vestibulum ut gravida a, placerat nec erat. Sed vulputate mattis ex at egestas. Sed feugiat rhoncus justo nec laoreet. Nullam pulvinar dui et libero egestas, a ultricies ex semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam euismod tellus vitae odio pharetra dignissim. Donec eu velit ligula. Nulla sem lectus, lobortis at ex in, efficitur tempus sapien. Praesent rutrum mi est, vel porta lacus tempor ut. Proin non elementum orci, viverra viverra ante. Aliquam erat volutpat. Donec nec placerat metus.\n\n\nKind Regards\n \nElizabeth'
 
-  const { sender_username, message, subject, active_time } = letter
+  let { sender_username, message, subject, active_time } = letter
+  active_time = makeTime()
+
+  function makeTime() {
+    let activeTime = new Date(active_time)
+    return activeTime.toDateString()
+  }
 
   function closed() {
     setLetterState('closed')
@@ -79,6 +86,7 @@ function Letter(props) {
             style={{ whiteSpace: 'pre-line' }}
           >
             {hardcoded}
+            {!props.archiv && <LetterBtn id={letter.id} />}
           </content>
         </div>
       )}
