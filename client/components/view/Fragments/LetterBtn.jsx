@@ -16,7 +16,7 @@ export default function LetterBtn({ id }) {
       <button onClick={handleDelete} className={styles.letterBtn}>
         Delete
       </button>
-      <button onClick={handleArchive} className={styles.LetterBtn}>
+      <button onClick={handleArchive} className={styles.letterBtn}>
         Archive
       </button>
     </div>

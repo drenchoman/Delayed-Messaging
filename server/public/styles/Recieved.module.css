@@ -47,7 +47,7 @@
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 40px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .empty {
@@ -56,12 +56,12 @@
 
 .flex p {
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   padding-right: 42px;
 }
 
 .flex span {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .marginTop {
@@ -79,6 +79,7 @@
 .border_top {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
+  position: relative;
 }
 
 .noneHeader {
