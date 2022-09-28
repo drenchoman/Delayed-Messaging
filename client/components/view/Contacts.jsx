@@ -33,7 +33,7 @@ function Contacts() {
     add_contact,
     containerHeader,
     midContent,
-    body
+    body,
   } = styles
 
   function displayDetail() {
@@ -61,7 +61,7 @@ function Contacts() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
