@@ -40,6 +40,7 @@
 }
 
 .detailsContainer {
+  font-size: x-large;
   width: 10vw;
   color: var(--text-primary);
   text-decoration: var(--text-primary);
@@ -47,9 +48,24 @@
   left: 52vw;
 }
 
-.letterBtnWrap{
+.detailsContainer span {
+  font-size: 17px;
+}
+
+.letterBtn {
+  border: none;
+  background-color: transparent;
+  color: grey;
+}
+
+.letterBtn:hover {
+  color: black;
+}
+
+.letterBtnWrap {
   display: flex;
   flex-direction: row;
   position: absolute;
-
+  right: 0;
+  bottom: 0;
 }
