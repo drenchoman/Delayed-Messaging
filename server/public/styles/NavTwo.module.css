@@ -43,4 +43,25 @@
   text-decoration: none;
   padding: 10px;
   color: black;
+  
+}
+
+.links::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.links:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.links::before {
+  content: " ";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: rgba(224, 213, 213, 0.253);
+  z-index: -1;
+  transition: transform 1.5s ease;
 }
