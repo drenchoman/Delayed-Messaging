@@ -86,7 +86,7 @@ function Letter(props) {
             style={{ whiteSpace: 'pre-line' }}
           >
             {hardcoded}
-            <LetterBtn />
+            {!props.archiv && <LetterBtn id={letter.id} />}
           </content>
         </div>
       )}

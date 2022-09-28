@@ -1,25 +1,28 @@
 import { React, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 
 import Letter from './Fragments/Letter'
 import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/Recieved.module.css'
 import { getAllViewableMessages } from '../../api'
+import { updateMessageList } from '../../slices/messages'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Recieved() {
   const [othersClicked, setOthersClicked] = useState(0)
-  const [letters, setLetters] = useState([])
+  // const [letters, setLetters] = useState([])
+  const dispatch = useDispatch()
+  const letters = useSelector((state) => state.messages)
 
   const user = useSelector((state) => state.user)
 
+  async function getMessages() {
+    const messages = await getAllViewableMessages(user.username, user.token)
+    dispatch(updateMessageList(messages.messages))
+  }
+
   useEffect(() => {
-    getAllViewableMessages(user.username, user.token)
-      .then((res) => {
-        const letters = res.messages
-        setLetters(letters)
-      })
-      .catch((err) => console.error(err))
-  }, [])
+    getMessages()
+  }, [letters])
 
   const {
     // marginTop,
@@ -28,7 +31,7 @@ function Recieved() {
     leftsideContainer,
     middleContainer,
     rightsideContainer,
-    body
+    body,
   } = styles
 
   return (
