@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import BirdSent from './Fragments/BirdSent'
 import SentMessage from './Fragments/SentMessage'
 import { postNewMessage, getAllContacts } from '../../api'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 import { clearSend } from '../../slices/send'
 function NewCorrespondence() {
@@ -69,7 +68,6 @@ function NewCorrespondence() {
 
   return (
     <div className={body}>
-      <NavTwo />
       {!sent ? (
         <form onSubmit={handleSubmit} className={formInput}>
           <div>

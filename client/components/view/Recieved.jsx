@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from 'react'
 
 import Letter from './Fragments/Letter'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/Recieved.module.css'
 import { getAllViewableMessages } from '../../api'
 import { updateMessageList } from '../../slices/messages'
@@ -36,7 +35,6 @@ function Recieved() {
 
   return (
     <div className={body}>
-      <NavTwo />
       <div className={flex}>
         <div className={leftsideContainer}></div>
         <div className={middleContainer}>

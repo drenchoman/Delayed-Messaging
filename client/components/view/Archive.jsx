@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/Recieved.module.css'
 import Letter from './Fragments/Letter'
 import { getAllArchivedMessages } from '../../api'
@@ -23,7 +22,6 @@ function Archive() {
 
   return (
     <>
-      <NavTwo />
       <div className={flex}>
         <div className={leftsideContainer}></div>
         <div className={middleContainer}>
