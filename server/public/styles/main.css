@@ -30,6 +30,7 @@ Helps with consistency across our components
   --padding-md: 1rem;
   --padding-lg: 2rem;
   --border-radius: 10px;
+  --border-color: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] {
@@ -38,6 +39,7 @@ Helps with consistency across our components
   --accent: darkred;
   --fill: invert(100%) sepia(100%) saturate(38%) hue-rotate(254deg)
     brightness(110%) contrast(110%);
+  --border-color: 1px solid rgba(255, 255, 255, 0.2)
 }
 
 @keyframes fade {
