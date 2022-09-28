@@ -298,7 +298,7 @@
   border: 1px solid var(--text-primary);
   border-radius: var(--border-radius);
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
   max-width: 800px;
   margin: var(--margin-md);
   width: 100%;

@@ -36,14 +36,6 @@ function Contacts() {
     midContent,
   } = styles
 
-  const [details, setDetails] = useState({
-    name: '',
-    newCorrespondence: 'New Correspondence',
-    edit: 'Edit',
-    delete: 'Delete',
-    block: 'Block',
-  })
-
   function displayDetail() {
     if (details.name.length > 1) {
       return <ContactDetails details={details} />
@@ -59,22 +51,15 @@ function Contacts() {
             add_contact={add_contact}
             addContact={addContact}
             setList={setList}
+            list={list}
           />
         </div>
         <div className={`${middleContainer} ${border}`}>
           <div className={midContent}>
             <h5 className={containerHeader}>Username</h5>
             {/* <h5>Add</h5> */}
-            <ContactList
-              contactList={contactList}
-              child={child}
-              btn={btn}
-              setDetails={setDetails}
-            />
+            <ContactList contactList={contactList} child={child} btn={btn} />
           </div>
-        </div>
-        <div className={`${border} ${rightsideContainer}`}>
-          {displayDetail()}
         </div>
       </div>
     </>

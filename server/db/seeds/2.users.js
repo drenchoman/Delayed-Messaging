@@ -4,7 +4,7 @@ exports.seed = (knex) => {
     .then(() =>
       knex('users').insert([
         {
-          auth0_id: 'auth0|123', 
+          auth0_id: 'auth0|123',
           name: 'Elizabeth ',
           username: 'elizabeth01',
           email: 'eliza@gmail.com',
@@ -75,9 +75,9 @@ exports.seed = (knex) => {
         },
         {
           auth0_id: 'auth0|1208',
-          name: 'Keagan',
-          username: 'kea02',
-          email: 'kea02e@example.com',
+          name: 'null',
+          username: 'ceo_frey',
+          email: 'mrceo@example.com',
           delay_id: 1,
         },
         {
@@ -86,7 +86,21 @@ exports.seed = (knex) => {
           username: 'dan02',
           email: 'dan02e@example.com',
           delay_id: 2,
-        }
+        },
+        {
+          auth0_id: 'auth0|63336870d3036f897e16eadf',
+          name: 'Grapeman',
+          username: 'grape_gatsby',
+          email: 'grape_gatsby@gmail.com',
+          delay_id: 42,
+        },
+        {
+          auth0_id: 'auth0|6331ff7335450ad949086015',
+          name: 'Banana Man',
+          username: 'banana_llama',
+          email: 'banana_llama@gmail.com',
+          delay_id: 42,
+        },
       ])
     )
 }

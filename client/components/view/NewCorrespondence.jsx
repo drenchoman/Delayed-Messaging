@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import BirdSent from './Fragments/BirdSent'
 import SentMessage from './Fragments/SentMessage'
 import { postNewMessage, getAllContacts } from '../../api'
 import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
-
+import { clearSend } from '../../slices/send'
 function NewCorrespondence() {
   const user = useSelector((state) => state.user)
   const [err, setErr] = useState('')
   const [sent, setSent] = useState(false)
+  const recipient = useSelector((state) => state.send)
+  const dispatch = useDispatch()
 
   const [list, setList] = useState([])
 
@@ -17,10 +19,13 @@ function NewCorrespondence() {
     const contacts = await getAllContacts(user.auth0Id)
     setList(contacts)
   }
-  useEffect(() => getContacts(), [])
+  useEffect(() => {
+    getContacts()
+    dispatch(clearSend())
+  }, [])
 
   const [form, setForm] = useState({
-    recipientUsername: undefined,
+    recipientUsername: recipient,
     subject: undefined,
     message: undefined,
   })
@@ -41,6 +46,7 @@ function NewCorrespondence() {
 
   function handleSubmit(event) {
     event.preventDefault()
+    console.log(form.message)
     let error = checkError()
     if (error) {
       return
@@ -59,7 +65,7 @@ function NewCorrespondence() {
     })
   }
 
-  const { formInput, btn_submit, body } = styles
+  const { formInput, btn_submit, body, subject } = styles
 
   return (
     <div className={body}>
@@ -69,7 +75,6 @@ function NewCorrespondence() {
           <div>
             {/* <label htmlFor="recipient">Recipient</label> */}
             <input
-              required="required"
               type="text"
               name="recipientUsername"
               list="friendsList"
@@ -83,7 +88,7 @@ function NewCorrespondence() {
               ))}
             </datalist>
           </div>
-          <div>
+          <div className={subject}>
             {/* <label htmlFor="plate">Subject</label> */}
             <input
               required="required"

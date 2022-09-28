@@ -22,8 +22,8 @@ function Recieved() {
   }, [])
 
   const {
-    marginTop,
-    center,
+    // marginTop,
+    // center,
     flex,
     leftsideContainer,
     middleContainer,
