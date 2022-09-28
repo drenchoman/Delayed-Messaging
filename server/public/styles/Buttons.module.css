@@ -40,7 +40,8 @@
 }
 
 
-.detailsContainer{
-  color: var(--text-primary);
-  text-decoration: var(--text-primary);
-}
+.letterBtnWrap{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+
