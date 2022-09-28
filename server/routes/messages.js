@@ -1,13 +1,11 @@
 const express = require('express')
 const { del } = require('superagent')
 const checkJwt = require('../auth0')
-
 const db = require('../db/messages')
 const userDb = require('../db/users')
 
 const router = express.Router()
 
-// GET MESSAGE DELAY- CAN MOVE TO OTHER FOLDER
 async function setMessageDelay(req) {
   let delayValue = await userDb.getDelay(req.body.senderUsername)
   if (delayValue == 0) {
