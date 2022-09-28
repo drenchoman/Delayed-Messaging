@@ -54,7 +54,7 @@ function NavTwo() {
         <div className={styles.links}>
           <IfAuthenticated>
             <Link className={anchor} to="/" onClick={handleLogoff}>
-              log off
+              log out
             </Link>
           </IfAuthenticated>
         </div>
