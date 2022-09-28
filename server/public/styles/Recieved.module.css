@@ -12,7 +12,7 @@
   margin-left: auto;
   margin-right: auto;
   font-family: var(--main-font);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: var(--border-color);
 }
 .flex {
   display: flex;
@@ -36,7 +36,7 @@
   display: flex;
   height: 41px;
   align-items: flex-end;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: var(--border-color);
 }
 
 .open_letter_body {
@@ -66,18 +66,18 @@
 
 .marginTop {
   padding-top: 50px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: var(--border-color);
   width: 50vw;
 }
 
 .closedLetter {
   height: 30px;
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: var(--border-color);
 }
 
 .border_top {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: var(--border-color);
   width: 100%;
   position: relative;
 }
@@ -85,7 +85,7 @@
 .noneHeader {
   color: var(--text-primary);
   font-size: var(--font-sml);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: var(--border-color);
 }
 
 .leftsideContainer {

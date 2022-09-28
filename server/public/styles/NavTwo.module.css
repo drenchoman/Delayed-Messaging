@@ -37,9 +37,10 @@
 .blur {
   text-decoration: none;
   padding: 10px;
-  color: black;
+  color:var(--text-primary);
   color: transparent;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  /* text-decoration-color: var(--text-primary); */
 }
 
 .blur:hover {
@@ -48,6 +49,6 @@
   align-items: center;
   text-decoration: none;
   padding: 10px;
-  color: black;
+  color: var(--text-primary);
   
 }

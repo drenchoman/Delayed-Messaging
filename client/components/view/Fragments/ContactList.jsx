@@ -15,7 +15,7 @@ export default function ContactList({ contactList, child }) {
             <>
               <div key={id} className={child}>
                 <p>{isName(name, username)}</p>
-                <ContactBtn name={isName(name, username)} id={id} />
+                <ContactBtn key={id} name={isName(name, username)} id={id} />
               </div>
             </>
           )

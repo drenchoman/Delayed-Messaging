@@ -69,6 +69,7 @@ textarea {
 
 .btn_submit:hover {
   color: var(--text-primary);
+  cursor: pointer;
 }
 
 .sentWrapper {
