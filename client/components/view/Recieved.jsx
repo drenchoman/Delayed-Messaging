@@ -27,7 +27,7 @@ function Recieved() {
     // marginTop,
     // center,
     flex,
-    leftsideContainer,
+    exit_container,
     middleContainer,
     rightsideContainer,
     body,
@@ -36,7 +36,6 @@ function Recieved() {
   return (
     <div className={body}>
       <div className={flex}>
-        <div className={leftsideContainer}></div>
         <div className={middleContainer}>
           {letters?.length > 0 ? (
             letters.map((letter) => {
@@ -56,13 +55,13 @@ function Recieved() {
             </div>
           )}
         </div>
-        <div
-          className={rightsideContainer}
-          onClick={() => {
-            setOthersClicked(0)
-          }}
-        ></div>
       </div>
+      <div
+        className={exit_container}
+        onClick={() => {
+          setOthersClicked(0)
+        }}
+      ></div>
     </div>
   )
 }

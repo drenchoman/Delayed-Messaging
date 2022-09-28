@@ -25,7 +25,7 @@
   background-color: transparent;
 }
 
-.btn_details:hover{
+.btn_details:hover {
   cursor: pointer;
 }
 
@@ -39,6 +39,13 @@
   text-decoration: underline;
 }
 
+.detailsContainer {
+  width: 10vw;
+  color: var(--text-primary);
+  text-decoration: var(--text-primary);
+  position: absolute;
+  left: 52vw;
+}
 
 .letterBtnWrap{
   display: flex;
