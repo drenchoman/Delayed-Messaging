@@ -46,6 +46,7 @@ function NewCorrespondence() {
 
   function handleSubmit(event) {
     event.preventDefault()
+    console.log(form.message)
     let error = checkError()
     if (error) {
       return
