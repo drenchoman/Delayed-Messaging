@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import Letter from './Fragments/Letter'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/Recieved.module.css'
 import { getAllViewableMessages } from '../../api'
 
@@ -33,7 +32,6 @@ function Recieved() {
 
   return (
     <div className={body}>
-      <NavTwo />
       <div className={flex}>
         <div className={leftsideContainer}></div>
         <div className={middleContainer}>

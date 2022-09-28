@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styles from '../../../server/public/styles/Contacts.module.css'
 import { getAllContacts, addContact } from '../../api'
 
-import NavTwo from './NavTwo'
 import ContactList from './Fragments/ContactList'
 import ContactDetails from './Fragments/ContactDetails'
 import ContactAdd from './Fragments/ContactAdd'
@@ -44,7 +43,6 @@ function Contacts() {
 
   return (
     <>
-      <NavTwo />
       <div className={flex}>
         <div className={`${border} ${leftsideContainer}`}>
           <ContactAdd
