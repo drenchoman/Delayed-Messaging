@@ -13,14 +13,9 @@ export default function ContactAdd({ addContact, add_contact }) {
     setAddName(e.target.value)
   }
 
-  function randomNumber() {
-    return Math.floor(Math.random() * 99999)
-  }
-
   async function submitHandler(e) {
     e.preventDefault()
     const newContact = {
-      id: randomNumber(),
       username: addName,
       authId: user.auth0Id,
     }

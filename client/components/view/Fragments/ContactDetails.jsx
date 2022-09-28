@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateContactList } from '../../../slices/contacts'
 import styles from '../../../../server/public/styles/Buttons.module.css'
 import { updateSend } from '../../../slices/send'
 import { deleteContact, getAllContacts } from '../../../api'
+import ContactBtn from './ContactBtn'
 
-export default function ContactDetails({ details }) {
-  const { name, newCorrespondence } = details
+export default function ContactDetails({ id, clicked }) {
   const { btn_details, red, blue } = styles
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
+
   const contact = useSelector((state) =>
-    state.contacts.find((contact) => contact.name === name)
+    state.contacts.find((contact) => contact.id === id)
   )
   const navigate = useNavigate()
 
@@ -27,22 +28,21 @@ export default function ContactDetails({ details }) {
     navigate(`/correspondence/${user.username}/newcorrespondence`)
   }
 
-  return (
+  return clicked ? (
     <div className={styles.detailsContainer}>
-      <p className={`${btn_details} ${blue}`}>Name: {name}</p>
       <span className={`${btn_details} ${blue}`} onClick={handleSend}>
-        {newCorrespondence}
+        New Correspondence
       </span>
 
       <Link className={`${btn_details} ${blue}`} to="/">
-        {details.edit}
+        Edit
       </Link>
       <button className={`${btn_details} ${red}`} onClick={handleDelete}>
-        {details.delete}
+        Delete
       </button>
       <Link className={`${btn_details} ${red}`} to="/">
-        {details.block}
+        Block
       </Link>
     </div>
-  )
+  ) : null
 }

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ContactBtn from './ContactBtn'
-
-export default function ContactList({ contactList, child, setDetails }) {
+import ContactDetails from './ContactDetails'
+export default function ContactList({ contactList, child }) {
   const isName = (name, username) => (name ? name : username)
 
   return (
@@ -12,10 +12,12 @@ export default function ContactList({ contactList, child, setDetails }) {
         contactList.map((arr) => {
           const { id, name, username } = arr
           return (
-            <div key={id} className={child}>
-              <p>{isName(name, username)}</p>
-              <ContactBtn name={name} setDetails={setDetails} />
-            </div>
+            <>
+              <div key={id} className={child}>
+                <p>{isName(name, username)}</p>
+                <ContactBtn name={isName(name, username)} id={id} />
+              </div>
+            </>
           )
         })
       )}
