@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import BirdSent from './Fragments/BirdSent'
 import SentMessage from './Fragments/SentMessage'
 import { postNewMessage, getAllContacts } from '../../api'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/NewCorrespondence.module.css'
 import { clearSend } from '../../slices/send'
 function NewCorrespondence() {
@@ -55,6 +54,7 @@ function NewCorrespondence() {
       postNewMessage(form, user.token)
       setSent(true)
     }
+    console.log(form.message)
   }
 
   function handleChange(event) {
@@ -64,11 +64,10 @@ function NewCorrespondence() {
     })
   }
 
-  const { formInput, btn_submit } = styles
+  const { formInput, btn_submit, body, subject } = styles
 
   return (
-    <>
-      <NavTwo />
+    <div className={body}>
       {!sent ? (
         <form onSubmit={handleSubmit} className={formInput}>
           <div>
@@ -87,7 +86,7 @@ function NewCorrespondence() {
               ))}
             </datalist>
           </div>
-          <div>
+          <div className={subject}>
             {/* <label htmlFor="plate">Subject</label> */}
             <input
               required="required"
@@ -121,7 +120,7 @@ function NewCorrespondence() {
           <SentMessage />
         </div>
       )}
-    </>
+    </div>
   )
 }
 

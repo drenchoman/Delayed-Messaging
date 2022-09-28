@@ -1,8 +1,14 @@
 .container {
+  font-family: var(--main-font);
   position: fixed;
   width: 100vw;
-  background-color: var(--main-color);
+  background-color: var(--transparent);
   z-index: 3;
+  padding-top: 20px;
+}
+
+.theme {
+  padding-left: 30px;
 }
 
 .links {
@@ -13,10 +19,10 @@
 
 .links:hover {
   text-decoration: underline;
-  font-weight: 600;
 }
 
-.flex, .anchor {
+.flex,
+.anchor {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -33,7 +39,7 @@
   padding: 10px;
   color: black;
   color: transparent;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .blur:hover {

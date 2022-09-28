@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import Letter from './Fragments/Letter'
-import NavTwo from './NavTwo'
 import styles from '../../../server/public/styles/Recieved.module.css'
 import { getAllViewableMessages } from '../../api'
 
@@ -28,11 +27,11 @@ function Recieved() {
     leftsideContainer,
     middleContainer,
     rightsideContainer,
+    body
   } = styles
 
   return (
-    <>
-      <NavTwo />
+    <div className={body}>
       <div className={flex}>
         <div className={leftsideContainer}></div>
         <div className={middleContainer}>
@@ -56,13 +55,12 @@ function Recieved() {
         </div>
         <div
           className={rightsideContainer}
-          style={{ height: '700px' }}
           onClick={() => {
             setOthersClicked(0)
           }}
         ></div>
       </div>
-    </>
+    </div>
   )
 }
 
