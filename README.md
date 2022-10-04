@@ -9,7 +9,9 @@ This was my final project created as part of the [Dev Academy Aotearoa](https://
 Our team of 4 were given one week to take a concept (delayed messaging), create an app and present in front of an audience.
 
 ## To Start
-*lone down and run npm i
+* Clone down
+* Run npm i
+* npm run dev
 
 ## My Role
 I was the tech lead mainly responsible for developing backend functionalities as well as incorporating accessibility improvements such as dark mode. It was a really rewarding experience and I enjoyed working with my team.
