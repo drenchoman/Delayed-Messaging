@@ -6,7 +6,7 @@
 
 This was my final project created as part of the [Dev Academy Aotearoa](https://devacademy.co.nz/) Web Development Bootcamp.
 
-Our team of 4 were given one week to take a concept and create an app out of it.
+Our team of 4 were given one week to take a concept (delayed messaging), create an app and present in front of an audience.
 
 ## To Start
 *lone down and run npm i
@@ -23,6 +23,7 @@ I was the tech lead mainly responsible for developing backend functionalities as
 * Knex
 * Auth0
 * Agile methodologies
+* Vanilla CSS w/ CSS modules
 
 ## License
 This project is licensed under the MIT License
