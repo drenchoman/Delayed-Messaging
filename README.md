@@ -27,6 +27,9 @@ I was the tech lead mainly responsible for developing backend functionalities as
 * Agile methodologies
 * Vanilla CSS w/ CSS modules
 
+![alt Presenting our idea](https://res.cloudinary.com/dhkbanegq/image/upload/v1664935541/presenting_tr5lwe.jpg)
+### Presenting our app at graduation
+
 ## License
 This project is licensed under the MIT License
 
