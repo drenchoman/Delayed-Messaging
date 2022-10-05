@@ -30,7 +30,7 @@ I was the tech lead mainly responsible for developing backend functionalities as
 ![alt Presenting our idea](https://res.cloudinary.com/dhkbanegq/image/upload/v1664935541/presenting_tr5lwe.jpg)
 ### Presenting our app at graduation
 
-![alt Our Correspondence Team] (https://res.cloudinary.com/dhkbanegq/image/upload/v1664935891/_F7A9360_cuordx.jpg)
+![alt Our Correspondence Team](https://res.cloudinary.com/dhkbanegq/image/upload/v1664935891/_F7A9360_cuordx.jpg)
 ### Team Correspondence
 
 ## License
